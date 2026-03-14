@@ -115,3 +115,235 @@
   margin: 0;
   max-width: 480px;
 }
+
+/* Hero CTAs */
+.seo-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* Section badge */
+.section-badge-wrapper {
+  margin-bottom: 8px;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--sd-accent);
+  border: 1px solid var(--sd-accent);
+}
+
+/* Process section */
+.seo-process {
+  margin-bottom: 80px;
+}
+
+.seo-process h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--sd-text);
+}
+
+.seo-process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+  max-width: 900px;
+}
+
+@media (max-width: 767px) {
+  .seo-process-steps {
+    grid-template-columns: 1fr;
+  }
+  .seo-process-step::after {
+    display: none !important;
+  }
+}
+
+.seo-process-step {
+  position: relative;
+  padding: 24px;
+  background: var(--sd-bg-secondary);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-lg);
+}
+
+.seo-process-step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  width: 32px;
+  height: 2px;
+  background: var(--sd-border);
+}
+
+.seo-process-step:last-child::after {
+  display: none;
+}
+
+.seo-process-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sd-accent);
+  margin-bottom: 8px;
+}
+
+.seo-process-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--sd-text);
+}
+
+.seo-process-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--sd-text-muted);
+}
+
+/* Pourquoi SmartDex cards */
+.seo-why {
+  margin-bottom: 80px;
+}
+
+.seo-why h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--sd-text);
+}
+
+.seo-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .seo-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.seo-why-card {
+  padding: 28px;
+  background: var(--sd-bg-secondary);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--sd-transition);
+}
+
+.seo-why-card:hover {
+  border-color: var(--sd-accent);
+}
+
+.seo-why-card strong {
+  display: block;
+  font-size: 18px;
+  color: var(--sd-text);
+  margin-bottom: 8px;
+}
+
+.seo-why-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sd-text-muted);
+}
+
+/* FAQ accordion */
+.seo-faq {
+  margin-bottom: 80px;
+}
+
+.seo-faq h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--sd-text);
+}
+
+.seo-faq details {
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  background: var(--sd-bg);
+}
+
+.seo-faq details[open] {
+  border-color: var(--sd-accent);
+}
+
+.seo-faq summary {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--sd-text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seo-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.seo-faq summary::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--sd-accent);
+}
+
+.seo-faq details[open] summary::after {
+  content: '−';
+}
+
+.seo-faq .faq-answer {
+  padding: 0 24px 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--sd-text-muted);
+}
+
+.seo-faq .faq-answer p {
+  margin: 0;
+}
+
+/* CTA banner */
+.seo-cta-banner {
+  padding: 60px 48px;
+  background: linear-gradient(135deg, rgba(42, 166, 255, 0.15), rgba(42, 166, 255, 0.05));
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.seo-cta-banner h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--sd-text);
+}
+
+.seo-cta-banner p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: var(--sd-text-muted);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}

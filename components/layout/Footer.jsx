@@ -40,8 +40,9 @@ export default function Footer() {
             <Link href="/services">Logiciels sur mesure</Link>
             <Link href="/ai-chatbot-morocco">AI Chatbot Maroc</Link>
             <Link href="/saas-development-morocco">Développement SaaS Maroc</Link>
-            <Link href="/services">Cloud & Intégration</Link>
-            <Link href="/services">Conseil & Transformation</Link>
+            <Link href="/agence-web-casablanca">Agence Web Casablanca</Link>
+            <Link href="/creation-application-mobile-maroc">Application Mobile Maroc</Link>
+            <Link href="/developpement-erp-crm-maroc">ERP & CRM sur mesure</Link>
           </div>
         </div>
         <div>
