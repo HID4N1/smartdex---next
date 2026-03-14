@@ -12,6 +12,7 @@ export const metadata = {
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
+    images: ['/og-image.png'],
   },
 }
 
