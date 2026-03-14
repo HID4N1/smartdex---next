@@ -24,7 +24,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-content" data-reveal>
           <div className="badge">Digital Solutions</div>
-          <h1 className="hero-title">SmartDex — Digital Solutions for Smart Businesses</h1>
+          <h1 className="hero-title">SmartDex — Solutions Digitales pour Entreprises Ambitieuses</h1>
           <p className="hero-sub muted">Innovation, fiabilité et performance pour vos projets web, mobiles et SaaS.</p>
           <div className="hero-ctas">
             <Link href="/services" className="btn btn-primary">Découvrir nos services</Link>
