@@ -36,8 +36,6 @@ export default function Footer() {
         <div>
           <h4>Nos services</h4>
           <div style={{ display: 'grid', gap: 6 }}>
-            <Link href="/services">Développement Web & Mobile</Link>
-            <Link href="/services">Logiciels sur mesure</Link>
             <Link href="/ai-chatbot-morocco">AI Chatbot Maroc</Link>
             <Link href="/saas-development-morocco">Développement SaaS Maroc</Link>
             <Link href="/agence-web-casablanca">Agence Web Casablanca</Link>
