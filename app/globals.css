@@ -1,0 +1,383 @@
+/* ============================================
+   SmartDex - Minimal Design
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+  animation: none !important;
+  will-change: auto !important;
+}
+
+/* Keep spinner and intentional animations */
+.spinner {
+  animation: spin 0.8s linear infinite !important;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+:root {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+}
+
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Minimal Color System - All Blue Theme
+   ============================================ */
+
+/* Light Mode */
+:root,
+:root[data-theme="light"] {
+  --sd-transition: 0.22s ease;
+  --sd-transition-slow: 0.32s ease;
+  --sd-bg: #FFFFFF;
+  --sd-bg-secondary: #F0F7FF;
+  --sd-accent: #2AA6FF;
+  --sd-accent-hover: #1A96EF;
+  --sd-white: #FFFFFF;
+  --sd-text: #0A4A7A;
+  --sd-text-muted: #4A7FA8;
+  --sd-text-light: #6B9BC4;
+  --sd-border: #B3D9FF;
+  --sd-accent-light: #E0F7FF;
+  --radius: 2px;
+  --radius-btn: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* Dark Mode */
+:root[data-theme="dark"] {
+  --sd-bg: #0A1A2A;
+  --sd-bg-secondary: #0F2540;
+  --sd-accent: #2AA6FF;
+  --sd-accent-hover: #4BB5FF;
+  --sd-white: #FFFFFF;
+  --sd-text: #E0F0FF;
+  --sd-text-muted: #8BB3D9;
+  --sd-text-light: #6B9BC4;
+  --sd-border: #1A3A5A;
+  --sd-accent-light: #0F2540;
+  --radius: 2px;
+  --radius-btn: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--sd-text);
+  background: var(--sd-bg);
+}
+
+h1, h2, h3, .heading {
+  font-weight: 400;
+  color: var(--sd-text);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   Utilities
+   ============================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3-md { 
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+  }
+}
+
+@media (max-width: 767px) {
+  .sd-menu { 
+    display: none; 
+  }
+  .grid-cols-3-md { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+.muted { 
+  color: var(--sd-text-muted); 
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--sd-border);
+  font-weight: 400;
+  background: transparent;
+  color: var(--sd-text);
+  transition: border-color var(--sd-transition), color var(--sd-transition), background-color var(--sd-transition);
+}
+
+.btn:hover {
+  border-color: var(--sd-accent);
+  color: var(--sd-accent);
+}
+
+.btn-primary {
+  background: var(--sd-accent);
+  color: var(--sd-white);
+  border-color: var(--sd-accent);
+}
+
+.btn-primary:hover {
+  background: var(--sd-accent-hover);
+  border-color: var(--sd-accent-hover);
+  color: var(--sd-white);
+}
+
+/* ============================================
+   Badge
+   ============================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--sd-accent);
+  border: 1px solid var(--sd-accent);
+  transition: border-color var(--sd-transition), color var(--sd-transition), background-color var(--sd-transition);
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+
+.card {
+  background: var(--sd-bg);
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius);
+  transition: border-color var(--sd-transition), box-shadow var(--sd-transition);
+}
+
+.sd-card {
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--sd-border);
+  background: var(--sd-bg);
+  transition: border-color var(--sd-transition);
+}
+
+.sd-card:hover {
+  border-color: var(--sd-accent);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+
+.hero {
+  padding: 60px 0 40px;
+}
+
+.hero-bg {
+  display: none;
+}
+
+.hero-content { 
+  position: relative; 
+}
+
+.hero-title { 
+  font-size: clamp(28px, 4vw, 40px); 
+  margin: 0 0 12px; 
+  font-weight: 400;
+  color: var(--sd-text);
+}
+
+.hero-sub { 
+  font-size: clamp(14px, 1.8vw, 16px); 
+  margin: 0 0 24px; 
+  color: var(--sd-text-muted);
+  font-weight: 400;
+}
+
+.hero-ctas { 
+  display: flex; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+}
+
+.hero-particles { 
+  display: none;
+}
+
+/* ============================================
+   Breadcrumb
+   ============================================ */
+
+.breadcrumb { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+  color: var(--sd-text-muted); 
+  font-size: 14px; 
+  margin-bottom: 16px; 
+}
+
+.breadcrumb a { 
+  color: var(--sd-text-muted); 
+  text-decoration: none; 
+}
+
+.breadcrumb a:hover { 
+  color: var(--sd-text); 
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+
+section { 
+  padding: 40px 0; 
+}
+
+.section-title { 
+  font-size: 24px; 
+  margin: 0 0 12px; 
+  font-weight: 400;
+  color: var(--sd-text);
+}
+
+.section-desc { 
+  margin: 0 0 24px; 
+  color: var(--sd-text-muted);
+  font-weight: 400;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Scroll reveal animation */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal { opacity: 1; }
+.reveal-in { opacity: 1; }
+.lift { transition: border-color var(--sd-transition); }
+.lift:hover { border-color: var(--sd-accent); }
+
+.visually-hidden { 
+  position: absolute !important; 
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden; 
+  clip: rect(1px, 1px, 1px, 1px); 
+  white-space: nowrap; 
+  clip-path: inset(50%); 
+  border: 0; 
+  padding: 0; 
+  margin: 0; 
+}
+
+/* App Component Styles - Skip link, scroll progress, back-to-top */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--sd-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 2px;
+}
+
+.scroll-progress { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  height: 2px; 
+  width: calc(var(--scroll, 0) * 1%); 
+  background: var(--sd-accent); 
+  z-index: 100; 
+  transition: width 0.15s ease;
+}
+
+.back-to-top { 
+  position: fixed; 
+  right: 20px; 
+  bottom: 84px; 
+  z-index: 60; 
+}
+
+@media (max-width: 640px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 76px;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}

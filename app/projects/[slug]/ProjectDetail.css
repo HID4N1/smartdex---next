@@ -1,0 +1,50 @@
+/* Project Detail Page Styles */
+
+.project-banner { 
+  position: relative; 
+  background-size: cover; 
+  background-position: center; 
+  min-height: 240px; 
+  display: flex; 
+  align-items: flex-end; 
+}
+
+.project-title { 
+  font-size: 36px; 
+  margin: 0; 
+  padding: 36px 0; 
+}
+
+.project-results { 
+  display: grid; 
+  gap: 16px; 
+  grid-template-columns: repeat(3, minmax(0,1fr)); 
+}
+
+@media (max-width: 900px){ 
+  .project-results { 
+    grid-template-columns: 1fr; 
+  } 
+}
+
+.project-gallery { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 0; 
+  overflow: hidden; 
+}
+
+.project-gallery .before, 
+.project-gallery .after { 
+  min-height: 180px; 
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(42,166,255,0.18)); 
+}
+
+.testimonial-wide { 
+  display: grid; 
+  grid-template-columns: 56px 1fr; 
+  gap: 12px; 
+  align-items: center; 
+  padding: 16px; 
+}
+
