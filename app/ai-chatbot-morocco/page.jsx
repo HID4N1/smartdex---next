@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import '../seo-pages.css'
-import './AiChatbotMorocco.css'
 
 const faqSchema = {
   '@context': 'https://schema.org',
