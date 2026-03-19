@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await Promise.resolve(params)
   const { frontmatter } = getPostBySlug(slug)
   return {
-    title: `${frontmatter.title} | SmartDex`,
+    title: frontmatter.title,
     description: frontmatter.description,
     openGraph: {
       title: frontmatter.title,

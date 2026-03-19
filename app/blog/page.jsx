@@ -3,7 +3,7 @@ import './page.css'
 import { getAllPosts } from '../../lib/posts'
 
 export const metadata = {
-  title: 'Blog — Conseils digitaux pour entreprises marocaines | SmartDex',
+  title: 'Blog — Conseils digitaux pour entreprises marocaines',
   description:
     'Articles et conseils sur le développement web, mobile, SaaS et la transformation digitale pour les entreprises au Maroc.',
   openGraph: {
