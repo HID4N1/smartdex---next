@@ -29,6 +29,7 @@ export default function Footer() {
             <Link href="/">Accueil</Link>
             <Link href="/services">Services</Link>
             <Link href="/projects">Réalisations</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/about">À propos</Link>
             <Link href="/contact">Contact</Link>
           </div>
@@ -49,8 +50,7 @@ export default function Footer() {
           <div className="muted">+212 70745-8386</div>
           <div className="muted">+212 52008-5689</div>
           <div style={{ marginTop: 8, display: 'flex', gap: 10 }}>
-            <a href="#">LinkedIn</a>
-            <a href="#">Instagram</a>
+            <a href="https://www.linkedin.com/company/smartdex-ma/">LinkedIn</a>
             <a href="#">GitHub</a>
           </div>
         </div>

@@ -11,6 +11,7 @@ const navItems = [
   { href: '/about', label: 'À propos' },
   { href: '/services', label: 'Services' },
   { href: '/projects', label: 'Projets' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
