@@ -19,7 +19,7 @@ const faqSchema = {
       name: 'Vaut-il mieux développer pour iOS, Android ou les deux ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Avec React Native, une seule codebase génère iOS et Android. Vous touchez les deux plateformes sans doubler le budget. Recommandé pour la plupart des projets marocains.'
+        text: 'Avec React Native, une seule codebase génère IOS et Android. Vous touchez les deux plateformes sans doubler le budget. Recommandé pour la plupart des projets marocains.'
       }
     },
     {
