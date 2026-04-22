@@ -19,10 +19,10 @@ const initialForm = {
   features: [],
   budget_range: "",
   deadline: "",
-  needs_admin_panel: false,
-  needs_authentication: false,
-  needs_payment: false,
-  needs_multilingual: false,
+  // needs_admin_panel: false,
+  // needs_authentication: false,
+  // needs_payment: false,
+  // needs_multilingual: false,
   notes: "",
 };
 
@@ -35,7 +35,6 @@ const featureOptions = [
   "blog",
   "chatbot",
   "analytics",
-  "crm",
   "notifications",
   "multilingual",
   "api_integration",
@@ -71,39 +70,41 @@ export default function DevisForm() {
 
   const buildPayload = () => {
     const payload = {
-      full_name: formData.full_name?.trim(),
-      email: formData.email?.trim(),
-      phone: formData.phone?.trim(),
-      company_name: formData.company_name?.trim(),
-      business_sector: formData.business_sector?.trim(),
+      client_name: formData.full_name?.trim(),
+      client_email: formData.email?.trim(),
+      client_phone: formData.phone?.trim(),
       project_type: formData.project_type?.trim(),
       description: formData.project_goal?.trim(),
-      target_users: formData.target_users?.trim(),
       budget_range: formData.budget_range?.trim(),
-      deadline: formData.deadline?.trim(),
-      notes: formData.notes?.trim(),
+      timeline: formData.deadline?.trim(),
     };
-
+  
     if (formData.features?.length) {
-      payload.features = formData.features.join(", ");
+      payload.features = formData.features;
     }
-
-    if (formData.needs_admin_panel) {
-      payload.needs_admin_panel = true;
+  
+    const extraHints = {};
+  
+    if (formData.company_name?.trim()) {
+      extraHints.company_name = formData.company_name.trim();
     }
-
-    if (formData.needs_authentication) {
-      payload.needs_authentication = true;
+  
+    if (formData.business_sector?.trim()) {
+      extraHints.business_sector = formData.business_sector.trim();
     }
-
-    if (formData.needs_payment) {
-      payload.needs_payment = true;
+  
+    if (formData.target_users?.trim()) {
+      extraHints.target_users = formData.target_users.trim();
     }
-
-    if (formData.needs_multilingual) {
-      payload.needs_multilingual = true;
+  
+    if (formData.notes?.trim()) {
+      extraHints.notes = formData.notes.trim();
     }
-
+  
+    if (Object.keys(extraHints).length > 0) {
+      payload.extra_hints = extraHints;
+    }
+  
     return Object.fromEntries(
       Object.entries(payload).filter(
         ([, value]) => value !== "" && value !== null && value !== undefined
@@ -190,11 +191,34 @@ export default function DevisForm() {
     }
   };
 
+  const featureGroups = [
+    {
+      title: "Fonctionnalités principales",
+      options: [
+        { value: "contact_form", label: "Formulaire de contact" },
+        { value: "booking", label: "Réservation" },
+        { value: "blog", label: "Blog" },
+        { value: "chatbot", label: "Chatbot IA" },
+        { value: "analytics", label: "Analytics" },
+        { value: "notifications", label: "Notifications" },
+      ],
+    },
+    {
+      title: "Options complémentaires",
+      options: [
+        { value: "admin_dashboard", label: "Espace d’administration" },
+        { value: "authentication", label: "Connexion utilisateurs" },
+        { value: "payment", label: "Paiement en ligne" },
+        { value: "multilingual", label: "Version multilingue" },
+        { value: "api_integration", label: "Intégration API" },
+      ],
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.badge}>SmartDex</span>
           <h1 className={styles.title}>Demander un devis</h1>
           <p className={styles.subtitle}>
             Décrivez votre besoin et obtenez une estimation structurée pour votre
@@ -293,14 +317,28 @@ export default function DevisForm() {
               </div>
 
               <div className={styles.field}>
-                <label>Délai souhaité</label>
-                <input
-                  type="text"
+                <label htmlFor="deadline">Délai souhaité</label>
+                <select
+                  id="deadline"
                   name="deadline"
                   value={formData.deadline}
                   onChange={handleChange}
-                  placeholder="Ex: 1 mois, urgent, 3 mois..."
-                />
+                >
+                  <option value="">Sélectionner un délai</option>
+                  <option value="1_week">1 semaine</option>
+                  <option value="2_weeks">2 semaines</option>
+                  <option value="3_weeks">3 semaines</option>
+                  <option value="4_weeks">4 semaines</option>
+                  <option value="6_weeks">6 semaines</option>
+                  <option value="8_weeks">8 semaines</option>
+                  <option value="10_weeks">10 semaines</option>
+                  <option value="12_weeks">12 semaines</option>
+                  <option value="16_weeks">16 semaines</option>
+                  <option value="20_weeks">20 semaines</option>
+                  <option value="24_weeks">24 semaines</option>
+                  <option value="urgent">Urgent</option>
+                  <option value="flexible">Flexible</option>
+                </select>
               </div>
             </div>
 
@@ -327,7 +365,7 @@ export default function DevisForm() {
               />
             </div>
 
-            <div className={styles.field}>
+            {/* <div className={styles.field}>
               <label>Fonctionnalités souhaitées</label>
               <div className={styles.featureGrid}>
                 {featureOptions.map((feature) => (
@@ -387,6 +425,32 @@ export default function DevisForm() {
                 />
                 <span>Multilingue</span>
               </label>
+            </div> */}
+            <div className={styles.optionSections}>
+              {featureGroups.map((group) => (
+                <div key={group.title} className={styles.optionBlock}>
+                  <h3 className={styles.optionTitle}>{group.title}</h3>
+                  <div className={styles.optionGrid}>
+                    {group.options.map((option) => {
+                      const isActive = formData.features.includes(option.value);
+
+                      return (
+                        <button
+                          type="button"
+                          key={option.value}
+                          aria-pressed={isActive}
+                          className={`${styles.optionCard} ${
+                            isActive ? styles.optionCardActive : ""
+                          }`}
+                          onClick={() => handleFeatureToggle(option.value)}
+                        >
+                          <span className={styles.optionCardLabel}>{option.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className={styles.field}>

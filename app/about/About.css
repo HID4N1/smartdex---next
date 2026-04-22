@@ -64,7 +64,7 @@
 
 .about-hero-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   max-width: 720px;
   margin: 48px auto;
@@ -326,7 +326,7 @@
 .timeline-animated::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.12); }
 .timeline-animated .timeline-item { position: relative; }
 .timeline-animated .timeline-item .timeline-dot { box-shadow: 0 0 0 4px rgba(42,166,255,0.15); }
-.timeline-animated .timeline-item .timeline-content { }
+/* .timeline-animated .timeline-item .timeline-content { } */
 .timeline-animated .timeline-item:hover .timeline-content { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 /* About Team Section */

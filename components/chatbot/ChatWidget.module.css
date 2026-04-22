@@ -139,39 +139,44 @@
   
   .typingIndicator {
     display: flex;
-    align-items: center;
-    gap: 5px;
-    min-width: 42px;
-    min-height: 20px;
+    gap: 6px;
   }
   
   .typingIndicator span {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: #8ca1b3;
-    animation: bounce 1.2s infinite ease-in-out;
+    width: 8px;
+    height: 8px;
+    background: #00d4ff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: smartdexTyping 1.4s infinite !important;
+  }
+  
+  .typingIndicator span:nth-child(1) {
+    animation-delay: 0s;
   }
   
   .typingIndicator span:nth-child(2) {
-    animation-delay: 0.15s;
+    animation-delay: 0.2s;
   }
   
   .typingIndicator span:nth-child(3) {
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
   }
   
-  @keyframes bounce {
-    0%, 80%, 100% {
-      transform: scale(0.7);
-      opacity: 0.6;
+  @keyframes smartdexTyping {
+    0% {
+      opacity: 0.3;
     }
-    40% {
-      transform: scale(1);
+    20% {
       opacity: 1;
     }
+    40% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.3;
+    }
   }
-  
   .inputArea {
     display: flex;
     align-items: flex-end;
