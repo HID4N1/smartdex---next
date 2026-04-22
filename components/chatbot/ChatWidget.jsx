@@ -275,9 +275,19 @@ export default function ChatWidget() {
             </button>
             <button
               type="button"
+              // style of the button
+              style={{
+                backgroundColor: "#0070f3",
+                color: "#fff",
+                border: "none",
+                padding: "8px 12px",
+                borderRadius: "12px",
+                cursor: "pointer",
+              }}
               className={styles.quickAction}
               // onclick redirect to /devis
-              onClick={() => setInput("Je veux être guidé vers un devis")}
+              onClick={() => (window.location.href = "/devis")}
+              // onClick={() => setInput("Je veux être guidé vers un devis")}
             >
               Demander un devis
             </button>

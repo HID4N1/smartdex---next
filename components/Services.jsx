@@ -140,7 +140,7 @@ export default function Services({ compact }) {
             <h3 className="cta-title">Vous avez un projet ? Discutons-en !</h3>
             <p className="cta-desc muted">Nous vous proposons un devis personnalisé adapté à vos besoins spécifiques.</p>
           </div>
-          <Link href="/contact" className="btn btn-primary cta-button">
+          <Link href="/devis" className="btn btn-primary cta-button">
             <span>Demander un devis personnalisé</span>
             <span className="btn-arrow">→</span>
           </Link>
