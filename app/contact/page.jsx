@@ -215,10 +215,10 @@ export default function Contact() {
                   <label className="form-label"><span className="label-text">Budget estimé</span></label>
                   <select className="form-select" value={form.budget} onChange={(e) => setField('budget', e.target.value)} disabled={isSubmitting}>
                     <option value="">Sélectionnez une fourchette</option>
-                    <option value="<5k">Moins de 5 000 €</option>
-                    <option value="5k-15k">5 000 € - 15 000 €</option>
-                    <option value="15k-50k">15 000 € - 50 000 €</option>
-                    <option value="50k+">Plus de 50 000 €</option>
+                    <option value="<5k">Moins de 5 000 MAD</option>
+                    <option value="5k-15k">5 000 MAD - 15 000 MAD</option>
+                    <option value="15k-50k">15 000 MAD - 50 000 MAD</option>
+                    <option value="50k+">Plus de 50 000 MAD</option>
                     <option value="discuss">À discuter</option>
                   </select>
                 </div>

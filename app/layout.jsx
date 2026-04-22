@@ -1,5 +1,6 @@
 import './globals.css'
 import ClientLayout from '../components/ClientLayout'
+import ChatWidget from '../components/chatbot/ChatWidget'
 
 export const metadata = {
   title: {
@@ -52,7 +53,11 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          {children}
+          <ChatWidget />
+          </ClientLayout>
+  
       </body>
     </html>
   )

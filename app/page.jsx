@@ -28,7 +28,7 @@ export default function Home() {
           <p className="hero-sub muted">Innovation, fiabilité et performance pour vos projets web, mobiles et SaaS.</p>
           <div className="hero-ctas">
             <Link href="/services" className="btn btn-primary">Découvrir nos services</Link>
-            <Link href="/contact" className="btn">Demander un devis</Link>
+            <Link href="/devis" className="btn">Demander un devis</Link>
           </div>
         </div>
       </section>

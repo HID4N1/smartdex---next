@@ -79,6 +79,7 @@ export default function ClientLayout({ children }) {
         {children}
       </main>
       <Footer />
+
       {showTop && (
         <button
           type="button"

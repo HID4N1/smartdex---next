@@ -47,10 +47,10 @@ export default function About() {
               <div className="hero-stat-value">100%</div>
               <div className="hero-stat-label">Satisfaction</div>
             </div>
-            <div className="hero-stat">
+            {/* <div className="hero-stat">
               <div className="hero-stat-value">2</div>
               <div className="hero-stat-label">Experts</div>
-            </div>
+            </div> */}
             <div className="hero-stat">
               <div className="hero-stat-value">4+</div>
               <div className="hero-stat-label">Années d&apos;expérience</div>
