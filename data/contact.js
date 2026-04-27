@@ -16,7 +16,7 @@ export const faqs = [
   },
   {
     question: 'Quels sont vos tarifs ?',
-    answer: 'Nos tarifs varient selon la complexité du projet. Contactez-nous pour un devis personnalisé adapté à vos besoins.',
+    answer: 'Nos tarifs varient selon la complexité du projet. Obtenez une estimation instantanée adaptée à vos besoins.',
   },
 ]
 

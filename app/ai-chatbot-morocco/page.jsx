@@ -86,7 +86,7 @@ export default function AiChatbotMoroccoPage() {
             Automatisez votre service client 24/7 avec un assistant virtuel intelligent. Intégration site web et WhatsApp Business pour les entreprises marocaines.
           </p>
           <div className="seo-hero-ctas">
-            <Link href="/contact" className="btn btn-primary">Demander un devis gratuit</Link>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function AiChatbotMoroccoPage() {
             <details>
               <summary>Combien coûte un chatbot IA pour une entreprise marocaine ?</summary>
               <div className="faq-answer">
-                <p>Les prix varient selon la complexité : un chatbot FAQ simple débute autour de 25 000 MAD, un assistant IA avec intégration WhatsApp peut aller de 50 000 à 120 000 MAD. <Link href="/contact">Contactez-nous</Link> pour un devis gratuit.</p>
+                <p>Les prix varient selon la complexité : un chatbot FAQ simple débute autour de 25 000 MAD, un assistant IA avec intégration WhatsApp peut aller de 50 000 à 120 000 MAD. <Link href="/devis">Obtenir une estimation instantanée</Link>.</p>
               </div>
             </details>
             <details>
@@ -191,8 +191,8 @@ export default function AiChatbotMoroccoPage() {
 
           <section className="seo-cta-banner">
             <h3>Prêt à lancer votre projet ?</h3>
-            <p>Contactez nos experts pour un devis gratuit sous 24h.</p>
-            <Link href="/contact" className="btn btn-primary">Démarrer mon projet</Link>
+            <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
           </section>
         </div>
       </div>

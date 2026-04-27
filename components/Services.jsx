@@ -44,7 +44,7 @@ export default function Services({ compact }) {
             </div>
             <h2 className="section-title">Nos Services</h2>
             <p className="section-desc muted">
-              Des solutions complètes, de l&apos;idée au déploiement pour transformer vos défis numériques en opportunités.
+              Des solutions pensées pour générer des prospects, fluidifier vos opérations et accélérer votre croissance.
             </p>
           </div>
           <div className="services-grid-compact">
@@ -61,8 +61,8 @@ export default function Services({ compact }) {
             ))}
           </div>
           <div className="services-cta-compact">
-            <Link href="/services" className="btn btn-primary services-view-all">
-              <span>Voir tous les services</span>
+            <Link href="/devis" className="btn btn-primary services-view-all">
+              <span>Obtenir une estimation instantanée</span>
               <span className="btn-arrow">→</span>
             </Link>
           </div>
@@ -141,7 +141,7 @@ export default function Services({ compact }) {
             <p className="cta-desc muted">Nous vous proposons un devis personnalisé adapté à vos besoins spécifiques.</p>
           </div>
           <Link href="/devis" className="btn btn-primary cta-button">
-            <span>Demander un devis personnalisé</span>
+            <span>Obtenir une estimation instantanée</span>
             <span className="btn-arrow">→</span>
           </Link>
         </div>

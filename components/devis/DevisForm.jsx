@@ -219,7 +219,7 @@ export default function DevisForm() {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Demander un devis</h1>
+          <h1 className={styles.title}>Obtenir une estimation instantanée</h1>
           <p className={styles.subtitle}>
             Décrivez votre besoin et obtenez une estimation structurée pour votre
             projet digital.

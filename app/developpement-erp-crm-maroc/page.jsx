@@ -87,7 +87,7 @@ export default function DeveloppementErpCrmMarocPage() {
             Logiciels de gestion sur mesure pour PME marocaines. Automatisation commerciale, stocks, RH et reporting. Conçus à Casablanca pour les entreprises du Maroc.
           </p>
           <div className="seo-hero-ctas">
-            <Link href="/contact" className="btn btn-primary">Demander un devis gratuit</Link>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
         </div>
@@ -97,7 +97,7 @@ export default function DeveloppementErpCrmMarocPage() {
         <div className="container">
           <section className="seo-intro">
             <p>
-              La gestion interne des PME marocaines est souvent freinée par des outils génériques qui ne collent pas à leurs process. Un <strong>ERP</strong> ou un <strong>CRM</strong> sur mesure centralise vos données, automatise les tâches répétitives et améliore l&apos;<strong>efficacité opérationnelle</strong>. SmartDex, basée à <strong>Casablanca</strong>, développe des logiciels de gestion adaptés aux entreprises marocaines : gestion commerciale, suivi des leads, stocks, facturation, RH, tableaux de bord. Nous concevons des solutions évolutives avec React, Node.js et des bases de données robustes. Que vous soyez dans la distribution, la logistique, les services ou l&apos;industrie, nous intégrons l&apos;ERP ou le CRM à vos outils existants et à vos habitudes de travail. Découvrez nos <Link href="/services">services</Link> et nos <Link href="/projects">réalisations</Link>, ou <Link href="/contact">contactez-nous</Link> pour un audit gratuit de vos besoins.
+              La gestion interne des PME marocaines est souvent freinée par des outils génériques qui ne collent pas à leurs process. Un <strong>ERP</strong> ou un <strong>CRM</strong> sur mesure centralise vos données, automatise les tâches répétitives et améliore l&apos;<strong>efficacité opérationnelle</strong>. SmartDex, basée à <strong>Casablanca</strong>, développe des logiciels de gestion adaptés aux entreprises marocaines : gestion commerciale, suivi des leads, stocks, facturation, RH, tableaux de bord. Nous concevons des solutions évolutives avec React, Node.js et des bases de données robustes. Que vous soyez dans la distribution, la logistique, les services ou l&apos;industrie, nous intégrons l&apos;ERP ou le CRM à vos outils existants et à vos habitudes de travail. Découvrez nos <Link href="/services">services</Link> et nos <Link href="/projects">réalisations</Link>, ou <Link href="/devis">obtenez une estimation instantanée</Link> pour vos besoins.
             </p>
           </section>
 
@@ -173,7 +173,7 @@ export default function DeveloppementErpCrmMarocPage() {
             <details>
               <summary>Combien coûte un ERP sur mesure au Maroc ?</summary>
               <div className="faq-answer">
-                <p>Un CRM simple : 50 000 à 100 000 MAD. Un ERP complet : 150 000 à 500 000 MAD ou plus. Nous proposons des phases (MVP puis évolutions). <Link href="/contact">Demandez un devis</Link> personnalisé.</p>
+                <p>Un CRM simple : 50 000 à 100 000 MAD. Un ERP complet : 150 000 à 500 000 MAD ou plus. Nous proposons des phases (MVP puis évolutions). <Link href="/devis">Obtenir une estimation instantanée</Link>.</p>
               </div>
             </details>
             <details>
@@ -192,8 +192,8 @@ export default function DeveloppementErpCrmMarocPage() {
 
           <section className="seo-cta-banner">
             <h3>Prêt à lancer votre projet ?</h3>
-            <p>Contactez nos experts pour un devis gratuit sous 24h.</p>
-            <Link href="/contact" className="btn btn-primary">Démarrer mon projet</Link>
+            <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
           </section>
         </div>
       </div>

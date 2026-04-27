@@ -13,9 +13,16 @@ const IMAGE_MAP = {
 }
 
 const getTypeLabel = (type) =>
-  ({ web: 'Web', mobile: 'Mobile', logiciels: 'Logiciels', cloud: 'Cloud' }[type] || type)
+  ({ web: 'Web', mobile: 'Mobile', webapp: 'Web App', logiciels: 'Logiciels', cloud: 'Cloud', ai: 'IA' }[type] || type)
 const getTypeColor = (type) =>
-  ({ web: 'rgba(42,166,255,0.3)', mobile: 'rgba(156,39,176,0.3)', logiciels: 'rgba(255,152,0,0.3)', cloud: 'rgba(76,175,80,0.3)' }[type] || 'rgba(42,166,255,0.25)')
+  ({
+    web: 'rgba(42,166,255,0.3)',
+    mobile: 'rgba(156,39,176,0.3)',
+    webapp: 'rgba(0,184,212,0.3)',
+    logiciels: 'rgba(255,152,0,0.3)',
+    cloud: 'rgba(76,175,80,0.3)',
+    ai: 'rgba(103,58,183,0.3)',
+  }[type] || 'rgba(42,166,255,0.25)')
 
 export default function Projects({ teaser }) {
   const all = getProjects().map((p) => ({
@@ -72,7 +79,7 @@ export default function Projects({ teaser }) {
 
         {!teaser && (
           <div className="filter-bar">
-            {['all', 'web', 'mobile', 'logiciels', 'cloud'].map((k) => (
+            {['all', 'web', 'mobile', 'webapp', 'logiciels', 'cloud', 'ai'].map((k) => (
               <button
                 key={k}
                 className={`filter-btn ${filter === k ? 'active' : ''}`}
@@ -139,29 +146,20 @@ export default function Projects({ teaser }) {
                   <div className="project-badge" style={{ backgroundColor: getTypeColor(p.type) }}>
                     {getTypeLabel(p.type)}
                   </div>
-                  <div className="project-status">
-                    <span className="status-dot" />
-                    Complété
-                  </div>
                 </div>
               </div>
               <div className="project-content">
+                {p.highlight && <strong className="project-highlight">{p.highlight}</strong>}
                 <h3 className="project-name">{p.name}</h3>
                 {p.client && (
                   <div className="project-client">
-                    <span className="client-label">Client:</span>
                     <span className="client-name">{p.client}</span>
                   </div>
                 )}
                 <p className="project-description">{p.description}</p>
                 <div className="project-meta">
                   <div className="meta-item">
-                    <span className="meta-icon">⚡</span>
                     <span className="meta-text">{p.stack}</span>
-                  </div>
-                  <div className="meta-item">
-                    <span className="meta-icon">⏱</span>
-                    <span className="meta-text">{p.duration}</span>
                   </div>
                 </div>
               </div>

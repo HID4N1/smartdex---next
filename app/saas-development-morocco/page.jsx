@@ -87,7 +87,7 @@ export default function SaasDevelopmentMoroccoPage() {
             Des logiciels cloud sur mesure pour startups et entreprises marocaines. Architecture scalable, multi-tenant et sécurisée pour accélérer votre transformation digitale.
           </p>
           <div className="seo-hero-ctas">
-            <Link href="/contact" className="btn btn-primary">Demander un devis gratuit</Link>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function SaasDevelopmentMoroccoPage() {
             <details>
               <summary>Combien coûte le développement d&apos;un SaaS au Maroc ?</summary>
               <div className="faq-answer">
-                <p>Le coût varie selon la complexité (MVP, fonctionnalités avancées, intégrations). Un MVP simple démarre autour de 80 000 à 150 000 MAD. Les plateformes plus complexes peuvent aller au-delà. <Link href="/contact">Contactez-nous</Link> pour un devis gratuit après analyse de vos besoins.</p>
+                <p>Le coût varie selon la complexité (MVP, fonctionnalités avancées, intégrations). Un MVP simple démarre autour de 80 000 à 150 000 MAD. Les plateformes plus complexes peuvent aller au-delà. <Link href="/devis">Obtenir une estimation instantanée</Link> après analyse de vos besoins.</p>
               </div>
             </details>
             <details>
@@ -192,8 +192,8 @@ export default function SaasDevelopmentMoroccoPage() {
 
           <section className="seo-cta-banner">
             <h3>Prêt à lancer votre projet ?</h3>
-            <p>Contactez nos experts pour un devis gratuit sous 24h.</p>
-            <Link href="/contact" className="btn btn-primary">Démarrer mon projet</Link>
+            <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
           </section>
         </div>
       </div>

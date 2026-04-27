@@ -87,7 +87,7 @@ export default function AgenceWebCasablancaPage() {
             Sites web professionnels et applications sur mesure pour les PME marocaines. React, Next.js et performance au service de votre présence en ligne.
           </p>
           <div className="seo-hero-ctas">
-            <Link href="/contact" className="btn btn-primary">Demander un devis gratuit</Link>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function AgenceWebCasablancaPage() {
             <details>
               <summary>Combien coûte un site web professionnel à Casablanca ?</summary>
               <div className="faq-answer">
-                <p>Un site vitrine professionnel démarre autour de 15 000 à 35 000 MAD. Une application web sur mesure peut aller de 50 000 à 200 000 MAD. <Link href="/contact">Contactez-nous</Link> pour un devis personnalisé gratuit.</p>
+                <p>Un site vitrine professionnel démarre autour de 15 000 à 35 000 MAD. Une application web sur mesure peut aller de 50 000 à 200 000 MAD. <Link href="/devis">Obtenir une estimation instantanée</Link>.</p>
               </div>
             </details>
             <details>
@@ -192,8 +192,8 @@ export default function AgenceWebCasablancaPage() {
 
           <section className="seo-cta-banner">
             <h3>Prêt à lancer votre projet ?</h3>
-            <p>Contactez nos experts pour un devis gratuit sous 24h.</p>
-            <Link href="/contact" className="btn btn-primary">Démarrer mon projet</Link>
+            <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
           </section>
         </div>
       </div>

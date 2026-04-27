@@ -2,9 +2,83 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./ChatWidget.module.css";
+import {
+  API_BASE_URL,
+  generateDevisFromChat,
+  resolveApiUrl,
+} from "../../services/devis";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+const DEFAULT_ASSISTANT_MESSAGE =
+  "Bonjour 👋 Je suis l’assistant SmartDex. Je peux vous aider à choisir une solution digitale, répondre à vos questions, ou vous guider vers un devis.";
+
+function normalizeMessage(message) {
+  if (!message?.content?.trim()) return null;
+
+  return {
+    role: message.role === "assistant" ? "assistant" : "user",
+    content: message.content.trim(),
+  };
+}
+
+function detectPreferredLanguage(messages) {
+  const browserLanguage =
+    typeof navigator !== "undefined" ? navigator.language : "";
+  const conversationText = messages
+    .map((message) => message?.content || "")
+    .join(" ")
+    .toLowerCase();
+
+  if (browserLanguage.toLowerCase().startsWith("fr")) {
+    return "fr";
+  }
+
+  if (
+    /\b(bonjour|devis|projet|site|application|besoin|reservation|réservation)\b/.test(
+      conversationText
+    )
+  ) {
+    return "fr";
+  }
+
+  return "fr";
+}
+
+function buildDevisPayload(messages) {
+  const normalizedMessages = messages
+    .map(normalizeMessage)
+    .filter(Boolean)
+    .filter((message) => message.role === "user");
+
+  return {
+    messages: normalizedMessages,
+    client_name: "",
+    client_email: "",
+    client_phone: "",
+    preferred_language: detectPreferredLanguage(normalizedMessages),
+  };
+}
+
+function formatCurrency(value, currency = "MAD") {
+  if (value === null || value === undefined || value === "") return "—";
+
+  const numericValue = Number(value);
+
+  if (Number.isNaN(numericValue)) return value;
+
+  try {
+    return new Intl.NumberFormat("fr-MA", {
+      style: "currency",
+      currency,
+      maximumFractionDigits: 0,
+    }).format(numericValue);
+  } catch {
+    return `${numericValue} ${currency}`;
+  }
+}
+
+function safeArray(value) {
+  return Array.isArray(value) ? value : [];
+}
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,14 +87,31 @@ export default function ChatWidget() {
     {
       id: crypto.randomUUID(),
       role: "assistant",
-      content:
-        "Bonjour 👋 Je suis l’assistant SmartDex. Je peux vous aider à choisir une solution digitale, répondre à vos questions, ou vous guider vers un devis.",
+      content: DEFAULT_ASSISTANT_MESSAGE,
     },
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isGeneratingDevis, setIsGeneratingDevis] = useState(false);
+  const [devisResult, setDevisResult] = useState(null);
+  const [devisError, setDevisError] = useState("");
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+
+  const userMessages = messages.filter(
+    (message) => message.role === "user" && message.content?.trim()
+  );
+  const generatedEstimate = devisResult?.estimate || {};
+  const generatedQuote = devisResult?.quote || {};
+  const generatedLineItems = safeArray(generatedQuote?.line_items);
+  const generatedIncludedGroups = safeArray(generatedQuote?.included_groups);
+  const clarificationQuestions = safeArray(
+    devisResult?.clarification_questions
+  );
+  const costDrivers = safeArray(generatedEstimate?.cost_drivers);
+  const pdfUrl = devisResult?.pdf_url
+    ? resolveApiUrl(devisResult.pdf_url)
+    : "";
 
   useEffect(() => {
     let existingSessionId = localStorage.getItem("smartdex_chat_session_id");
@@ -36,6 +127,19 @@ export default function ChatWidget() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
+
+  useEffect(() => {
+    const openChatbot = () => {
+      setIsOpen(true);
+      window.setTimeout(() => textareaRef.current?.focus(), 80);
+    };
+
+    window.addEventListener("smartdex:open-chat", openChatbot);
+
+    return () => {
+      window.removeEventListener("smartdex:open-chat", openChatbot);
+    };
+  }, []);
 
   const autoResizeTextarea = () => {
     const textarea = textareaRef.current;
@@ -138,11 +242,58 @@ export default function ChatWidget() {
       {
         id: crypto.randomUUID(),
         role: "assistant",
-        content:
-          "Bonjour 👋 Je suis l’assistant SmartDex. Je peux vous aider à choisir une solution digitale, répondre à vos questions, ou vous guider vers un devis.",
+        content: DEFAULT_ASSISTANT_MESSAGE,
       },
     ]);
     setInput("");
+    setDevisResult(null);
+    setDevisError("");
+    setIsGeneratingDevis(false);
+  };
+
+  const handleGenerateDevis = async () => {
+    if (isGeneratingDevis || isLoading) return;
+
+    const payload = buildDevisPayload(messages);
+
+    if (!payload.messages.length) {
+      setDevisError(
+        "Ajoutez quelques détails sur votre projet avant de générer un devis."
+      );
+      setDevisResult(null);
+      return;
+    }
+
+    setIsGeneratingDevis(true);
+    setDevisError("");
+
+    try {
+      const response = await generateDevisFromChat(payload);
+      const normalizedResponse =
+        response?.status ||
+        response?.estimate ||
+        response?.quote ||
+        response?.clarification_questions
+          ? {
+              ...response,
+              status:
+                response?.status ||
+                (response?.clarification_questions?.length
+                  ? "needs_clarification"
+                  : "processed"),
+            }
+          : { status: "failed" };
+
+      setDevisResult(normalizedResponse);
+    } catch (error) {
+      console.error("Generate devis error:", error);
+      setDevisResult({ status: "failed" });
+      setDevisError(
+        "Impossible de générer le devis pour le moment. Veuillez réessayer."
+      );
+    } finally {
+      setIsGeneratingDevis(false);
+    }
   };
 
   return (
@@ -228,6 +379,165 @@ export default function ChatWidget() {
               </div>
             )}
 
+            {(isGeneratingDevis || devisError || devisResult) && (
+              <div
+                className={`${styles.messageRow} ${styles.assistantMessageRow}`}
+              >
+                <div
+                  className={`${styles.messageBubble} ${styles.assistantBubble} ${styles.devisBubble}`}
+                >
+                  {isGeneratingDevis && (
+                    <div className={styles.devisState}>
+                      <strong>Génération du devis...</strong>
+                    </div>
+                  )}
+
+                  {!isGeneratingDevis && devisError && (
+                    <div className={styles.devisStateError}>{devisError}</div>
+                  )}
+
+                  {!isGeneratingDevis &&
+                    devisResult?.status === "needs_clarification" && (
+                      <div className={styles.devisResultCard}>
+                        <strong>
+                          Il nous manque quelques informations pour générer un
+                          devis précis.
+                        </strong>
+                        {clarificationQuestions.length > 0 && (
+                          <ul className={styles.devisList}>
+                            {clarificationQuestions.map((question, index) => (
+                              <li key={`${question}-${index}`}>{question}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+
+                  {!isGeneratingDevis && devisResult?.status === "processed" && (
+                    <div className={styles.devisResultCard}>
+                      <strong>Devis généré</strong>
+
+                      <div className={styles.devisSection}>
+                        <span className={styles.devisLabel}>Estimation</span>
+                        <p className={styles.devisValue}>
+                          {formatCurrency(
+                            generatedEstimate?.range_min,
+                            generatedEstimate?.currency || "MAD"
+                          )}{" "}
+                          —{" "}
+                          {formatCurrency(
+                            generatedEstimate?.range_max,
+                            generatedEstimate?.currency || "MAD"
+                          )}
+                        </p>
+                      </div>
+
+                      {costDrivers.length > 0 && (
+                        <div className={styles.devisSection}>
+                          <span className={styles.devisLabel}>
+                            Facteurs de coût
+                          </span>
+                          <ul className={styles.devisList}>
+                            {costDrivers.map((driver, index) => (
+                              <li key={`${driver?.label || driver}-${index}`}>
+                                {typeof driver === "string"
+                                  ? driver
+                                  : driver?.label ||
+                                    driver?.name ||
+                                    driver?.description ||
+                                    "Facteur"}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {generatedIncludedGroups.length > 0 && (
+                        <div className={styles.devisSection}>
+                          <span className={styles.devisLabel}>
+                            Lots inclus
+                          </span>
+                          <ul className={styles.devisList}>
+                            {generatedIncludedGroups.map((group, index) => (
+                              <li
+                                key={`group-${group?.key || group?.label || index}`}
+                              >
+                                {group?.label || group?.key || "Lot"}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {generatedLineItems.length > 0 && (
+                        <div className={styles.devisSection}>
+                          <span className={styles.devisLabel}>
+                            Détail du devis
+                          </span>
+                          <ul className={styles.devisList}>
+                            {generatedLineItems.map((item, index) => (
+                              <li
+                                key={`line-item-${item?.label || item?.name || index}`}
+                              >
+                                <span>{item?.label || item?.name || "Poste"}</span>
+                                {(item?.price_min ||
+                                  item?.price_max ||
+                                  item?.amount) && (
+                                  <span className={styles.inlinePrice}>
+                                    {item?.amount
+                                      ? formatCurrency(
+                                          item.amount,
+                                          generatedEstimate?.currency || "MAD"
+                                        )
+                                      : `${formatCurrency(
+                                          item?.price_min,
+                                          generatedEstimate?.currency || "MAD"
+                                        )} — ${formatCurrency(
+                                          item?.price_max,
+                                          generatedEstimate?.currency || "MAD"
+                                        )}`}
+                                  </span>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {generatedQuote?.recommendation && (
+                        <div className={styles.devisSection}>
+                          <span className={styles.devisLabel}>
+                            Recommandation
+                          </span>
+                          <p className={styles.devisValue}>
+                            {generatedQuote.recommendation}
+                          </p>
+                        </div>
+                      )}
+
+                      {pdfUrl && (
+                        <a
+                          href={pdfUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={styles.devisPdfLink}
+                        >
+                          Télécharger le devis PDF
+                        </a>
+                      )}
+                    </div>
+                  )}
+
+                  {!isGeneratingDevis && devisResult?.status === "failed" && (
+                    <div className={styles.devisStateError}>
+                      Impossible de générer le devis pour le moment. Veuillez
+                      réessayer.
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
             <div ref={messagesEndRef} />
           </div>
 
@@ -275,21 +585,13 @@ export default function ChatWidget() {
             </button>
             <button
               type="button"
-              // style of the button
-              style={{
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                padding: "8px 12px",
-                borderRadius: "12px",
-                cursor: "pointer",
-              }}
-              className={styles.quickAction}
-              // onclick redirect to /devis
-              onClick={() => (window.location.href = "/devis")}
-              // onClick={() => setInput("Je veux être guidé vers un devis")}
+              className={`${styles.quickAction} ${styles.generateDevisButton}`}
+              onClick={handleGenerateDevis}
+              disabled={isGeneratingDevis || isLoading || userMessages.length === 0}
             >
-              Demander un devis
+              {isGeneratingDevis
+                ? "Génération de l’estimation..."
+                : "Obtenir une estimation instantanée"}
             </button>
           </div>
         </div>

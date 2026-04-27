@@ -2,12 +2,26 @@
  * Services data - compact list and detailed descriptions
  */
 export const serviceItems = [
-  { key: 'web', title: 'Développement Web & Mobile', desc: 'Sites, apps mobiles et PWA performants.' },
-  { key: 'soft', title: 'Logiciels sur mesure', desc: 'Backoffice, SaaS, intégrations API.' },
-  { key: 'cloud', title: 'Cloud & Intégration', desc: 'CI/CD, hébergement, scalabilité.' },
-  { key: 'ai', title: 'Conseil digital & IA', desc: 'Audit, stratégie produit, automatisation.' },
-  { key: 'ux', title: 'UX/UI Design', desc: 'Interfaces modernes et accessibles.' },
-  { key: 'support', title: 'Maintenance & Support', desc: 'Suivi, monitoring et évolutions.' },
+  {
+    key: 'web',
+    title: 'Sites web professionnels',
+    desc: 'Des sites rapides, modernes et optimisés pour transformer vos visiteurs en prospects qualifiés.',
+  },
+  {
+    key: 'soft',
+    title: 'Plateformes SaaS & web apps',
+    desc: 'Des plateformes sur mesure pour gérer vos opérations, clients, abonnements, réservations ou processus internes.',
+  },
+  {
+    key: 'cloud',
+    title: 'Automatisation métier',
+    desc: 'Réduisez les tâches répétitives grâce à des workflows automatisés, tableaux de bord et intégrations intelligentes.',
+  },
+  {
+    key: 'ai',
+    title: 'Solutions IA & chatbots',
+    desc: 'Des assistants IA capables de répondre aux clients, qualifier les demandes et générer des devis automatiquement.',
+  },
 ]
 
 export const serviceDetails = [

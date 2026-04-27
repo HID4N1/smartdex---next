@@ -87,10 +87,10 @@ export default async function BlogPostPage({ params }) {
           <div className="blog-cta-inner">
             <div>
               <div className="blog-cta-title">Vous avez un projet ?</div>
-              <div className="blog-cta-sub">Parlons-en et recevez un devis clair sous 24h.</div>
+              <div className="blog-cta-sub">Décrivez votre projet et recevez une estimation détaillée immédiatement.</div>
             </div>
-            <Link className="blog-cta-link" href="/contact">
-              Nous contacter
+            <Link className="blog-cta-link" href="/devis">
+              Obtenir une estimation instantanée
             </Link>
           </div>
         </section>
@@ -103,4 +103,3 @@ export default async function BlogPostPage({ params }) {
     </main>
   )
 }
-

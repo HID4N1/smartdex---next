@@ -94,7 +94,7 @@ export default function Contact() {
       <div className="contact-hero">
         <div className="container contact-hero-content">
           <div className="section-badge-wrapper">
-            <span className="section-badge">Contact</span>
+            <span className="section-badge">Parler à l’assistant IA</span>
           </div>
           <h1 className="contact-main-title">Vous avez un projet ?</h1>
           <p className="contact-hero-subtitle">

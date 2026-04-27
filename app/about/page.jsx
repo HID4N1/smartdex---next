@@ -146,8 +146,8 @@ export default function About() {
               <h3 className="cta-title-enhanced">Vous partagez notre vision de l&apos;innovation ?</h3>
               <p className="cta-desc-enhanced muted">Rejoignez-nous ou confiez-nous votre prochain projet pour créer ensemble quelque chose d&apos;extraordinaire.</p>
             </div>
-            <Link href="/contact" className="btn btn-primary cta-button-enhanced">
-              <span>Contactez SmartDex</span>
+            <Link href="/devis" className="btn btn-primary cta-button-enhanced">
+              <span>Obtenir une estimation instantanée</span>
               <span className="btn-arrow">→</span>
             </Link>
           </div>

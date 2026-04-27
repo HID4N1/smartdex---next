@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import './Footer.css'
 import ThemeToggle from '../ui/ThemeToggle'
+import ChatbotTrigger from '../ChatbotTrigger'
 
 export default function Footer() {
   return (
@@ -31,7 +32,8 @@ export default function Footer() {
             <Link href="/projects">Réalisations</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/about">À propos</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/devis">Obtenir une estimation instantanée</Link>
+            <ChatbotTrigger className="footer-link-button">Parler à l’assistant IA</ChatbotTrigger>
           </div>
         </div>
         <div>
@@ -45,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4>Coordonnées</h4>
           <div className="muted">contact@smartdex.ma</div>
           <div className="muted">+212 70745-8386</div>
           <div className="muted">+212 52008-5689</div>

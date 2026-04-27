@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import './Header.css'
 import Image from 'next/image'
+import ChatbotTrigger from '../ChatbotTrigger'
 
 const navItems = [
   { href: '/', label: 'Accueil' },
@@ -12,7 +13,6 @@ const navItems = [
   { href: '/services', label: 'Services' },
   { href: '/projects', label: 'Projets' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -55,6 +55,9 @@ export default function Header() {
                 {label}
               </Link>
             ))}
+            <ChatbotTrigger className="sd-link" onOpen={closeMobileMenu}>
+              Parler à l’assistant IA
+            </ChatbotTrigger>
           </nav>
         </div>
       </div>

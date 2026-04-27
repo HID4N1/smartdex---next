@@ -1,36 +1,49 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
+
+const THEME_CHANGE_EVENT = 'smartdex-theme-change'
+
+function getThemeSnapshot() {
+  if (typeof window === 'undefined') return false
+
+  const saved = localStorage.getItem('theme')
+  return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)
+}
+
+function subscribeToThemeChanges(callback) {
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const notify = () => callback()
+
+  window.addEventListener('storage', notify)
+  window.addEventListener(THEME_CHANGE_EVENT, notify)
+  mediaQuery.addEventListener('change', notify)
+
+  return () => {
+    window.removeEventListener('storage', notify)
+    window.removeEventListener(THEME_CHANGE_EVENT, notify)
+    mediaQuery.removeEventListener('change', notify)
+  }
+}
+
+function applyTheme(isDark) {
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+  localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  window.dispatchEvent(new Event(THEME_CHANGE_EVENT))
+}
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const isDark = useSyncExternalStore(subscribeToThemeChanges, getThemeSnapshot, () => false)
 
   useEffect(() => {
-    setMounted(true)
-    const saved = localStorage.getItem('theme')
-    setIsDark(saved === 'dark' || (!saved && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches))
-  }, [])
-
-  useEffect(() => {
-    if (!mounted) return
     if (isDark) {
       document.documentElement.setAttribute('data-theme', 'dark')
     } else {
       document.documentElement.setAttribute('data-theme', 'light')
     }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
-  }, [isDark, mounted])
+  }, [isDark])
 
-  const toggleTheme = () => setIsDark(!isDark)
-
-  if (!mounted) {
-    return (
-      <button className="theme-toggle" aria-label="Toggle theme">
-        <span className="theme-icon">☀️</span>
-      </button>
-    )
-  }
+  const toggleTheme = () => applyTheme(!isDark)
 
   return (
     <button

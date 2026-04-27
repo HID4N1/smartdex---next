@@ -20,13 +20,18 @@
   font-weight: 700; 
 }
 
-.footer-4cols a { 
+.footer-4cols a,
+.footer-link-button { 
   color: var(--sd-text-light); 
   text-decoration: none; 
   transition: color var(--sd-transition);
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: left;
 }
 
-.footer-4cols a:hover { 
+.footer-4cols a:hover,
+.footer-link-button:hover { 
   color: var(--sd-accent); 
 }
 

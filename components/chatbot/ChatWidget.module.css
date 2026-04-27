@@ -246,13 +246,102 @@
     transition: background 0.2s ease, border-color 0.2s ease;
   }
   
-  .quickAction:hover {
-    background: #eaf3fb;
-    border-color: rgba(10, 42, 74, 0.18);
-  }
+.quickAction:hover {
+  background: #eaf3fb;
+  border-color: rgba(10, 42, 74, 0.18);
+}
+
+.quickAction:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generateDevisButton {
+  background: #0070f3;
+  color: #ffffff;
+  border: none;
+}
+
+.generateDevisButton:hover:not(:disabled) {
+  background: #005fcc;
+  border-color: transparent;
+}
+
+.devisBubble {
+  width: 100%;
+  max-width: 100%;
+}
+
+.devisState {
+  color: #0a2a4a;
+}
+
+.devisStateError {
+  color: #9f1239;
+  font-weight: 600;
+}
+
+.devisResultCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.devisSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.devisLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #45627d;
+}
+
+.devisValue {
+  margin: 0;
+}
+
+.devisList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.devisList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.inlinePrice {
+  color: #0f4f8a;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.devisPdfLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #0a2a4a;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.devisPdfLink:hover {
+  background: #103e68;
+}
   
-  @media (max-width: 640px) {
-    .chatWidget {
+@media (max-width: 640px) {
+  .chatWidget {
       right: 12px;
       bottom: 12px;
       width: calc(100vw - 24px);

@@ -11,7 +11,6 @@ export const projectDetails = {
     banner: webBanner,
     client: 'RATP',
     tech: 'React, Node.js',
-    duration: '8 semaines',
     objectives: 'Site web officiel avec système de gestion de contenu moderne',
     results: [
       { label: 'Performance', value: '+35%' },
@@ -30,7 +29,6 @@ export const projectDetails = {
     banner: webBanner,
     client: 'RATP',
     tech: 'React, API REST',
-    duration: '10 semaines',
     objectives: 'Plateforme web interactive pour la gestion des transports',
     results: [
       { label: 'Utilisateurs', value: '+40%' },
@@ -49,7 +47,6 @@ export const projectDetails = {
     banner: mobileBanner,
     client: 'RATP',
     tech: 'React Native, iOS, Android',
-    duration: '12 semaines',
     objectives: 'Application mobile pour la consultation des horaires et trajets',
     results: [
       { label: 'Téléchargements', value: '50k+' },
@@ -68,7 +65,6 @@ export const projectDetails = {
     banner: mobileBanner,
     client: 'RATP',
     tech: 'React Native, Firebase',
-    duration: '14 semaines',
     objectives: 'Application mobile professionnelle pour les agents RATP',
     results: [
       { label: 'Productivité', value: '+25%' },
@@ -87,7 +83,6 @@ export const projectDetails = {
     banner: webBanner,
     client: 'Gensaales',
     tech: 'React, Node.js, MongoDB',
-    duration: '9 semaines',
     objectives: 'Site web moderne avec interface administrateur',
     results: [
       { label: 'Performance', value: '+42%' },
@@ -106,7 +101,6 @@ export const projectDetails = {
     banner: mobileBanner,
     client: 'Gensaales',
     tech: 'React Native, API',
-    duration: '11 semaines',
     objectives: 'Application mobile cross-platform pour Gensaales',
     results: [
       { label: 'Utilisateurs actifs', value: '+60%' },
@@ -125,7 +119,6 @@ export const projectDetails = {
     banner: mobileBanner,
     client: 'Loterie Nationale',
     tech: 'React Native, Secure API',
-    duration: '13 semaines',
     objectives: 'Application mobile sécurisée pour la Loterie Nationale',
     results: [
       { label: 'Sécurité', value: '100%' },

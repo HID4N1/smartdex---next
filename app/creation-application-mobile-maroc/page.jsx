@@ -87,7 +87,7 @@ export default function CreationApplicationMobileMarocPage() {
             Applications iOS et Android sur mesure pour les PME marocaines. React Native, design soigné et performances natives. De Casablanca à tout le Maroc.
           </p>
           <div className="seo-hero-ctas">
-            <Link href="/contact" className="btn btn-primary">Demander un devis gratuit</Link>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function CreationApplicationMobileMarocPage() {
             <details>
               <summary>Combien coûte une application mobile au Maroc ?</summary>
               <div className="faq-answer">
-                <p>Une app simple démarre autour de 50 000 à 80 000 MAD. Une application avancée peut aller de 100 000 à 250 000 MAD. <Link href="/contact">Contactez-nous</Link> pour un devis personnalisé.</p>
+                <p>Une app simple démarre autour de 50 000 à 80 000 MAD. Une application avancée peut aller de 100 000 à 250 000 MAD. <Link href="/devis">Obtenir une estimation instantanée</Link>.</p>
               </div>
             </details>
             <details>
@@ -192,8 +192,8 @@ export default function CreationApplicationMobileMarocPage() {
 
           <section className="seo-cta-banner">
             <h3>Prêt à lancer votre projet ?</h3>
-            <p>Contactez nos experts pour un devis gratuit sous 24h.</p>
-            <Link href="/contact" className="btn btn-primary">Démarrer mon projet</Link>
+            <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
+            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
           </section>
         </div>
       </div>

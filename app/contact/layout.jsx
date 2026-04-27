@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Contact — Demandez un devis | SmartDex',
-  description: "Contactez SmartDex pour votre projet digital. Réponse sous 24h, consultation gratuite. Casablanca, Maroc.",
+  title: 'Parler à l’assistant IA — Obtenir une estimation instantanée | SmartDex',
+  description: "Obtenez une estimation instantanée SmartDex pour votre projet digital. Réponse rapide, consultation gratuite. Casablanca, Maroc.",
   openGraph: {
-    title: 'Contact — SmartDex',
-    description: 'Demandez un devis pour votre projet digital.',
+    title: 'Parler à l’assistant IA — SmartDex',
+    description: 'Obtenez une estimation instantanée pour votre projet digital.',
     url: 'https://smartdex.ma/contact',
     siteName: 'SmartDex',
     locale: 'fr_MA',
