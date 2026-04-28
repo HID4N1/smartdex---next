@@ -172,7 +172,6 @@ export default function AiChatbotMoroccoPage() {
               Transformez les conversations client en leads qualifiés, rendez-vous et ventes. SmartDex crée des chatbots IA pour entreprises marocaines avec automatisation WhatsApp, réponses 24/7 et suivi des performances.
             </p>
             <div className="seo-hero-ctas">
-              <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
               <ChatbotTrigger className="btn">Voir une démo</ChatbotTrigger>
             </div>
             <div className="seo-trust-row" aria-label="Indicateurs de confiance">
