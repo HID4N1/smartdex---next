@@ -1,6 +1,5 @@
 import './globals.css'
 import ClientLayout from '../components/ClientLayout'
-import ChatWidget from '../components/chatbot/ChatWidget'
 
 export const metadata = {
   title: {
@@ -55,8 +54,7 @@ export default function RootLayout({ children }) {
         />
         <ClientLayout>
           {children}
-          <ChatWidget />
-          </ClientLayout>
+        </ClientLayout>
   
       </body>
     </html>

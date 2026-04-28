@@ -37,15 +37,13 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
   box-shadow: var(--card-shadow);
-  transition: transform var(--sd-transition), border-color var(--sd-transition), box-shadow var(--sd-transition);
+  transition: transform var(--sd-transition), border-color var(--sd-transition);
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
   border-color: rgba(42, 166, 255, 0.42);
-  box-shadow: var(--card-shadow-hover);
 }
 
 .stat-value-large {
@@ -101,13 +99,12 @@
   position: relative;
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  transition: transform var(--sd-transition), border-color var(--sd-transition), box-shadow var(--sd-transition);
+  transition: transform var(--sd-transition), border-color var(--sd-transition);
 }
 
 .value-card:hover {
   transform: translateY(-4px);
   border-color: rgba(42, 166, 255, 0.42);
-  box-shadow: var(--card-shadow-hover);
 }
 
 .value-title {

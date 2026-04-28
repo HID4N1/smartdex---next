@@ -20,12 +20,9 @@
 .projects-section.projects-teaser::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 50%, rgba(49, 198, 255, 0.14) 0%, transparent 50%),
-              radial-gradient(circle at 70% 50%, rgba(124, 92, 255, 0.11) 0%, transparent 50%);
+  inset: 10% 0 auto;
+  height: 360px;
+  background: linear-gradient(90deg, transparent, rgba(49, 198, 255, 0.08), rgba(124, 92, 255, 0.06), transparent);
   pointer-events: none;
 }
 
@@ -70,7 +67,6 @@
     rgba(42, 166, 255, 0.08));
   border-radius: var(--radius-xl);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(20px);
   box-shadow: var(--card-shadow);
   position: relative;
   overflow: hidden;
@@ -90,7 +86,7 @@
 }
 
 .projects-stats-teaser:hover {
-  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(49, 198, 255, 0.34);
 }
 
 .stat-item {
@@ -126,7 +122,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
-  filter: drop-shadow(0 0 8px rgba(42, 166, 255, 0.5));
 }
 
 .stat-label {
@@ -171,7 +166,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: background var(--sd-transition), color var(--sd-transition), border-color var(--sd-transition), box-shadow var(--sd-transition);
+  transition: background var(--sd-transition), color var(--sd-transition), border-color var(--sd-transition);
 }
 
 .filter-btn:hover {
@@ -183,9 +178,7 @@
   background: var(--sd-accent);
   color: white;
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow:
-    0 2px 8px rgba(42, 166, 255, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   font-weight: 600;
 }
 
@@ -230,11 +223,9 @@
   background: linear-gradient(135deg, 
     var(--sd-accent) 0%,
     rgba(42, 166, 255, 0.9) 100%);
-  box-shadow: 
-    0 4px 16px rgba(42, 166, 255, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 22px rgba(42, 166, 255, 0.22);
   z-index: 0;
-  transition: transform var(--sd-transition), box-shadow var(--sd-transition);
+  transition: transform var(--sd-transition), border-color var(--sd-transition);
 }
 
 .projects-view-all > * {
@@ -261,10 +252,6 @@
 
 .projects-view-all:hover {
   transform: scale(1.02);
-  box-shadow: 
-    0 12px 32px rgba(42, 166, 255, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 0 40px rgba(42, 166, 255, 0.5);
 }
 
 .projects-view-all:hover .btn-arrow {
@@ -296,7 +283,6 @@
     rgba(76, 175, 80, 0.3));
   opacity: 0;
   z-index: -1;
-  filter: blur(12px);
   transition: opacity var(--sd-transition);
 }
 
@@ -306,7 +292,6 @@
 
 .projects-teaser .project-card-enhanced:hover {
   transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
   border-color: rgba(42, 166, 255, 0.42);
 }
 
@@ -320,9 +305,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  backdrop-filter: blur(10px);
   box-shadow: var(--card-shadow);
-  transition: transform var(--sd-transition), border-color var(--sd-transition), box-shadow var(--sd-transition), background var(--sd-transition);
+  transition: transform var(--sd-transition), border-color var(--sd-transition), background var(--sd-transition);
 }
 
 .project-card-enhanced::after {
@@ -346,7 +330,6 @@
 .project-card-enhanced:hover {
   transform: translateY(-4px);
   border-color: rgba(49, 198, 255, 0.42);
-  box-shadow: var(--card-shadow-hover);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045));
 }
 
@@ -371,9 +354,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--sd-white);
-  backdrop-filter: blur(8px);
+  background-color: rgba(7, 14, 28, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .project-content {

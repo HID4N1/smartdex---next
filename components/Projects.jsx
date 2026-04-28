@@ -1,9 +1,7 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getProjects } from '../services'
+import ProjectsClient from './ProjectsClient'
 import './Projects.css'
 
 const IMAGE_MAP = {
@@ -29,9 +27,7 @@ export default function Projects({ teaser }) {
     ...p,
     image: IMAGE_MAP[p.imageKey] || null,
   }))
-  const [filter, setFilter] = useState('all')
-  const data = all.filter((p) => filter === 'all' || p.type === filter)
-  const shown = teaser ? data.slice(0, 3) : data
+  const shown = all.slice(0, 3)
 
   return (
     <section id="projets" className={`projects-section ${teaser ? 'projects-teaser' : ''}`}>
@@ -77,95 +73,82 @@ export default function Projects({ teaser }) {
           )}
         </div>
 
-        {!teaser && (
-          <div className="filter-bar">
-            {['all', 'web', 'mobile', 'webapp', 'logiciels', 'cloud', 'ai'].map((k) => (
-              <button
-                key={k}
-                className={`filter-btn ${filter === k ? 'active' : ''}`}
-                onClick={() => setFilter(k)}
+        {teaser ? (
+          <div className="projects-grid" style={{ marginTop: 24 }}>
+            {shown.map((p, i) => (
+              <Link
+                href={`/projects/${p.id}`}
+                className="project-card-enhanced"
+                key={i}
+                data-reveal
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                {k === 'all' ? 'Tous' : getTypeLabel(k)}
-                {k !== 'all' && (
-                  <span className="filter-count">({all.filter((p) => p.type === k).length})</span>
-                )}
-              </button>
-            ))}
-          </div>
-        )}
-
-        <div className="projects-grid" style={{ marginTop: teaser ? 24 : 32 }}>
-          {shown.map((p, i) => (
-            <Link
-              href={`/projects/${p.id}`}
-              className="project-card-enhanced"
-              key={i}
-              data-reveal
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              <div
-                className="project-thumb"
-                style={{
-                  background: p.image ? 'none' : `linear-gradient(135deg, ${getTypeColor(p.type)}, rgba(255,255,255,0.06))`,
-                }}
-              >
-                {p.image && (
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 100vw, 340px"
-                  />
-                )}
-                {p.image && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      background: `linear-gradient(135deg, ${getTypeColor(p.type)}dd, ${getTypeColor(p.type)}88)`,
-                      zIndex: 1,
-                    }}
-                  />
-                )}
                 <div
+                  className="project-thumb"
                   style={{
-                    position: 'relative',
-                    zIndex: 2,
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    justifyContent: 'space-between',
-                    padding: '16px',
+                    background: p.image ? 'none' : `linear-gradient(135deg, ${getTypeColor(p.type)}, rgba(255,255,255,0.06))`,
                   }}
                 >
-                  <div className="project-badge" style={{ backgroundColor: getTypeColor(p.type) }}>
-                    {getTypeLabel(p.type)}
+                  {p.image && (
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, 380px"
+                    />
+                  )}
+                  {p.image && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        background: `linear-gradient(135deg, ${getTypeColor(p.type)}dd, ${getTypeColor(p.type)}88)`,
+                        zIndex: 1,
+                      }}
+                    />
+                  )}
+                  <div
+                    style={{
+                      position: 'relative',
+                      zIndex: 2,
+                      width: '100%',
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      padding: '16px',
+                    }}
+                  >
+                    <div className="project-badge" style={{ backgroundColor: getTypeColor(p.type) }}>
+                      {getTypeLabel(p.type)}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="project-content">
-                {p.highlight && <strong className="project-highlight">{p.highlight}</strong>}
-                <h3 className="project-name">{p.name}</h3>
-                {p.client && (
-                  <div className="project-client">
-                    <span className="client-name">{p.client}</span>
-                  </div>
-                )}
-                <p className="project-description">{p.description}</p>
-                <div className="project-meta">
-                  <div className="meta-item">
-                    <span className="meta-text">{p.stack}</span>
+                <div className="project-content">
+                  {p.highlight && <strong className="project-highlight">{p.highlight}</strong>}
+                  <h3 className="project-name">{p.name}</h3>
+                  {p.client && (
+                    <div className="project-client">
+                      <span className="client-name">{p.client}</span>
+                    </div>
+                  )}
+                  <p className="project-description">{p.description}</p>
+                  <div className="project-meta">
+                    <div className="meta-item">
+                      <span className="meta-text">{p.stack}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <ProjectsClient />
+        )}
 
         {teaser && (
           <div className="projects-teaser-cta">
