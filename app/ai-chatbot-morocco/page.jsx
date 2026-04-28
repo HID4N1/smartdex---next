@@ -158,7 +158,6 @@ export default function AiChatbotMoroccoPage() {
         }}
       />
 
-      <Link href="/devis" className="seo-sticky-cta">Estimation instantanée</Link>
 
       <header className="seo-hero seo-hero-split" data-reveal>
         <div className="seo-hero-bg" />
