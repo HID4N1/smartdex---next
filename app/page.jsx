@@ -8,15 +8,32 @@ import ChatbotTrigger from '../components/ChatbotTrigger'
 import './Home.css'
 
 export const metadata = {
-  title: 'SmartDex — Solutions Digitales pour Entreprises | Web, Mobile, SaaS',
-  description: "SmartDex accompagne les entreprises avec des solutions digitales sur mesure : développement web, applications mobiles, logiciels SaaS, cloud et transformation numérique. Expertise, innovation et fiabilité au Maroc et en Afrique.",
+  title: 'Agence Digitale Maroc | Développement Web, SaaS & IA',
+  description: "SmartDex est une agence digitale au Maroc spécialisée en développement web, SaaS, applications mobiles et solutions IA pour aider les entreprises à vendre plus, automatiser leurs opérations et accélérer leur transformation digitale.",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'SmartDex — Solutions Digitales pour Entreprises',
-    description: "Innovation, fiabilité et performance pour vos projets web, mobiles et SaaS. Solutions digitales sur mesure au Maroc.",
+    title: 'SmartDex — Agence Digitale Maroc',
+    description: "Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.",
     url: 'https://smartdex.ma',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SmartDex — Agence Digitale Maroc',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SmartDex — Agence Digitale Maroc',
+    description: "Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.",
+    images: ['/og-image.png'],
   },
 }
 
