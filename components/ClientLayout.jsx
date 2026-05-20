@@ -16,6 +16,7 @@ export default function ClientLayout({ children }) {
   const [showChatWidget, setShowChatWidget] = useState(false)
   const [pendingChatOpen, setPendingChatOpen] = useState(false)
   const pathname = usePathname()
+  const isBusinessCardPage = pathname === '/business-card'
 
   useEffect(() => {
     let timeoutId = null
@@ -108,16 +109,16 @@ export default function ClientLayout({ children }) {
   return (
     <>
       <a href="#main-content" className="skip-link">Aller au contenu</a>
-      <div className="scroll-progress" aria-hidden="true" />
-      <ScrollToTop />
-      <Header />
+      {!isBusinessCardPage && <div className="scroll-progress" aria-hidden="true" />}
+      {!isBusinessCardPage && <ScrollToTop />}
+      {!isBusinessCardPage && <Header />}
       <main id="main-content" role="main">
         {children}
       </main>
-      <Footer />
+      {!isBusinessCardPage && <Footer />}
       {showChatWidget && <ChatWidget />}
 
-      {showTop && (
+      {showTop && !isBusinessCardPage && (
         <button
           type="button"
           className="btn btn-primary back-to-top"
