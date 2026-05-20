@@ -210,7 +210,7 @@ export default function BusinessCard() {
               />
             </div>
 
-            <div>
+            <div className={styles.rightVisualGroup}>
               <ImagePlaceholder />
               <p className={styles.placeholderLabel}>Hello World !</p>
             </div>
