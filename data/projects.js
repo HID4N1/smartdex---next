@@ -1,4 +1,5 @@
 export const projects = [
+// sjm pilote
   {
     id: 'sjm-pilote-mdjs',
     name: 'Plateforme de suivi commercial SJM',
@@ -7,9 +8,10 @@ export const projects = [
     client: 'Master Blow / MDJS',
     stack: 'React, Node.js, OCR',
     status: 'completed',
-    imageKey: 'gen',
+    imageKey: 'pilote',
 
-    description: 'Plateforme web de suivi en temps réel des performances des agents commerciaux.',
+    description:
+      'Plateforme web de suivi en temps réel des performances des agents commerciaux.',
 
     highlight: 'Suivi terrain en temps réel + reporting automatisé',
 
@@ -30,129 +32,136 @@ export const projects = [
       'Interface superviseur',
     ],
   },
+// lmatch pro
   {
-    id: 'ratp-web-1',
-    name: 'Site Web RATP',
-    type: 'web',
-    categoryLabel: 'Site institutionnel',
-    client: 'RATP',
-    stack: 'React, Node.js',
+    id: 'lmatch-pro',
+    name: 'Lmatch Pro',
+    type: 'mobile-webapp',
+    categoryLabel: 'Animation commerciale & jeu digital',
+    client: 'MasterBlow/SISAL',
+    stack: 'React, Node.js, Mobile, Dashboard',
     status: 'completed',
-    imageKey: 'ratp',
+    imageKey: 'lmatch',
 
-    description: 'Site web officiel avec gestion de contenu moderne.',
+    description:
+      'Solution digitale dédiée à l’animation commerciale, avec gestion des participants, sessions de jeu et suivi des performances.',
 
-    highlight: 'Site vitrine moderne avec administration simplifiée',
+    highlight: 'Expérience interactive + pilotage commercial centralisé',
 
     problem:
-      'Le contenu était difficile à mettre à jour et la présentation digitale ne reflétait plus les besoins de communication du client.',
+      'Les animations commerciales nécessitaient un suivi manuel des participations, des performances terrain et des résultats, ce qui limitait la visibilité en temps réel.',
 
     solution:
-      'Refonte du site avec une structure claire, une interface responsive et une gestion de contenu plus simple pour les équipes internes.',
+      'Mise en place d’une plateforme permettant aux agents de gérer les sessions, suivre les participants, centraliser les résultats et offrir aux superviseurs une vue claire sur l’activité.',
 
     impact:
-      'Publication de contenu facilitée, meilleure cohérence de marque et expérience de consultation plus fluide.',
+      'Meilleur contrôle des opérations terrain, amélioration de l’expérience participant et suivi instantané des performances commerciales.',
 
-    features: ['CMS', 'Interface admin', 'Responsive design', 'Structure SEO', 'Pages institutionnelles'],
+    features: [
+      'Gestion des sessions d’animation',
+      'Suivi des participants',
+      'Dashboard superviseur',
+      'Statistiques en temps réel',
+      'Interface agent simple et rapide',
+    ],
   },
+// quattroplus
   {
-    id: 'ratp-web-2',
-    name: 'Plateforme Web RATP',
-    type: 'webapp',
-    categoryLabel: 'Plateforme métier',
-    client: 'RATP',
-    stack: 'React, API REST',
+    id: 'quattro-plus',
+    name: 'Quattro Plus',
+    type: 'mobile-webapp',
+    categoryLabel: 'Campagne promotionnelle & instant win',
+    client: 'MasterBlow / MDJS',
+    stack: 'React, Django REST, MySQL, Expo',
     status: 'completed',
-    imageKey: 'ratp',
+    imageKey: 'quattro',
 
-    description: 'Plateforme web interactive pour la gestion et la consultation de données transport.',
+    description:
+      'Plateforme de gestion d’une campagne promotionnelle avec mécanique de gain instantané, quotas journaliers et suivi terrain.',
 
-    highlight: 'Interface métier centralisée pour les opérations transport',
+    highlight: 'Instant win contrôlé + gestion avancée des quotas',
 
     problem:
-      'Les informations utiles aux équipes étaient dispersées entre plusieurs outils, ce qui ralentissait la consultation et le suivi.',
+      'La campagne nécessitait une distribution contrôlée des cadeaux, un suivi précis des agents et une gestion fiable des quotas par jour et par catégorie.',
 
     solution:
-      'Développement d’une plateforme web avec interface claire, données centralisées et connexion API pour faciliter l’accès aux informations clés.',
+      'Développement d’un système complet permettant de gérer les tickets, les gains, les stocks, les quotas, les agents et les rapports quotidiens à travers une interface admin et mobile.',
 
     impact:
-      'Consultation plus rapide, meilleure organisation des données et support plus simple pour les équipes opérationnelles.',
+      'Distribution maîtrisée des cadeaux, reporting fiable, réduction des erreurs terrain et meilleure visibilité sur l’avancement de la campagne.',
 
-    features: ['Interface web métier', 'Connexion API REST', 'Tableaux de suivi', 'Recherche de données', 'Accès responsive'],
+    features: [
+      'Mécanique instant win',
+      'Gestion des quotas journaliers',
+      'Suivi des stocks cadeaux',
+      'Application mobile agent',
+      'Exports et rapports détaillés',
+    ],
   },
+// casamyway
   {
-    id: 'ratp-mobile-1',
-    name: 'Application Mobile RATP',
-    type: 'mobile',
-    categoryLabel: 'Application voyageurs',
-    client: 'RATP',
-    stack: 'React Native, iOS, Android',
-    status: 'completed',
-    imageKey: 'ratp',
+    id: 'casamyway',
+    name: 'CasaMyWay',
+    type: 'saas',
+    categoryLabel: 'Réservation & renouvellement d’abonnement',
+    client: 'GenSales / RATP',
+    stack: 'Next.js, Django REST, MySQL, OCR, WhatsApp API',
+    status: 'in-progress',
+    imageKey: 'casamyway',
 
-    description: 'Application mobile pour la consultation des horaires et trajets RATP.',
+    description:
+      'Plateforme SaaS pour la réservation et le renouvellement d’abonnements de transport avec agents terrain et notifications WhatsApp.',
 
-    highlight: 'Accès mobile aux horaires et trajets',
+    highlight: 'Réservation publique + gestion terrain + automatisation WhatsApp',
 
     problem:
-      'Les voyageurs avaient besoin d’un accès mobile simple aux informations de trajet et aux horaires.',
+      'Le processus de renouvellement reposait sur des échanges manuels, une affectation peu centralisée des agents et un manque de visibilité sur les rendez-vous et opérations terrain.',
 
     solution:
-      'Création d’une application cross-platform avec parcours de consultation rapide, écrans optimisés mobile et données de transport accessibles.',
+      'Création d’une plateforme complète avec réservation publique, back-office admin, gestion des agents, affectation des points de vente, OCR des tickets et notifications WhatsApp automatisées.',
 
     impact:
-      'Expérience de consultation plus pratique et accès aux informations de trajet depuis mobile.',
+      'Processus plus fluide pour les clients, meilleure organisation terrain, réduction des tâches manuelles et suivi centralisé des opérations.',
 
-    features: ['Application iOS et Android', 'Consultation horaires', 'Recherche de trajets', 'Interface mobile', 'Données transport'],
+    features: [
+      'Réservation publique en ligne',
+      'Gestion des agents et missions',
+      'Scan OCR des tickets',
+      'Notifications WhatsApp',
+      'Dashboard administratif',
+    ],
   },
+// site web gensales
   {
-    id: 'ratp-mobile-2',
-    name: 'App Mobile RATP Pro',
-    type: 'mobile',
-    categoryLabel: 'Application terrain',
-    client: 'RATP',
-    stack: 'React Native, Firebase',
-    status: 'completed',
-    imageKey: 'ratp',
-
-    description: 'Application mobile professionnelle pour accompagner les agents RATP sur le terrain.',
-
-    highlight: 'Outil mobile dédié aux agents terrain',
-
-    problem:
-      'Les agents avaient besoin d’un outil mobile adapté à leurs usages terrain et disponible pendant leurs interventions.',
-
-    solution:
-      'Développement d’une application mobile pro avec authentification, écrans métier et synchronisation des données via Firebase.',
-
-    impact:
-      'Meilleur accès aux informations terrain et support opérationnel plus fluide pour les agents.',
-
-    features: ['Application agents', 'Authentification', 'Synchronisation Firebase', 'Écrans métier', 'Usage terrain'],
-  },
-  {
-    id: 'gensaales-web',
-    name: 'Site Web Gensaales',
-    type: 'web',
-    categoryLabel: 'Site professionnel',
-    client: 'Gensaales',
-    stack: 'React, Node.js, MongoDB',
+    id: 'site-web-gensales',
+    name: 'Site web GenSales',
+    type: 'website',
+    categoryLabel: 'Site vitrine & présence digitale',
+    client: 'GenSales',
+    stack: 'Next.js, React, Tailwind CSS',
     status: 'completed',
     imageKey: 'gen',
 
-    description: 'Site web moderne avec interface administrateur pour présenter les services et gérer les contenus.',
+    description:
+      'Site vitrine professionnel conçu pour renforcer la présence digitale de GenSales et présenter ses services.',
 
-    highlight: 'Présence web professionnelle + gestion de contenu',
+    highlight: 'Image de marque premium + présence digitale structurée',
 
     problem:
-      'Le client avait besoin d’une présence digitale plus claire et d’un moyen simple de maintenir ses contenus à jour.',
+      'GenSales avait besoin d’une présence digitale plus professionnelle pour présenter clairement ses services, ses expertises et renforcer sa crédibilité commerciale.',
 
     solution:
-      'Création d’un site responsive avec espace administrateur, pages de présentation et architecture adaptée aux évolutions futures.',
+      'Conception et développement d’un site web moderne, responsive et orienté conversion, avec une structure claire des services, une identité visuelle professionnelle et une navigation fluide.',
 
     impact:
-      'Communication plus professionnelle, gestion interne simplifiée et base technique plus maintenable.',
+      'Amélioration de l’image de marque, meilleure lisibilité de l’offre et support digital solide pour les actions commerciales.',
 
-    features: ['Site responsive', 'Interface administrateur', 'Gestion de contenu', 'Pages services', 'Base MongoDB'],
+    features: [
+      'Landing page professionnelle',
+      'Présentation des services',
+      'Design responsive',
+      'Optimisation de la navigation',
+      'Identité visuelle premium',
+    ],
   },
-]
+];

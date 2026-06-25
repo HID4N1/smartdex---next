@@ -1,46 +1,52 @@
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
-
-function resolveApiUrl(path = "") {
-  if (!path) return "";
-
-  try {
-    return new URL(path, API_BASE_URL).toString();
-  } catch {
-    return path;
-  }
-}
-
-async function parseJsonResponse(response) {
-  const contentType = response.headers.get("content-type") || "";
-
-  if (!contentType.includes("application/json")) {
-    return null;
-  }
-
-  return response.json();
-}
+import { API_BASE_URL, ApiError, apiRequest, resolveApiUrl } from "./apiClient";
 
 export async function generateDevisFromChat(payload) {
-  const response = await fetch(resolveApiUrl("/api/devis/generate-from-chat/"), {
+  const data = await apiRequest("/api/devis/generate-from-chat/", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(payload),
   });
 
-  const data = await parseJsonResponse(response);
-
-  if (!response.ok) {
-    throw new Error(
+  if (data?.status === "failed") {
+    throw new ApiError(
       data?.detail ||
         data?.message ||
-        "Impossible de generer le devis pour le moment."
+        "Impossible de générer le devis pour le moment.",
+      { data }
     );
   }
 
   return data;
+}
+
+export async function createDevisRequest(payload) {
+  return apiRequest("/api/devis/requests/", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function generateDevisRequest(devisId) {
+  if (!devisId) {
+    throw new ApiError("Identifiant de devis introuvable dans la réponse.");
+  }
+
+  return apiRequest(`/api/devis/requests/${devisId}/generate/`, {
+    method: "POST",
+  });
+}
+
+export async function submitDevisRequest(payload) {
+  const createdData = await createDevisRequest(payload);
+  const devisId = createdData?.id || createdData?.request_id;
+  const generatedData = await generateDevisRequest(devisId);
+
+  return {
+    request: {
+      ...payload,
+      ...createdData,
+    },
+    quote: generatedData,
+  };
 }
 
 export { API_BASE_URL, resolveApiUrl };

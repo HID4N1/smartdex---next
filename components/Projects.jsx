@@ -5,13 +5,15 @@ import ProjectsClient from './ProjectsClient'
 import './Projects.css'
 
 const IMAGE_MAP = {
+  pilote: '/images/pilote.png',
+  lmatch: '/images/lmatch.png',
+  quattro: '/images/quattro.png',
+  casamyway: '/images/casamyway.png',
   ratp: '/images/RATPDev.jpg',
   gen: '/images/gen.jpg',
   loto: '/images/loto.svg',
 }
 
-const getTypeLabel = (type) =>
-  ({ web: 'Web', mobile: 'Mobile', webapp: 'Web App', logiciels: 'Logiciels', cloud: 'Cloud', ai: 'IA' }[type] || type)
 const getTypeColor = (type) =>
   ({
     web: 'rgba(42,166,255,0.3)',
@@ -111,22 +113,6 @@ export default function Projects({ teaser }) {
                       }}
                     />
                   )}
-                  <div
-                    style={{
-                      position: 'relative',
-                      zIndex: 2,
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      justifyContent: 'space-between',
-                      padding: '16px',
-                    }}
-                  >
-                    <div className="project-badge" style={{ backgroundColor: getTypeColor(p.type) }}>
-                      {getTypeLabel(p.type)}
-                    </div>
-                  </div>
                 </div>
                 <div className="project-content">
                   {p.highlight && <strong className="project-highlight">{p.highlight}</strong>}

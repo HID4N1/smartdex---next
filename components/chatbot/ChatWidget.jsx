@@ -2,11 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./ChatWidget.module.css";
-import {
-  API_BASE_URL,
-  generateDevisFromChat,
-  resolveApiUrl,
-} from "../../services/devis";
+import { generateDevisFromChat } from "../../services/devis";
+import { sendChatMessage } from "../../services/chatbot";
+import { resolveApiUrl } from "../../services/apiClient";
 
 const DEFAULT_ASSISTANT_MESSAGE =
   "Bonjour 👋 Je suis l’assistant SmartDex. Je peux vous aider à choisir une solution digitale, répondre à vos questions, ou vous guider vers un devis.";
@@ -88,6 +86,12 @@ function createId() {
   return `chat-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+function isUuid(value) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+    value || ""
+  );
+}
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId, setSessionId] = useState("");
@@ -124,9 +128,9 @@ export default function ChatWidget() {
   useEffect(() => {
     let existingSessionId = localStorage.getItem("smartdex_chat_session_id");
 
-    if (!existingSessionId) {
-      existingSessionId = createId();
-      localStorage.setItem("smartdex_chat_session_id", existingSessionId);
+    if (!isUuid(existingSessionId)) {
+      existingSessionId = "";
+      localStorage.removeItem("smartdex_chat_session_id");
     }
 
     setSessionId(existingSessionId);
@@ -164,7 +168,7 @@ export default function ChatWidget() {
 
   const sendMessage = async () => {
     const trimmed = input.trim();
-    if (!trimmed || isLoading || !sessionId) return;
+    if (!trimmed || isLoading) return;
 
     const userMessage = {
       id: createId(),
@@ -182,36 +186,34 @@ export default function ChatWidget() {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/chatbot/chat/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          session_id: sessionId,
+      let data;
+      const conversationId = isUuid(sessionId) ? sessionId : "";
+
+      try {
+        data = await sendChatMessage({
           message: trimmed,
-          history: nextMessages.map((msg) => ({
-            role: msg.role,
-            content: msg.content,
-          })),
-        }),
-      });
+          conversationId,
+        });
+      } catch (error) {
+        if (error?.status !== 404 || !conversationId) {
+          throw error;
+        }
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data?.detail ||
-            data?.message ||
-            "Une erreur est survenue lors de la réponse du chatbot."
-        );
+        localStorage.removeItem("smartdex_chat_session_id");
+        setSessionId("");
+        data = await sendChatMessage({ message: trimmed });
       }
 
       const assistantMessage = {
         id: createId(),
         role: "assistant",
-        content: data.answer || data.reply || "Aucune réponse reçue.",
+        content: data.answer,
       };
+
+      if (data.conversation_id && data.conversation_id !== sessionId) {
+        localStorage.setItem("smartdex_chat_session_id", data.conversation_id);
+        setSessionId(data.conversation_id);
+      }
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
@@ -243,9 +245,8 @@ export default function ChatWidget() {
   };
 
   const resetConversation = () => {
-    const newSessionId = createId();
-    localStorage.setItem("smartdex_chat_session_id", newSessionId);
-    setSessionId(newSessionId);
+    localStorage.removeItem("smartdex_chat_session_id");
+    setSessionId("");
     setMessages([
       {
         id: createId(),
@@ -297,7 +298,8 @@ export default function ChatWidget() {
       console.error("Generate devis error:", error);
       setDevisResult({ status: "failed" });
       setDevisError(
-        "Impossible de générer le devis pour le moment. Veuillez réessayer."
+        error?.message ||
+          "Impossible de générer le devis pour le moment. Veuillez réessayer."
       );
     } finally {
       setIsGeneratingDevis(false);

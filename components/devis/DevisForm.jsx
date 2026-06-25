@@ -3,9 +3,7 @@
 import { useState } from "react";
 import styles from "./DevisForm.module.css";
 import DevisResult from "./DevisResult";
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+import { submitDevisRequest } from "../../services/devis";
 
 const initialForm = {
   full_name: "",
@@ -14,7 +12,7 @@ const initialForm = {
   company_name: "",
   business_sector: "",
   project_type: "website",
-  description: "",
+  project_goal: "",
   target_users: "",
   features: [],
   budget_range: "",
@@ -26,19 +24,31 @@ const initialForm = {
   notes: "",
 };
 
-const featureOptions = [
-  "contact_form",
-  "admin_dashboard",
-  "authentication",
-  "payment",
-  "booking",
-  "blog",
-  "chatbot",
-  "analytics",
-  "notifications",
-  "multilingual",
-  "api_integration",
-];
+const featureLabels = {
+  contact_form: "contact form",
+  admin_dashboard: "admin dashboard",
+  authentication: "authentication",
+  payment: "payment",
+  booking: "booking",
+  blog: "blog",
+  chatbot: "chatbot",
+  analytics: "analytics",
+  notifications: "notifications",
+  multilingual: "multilingual",
+  api_integration: "API integration",
+};
+
+const projectTypeLabels = {
+  website: "website",
+  webapp: "webapp",
+  saas: "saas",
+  mobile_app: "mobile app",
+  ecommerce: "ecommerce",
+  automation: "automation",
+  ai_system: "AI system",
+  dashboard: "dashboard",
+  api_integration: "API integration",
+};
 
 export default function DevisForm() {
   const [formData, setFormData] = useState(initialForm);
@@ -69,14 +79,38 @@ export default function DevisForm() {
   };
 
   const buildPayload = () => {
+    const projectGoal = formData.project_goal?.trim();
+    const projectType =
+      projectTypeLabels[formData.project_type] || formData.project_type;
+    const selectedFeatures = formData.features.map(
+      (feature) => featureLabels[feature] || feature
+    );
+    const descriptionParts = [
+      `Project type: ${projectType}.`,
+      projectGoal,
+      selectedFeatures.length
+        ? `Requested features: ${selectedFeatures.join(", ")}.`
+        : "",
+      formData.budget_range ? `Budget range: ${formData.budget_range}.` : "",
+      formData.deadline ? `Timeline: ${formData.deadline}.` : "",
+      formData.business_sector?.trim()
+        ? `Business sector: ${formData.business_sector.trim()}.`
+        : "",
+      formData.target_users?.trim()
+        ? `Target users: ${formData.target_users.trim()}.`
+        : "",
+      formData.notes?.trim() ? `Additional notes: ${formData.notes.trim()}.` : "",
+    ].filter(Boolean);
+
     const payload = {
       client_name: formData.full_name?.trim(),
       client_email: formData.email?.trim(),
       client_phone: formData.phone?.trim(),
       project_type: formData.project_type?.trim(),
-      description: formData.project_goal?.trim(),
+      description: descriptionParts.join("\n"),
       budget_range: formData.budget_range?.trim(),
       timeline: formData.deadline?.trim(),
+      preferred_language: "fr",
     };
   
     if (formData.features?.length) {
@@ -120,66 +154,9 @@ export default function DevisForm() {
 
     try {
       const payload = buildPayload();
+      const devisResult = await submitDevisRequest(payload);
 
-      console.log("DEVIS PAYLOAD:", payload);
-
-      const createResponse = await fetch(`${API_BASE_URL}/api/devis/requests/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const createContentType = createResponse.headers.get("content-type") || "";
-      const createdData = createContentType.includes("application/json")
-        ? await createResponse.json()
-        : null;
-
-      console.log("CREATE STATUS:", createResponse.status);
-      console.log("CREATE RESPONSE:", createdData);
-
-      if (!createResponse.ok) {
-        throw new Error(JSON.stringify(createdData, null, 2));
-      }
-
-      const devisId = createdData?.id || createdData?.request_id;
-
-      if (!devisId) {
-        throw new Error("Identifiant de devis introuvable dans la réponse.");
-      }
-
-      const generateResponse = await fetch(
-        `${API_BASE_URL}/api/devis/requests/${devisId}/generate/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const generateContentType =
-        generateResponse.headers.get("content-type") || "";
-      const generatedData = generateContentType.includes("application/json")
-        ? await generateResponse.json()
-        : null;
-
-      console.log("GENERATE STATUS:", generateResponse.status);
-      console.log("GENERATE RESPONSE:", generatedData);
-
-      if (!generateResponse.ok) {
-        throw new Error(JSON.stringify(generatedData, null, 2));
-      }
-
-      setResult({
-        request: {
-          ...payload,
-          ...createdData,
-        },
-        quote: generatedData,
-      });
-      
+      setResult(devisResult);
     } catch (err) {
       console.error("Devis submission error:", err);
       setError(
