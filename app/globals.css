@@ -406,13 +406,35 @@ section + section::before {
 /* Scroll reveal animation */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  filter: blur(12px) saturate(1.12);
+  transform: translate3d(0, 42px, 0) scale(0.975) rotateX(6deg);
+  transform-origin: 50% 100%;
+  transition:
+    opacity 0.84s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.84s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.84s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.84s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="left"] {
+  transform: translate3d(-52px, 0, 0) scale(0.975) rotateY(-7deg);
+  transform-origin: 0 50%;
+}
+
+[data-reveal="right"] {
+  transform: translate3d(52px, 0, 0) scale(0.975) rotateY(7deg);
+  transform-origin: 100% 50%;
+}
+
+[data-reveal="zoom"] {
+  transform: translate3d(0, 20px, 0) scale(0.92);
 }
 
 [data-reveal].revealed {
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0) saturate(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .reveal { opacity: 1; }

@@ -53,9 +53,6 @@ export default function ClientLayout({ children }) {
   }, [])
 
   useEffect(() => {
-    const rafId = requestAnimationFrame(() => {
-      document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('revealed'))
-    })
     let obs = null
     const timeoutId = setTimeout(() => {
       const els = document.querySelectorAll('[data-reveal]')
@@ -63,15 +60,16 @@ export default function ClientLayout({ children }) {
       obs = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add('revealed')
+            if (!e.isIntersecting) return
+            e.target.classList.add('revealed')
+            obs.unobserve(e.target)
           })
         },
-        { rootMargin: '0px 0px -60px 0px', threshold: 0.1 }
+        { rootMargin: '0px 0px -80px 0px', threshold: 0.12 }
       )
       els.forEach((el) => obs.observe(el))
     }, 50)
     return () => {
-      cancelAnimationFrame(rafId)
       clearTimeout(timeoutId)
       if (obs) obs.disconnect()
     }

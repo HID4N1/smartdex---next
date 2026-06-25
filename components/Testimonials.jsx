@@ -18,8 +18,13 @@ export default function Testimonials() {
         </div>
 
         <div className="testimonials-grid">
-          {data.map((testimonial) => (
-            <article key={testimonial.id} className="testimonial-card" data-reveal>
+          {data.map((testimonial, index) => (
+            <article
+              key={testimonial.id}
+              className="testimonial-card"
+              data-reveal="right"
+              style={{ '--reveal-delay': `${index * 100}ms` }}
+            >
               {testimonial.project && (
                 <span className="testimonial-project">{testimonial.project}</span>
               )}
