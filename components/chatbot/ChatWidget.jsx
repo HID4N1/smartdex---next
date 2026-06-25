@@ -80,12 +80,20 @@ function safeArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+function createId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+
+  return `chat-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId, setSessionId] = useState("");
   const [messages, setMessages] = useState([
     {
-      id: crypto.randomUUID(),
+      id: createId(),
       role: "assistant",
       content: DEFAULT_ASSISTANT_MESSAGE,
     },
@@ -117,7 +125,7 @@ export default function ChatWidget() {
     let existingSessionId = localStorage.getItem("smartdex_chat_session_id");
 
     if (!existingSessionId) {
-      existingSessionId = crypto.randomUUID();
+      existingSessionId = createId();
       localStorage.setItem("smartdex_chat_session_id", existingSessionId);
     }
 
@@ -159,7 +167,7 @@ export default function ChatWidget() {
     if (!trimmed || isLoading || !sessionId) return;
 
     const userMessage = {
-      id: crypto.randomUUID(),
+      id: createId(),
       role: "user",
       content: trimmed,
     };
@@ -200,7 +208,7 @@ export default function ChatWidget() {
       }
 
       const assistantMessage = {
-        id: crypto.randomUUID(),
+        id: createId(),
         role: "assistant",
         content: data.answer || data.reply || "Aucune réponse reçue.",
       };
@@ -210,7 +218,7 @@ export default function ChatWidget() {
       setMessages((prev) => [
         ...prev,
         {
-          id: crypto.randomUUID(),
+          id: createId(),
           role: "assistant",
           content:
             "Je rencontre un problème technique pour le moment. Vous pouvez nous contacter directement via le formulaire ou demander un devis.",
@@ -235,12 +243,12 @@ export default function ChatWidget() {
   };
 
   const resetConversation = () => {
-    const newSessionId = crypto.randomUUID();
+    const newSessionId = createId();
     localStorage.setItem("smartdex_chat_session_id", newSessionId);
     setSessionId(newSessionId);
     setMessages([
       {
-        id: crypto.randomUUID(),
+        id: createId(),
         role: "assistant",
         content: DEFAULT_ASSISTANT_MESSAGE,
       },
