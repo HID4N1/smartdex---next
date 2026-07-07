@@ -10,7 +10,7 @@ const IMAGE_MAP = {
   quattro: '/images/quattro.png',
   casamyway: '/images/casamyway.png',
   ratp: '/images/RATPDev.jpg',
-  gen: '/images/gen.jpg',
+  gen: '/images/gen.png',
   loto: '/images/loto.svg',
 }
 
