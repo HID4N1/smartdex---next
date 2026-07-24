@@ -5,3 +5,76 @@
     radial-gradient(circle at 30% 70%, rgba(156, 39, 176, 0.12), transparent 50%),
     linear-gradient(180deg, rgba(11, 31, 58, 0.4), rgba(11, 31, 58, 0.8));
 }
+
+.saas-development-morocco .seo-platform-proof {
+  margin-bottom: 56px;
+}
+
+.saas-development-morocco .seo-platform-proof h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--sd-text);
+}
+
+.saas-development-morocco .seo-platform-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 18px;
+}
+
+.saas-development-morocco .seo-platform-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius);
+  background: var(--sd-bg-secondary);
+}
+
+.saas-development-morocco .seo-platform-card-featured {
+  grid-row: span 2;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(42, 166, 255, 0.12), rgba(255, 255, 255, 0.05));
+}
+
+.saas-development-morocco .seo-platform-card h3 {
+  margin: 0 0 6px;
+  color: var(--sd-text);
+  font-size: 20px;
+}
+
+.saas-development-morocco .seo-platform-card-featured h3 {
+  font-size: 26px;
+}
+
+.saas-development-morocco .seo-platform-client {
+  margin: 0;
+  color: var(--sd-accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.saas-development-morocco .seo-platform-card p {
+  margin: 0;
+  color: var(--sd-text-muted);
+  line-height: 1.65;
+}
+
+.saas-development-morocco .seo-platform-card a {
+  margin-top: auto;
+  color: var(--sd-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .saas-development-morocco .seo-platform-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saas-development-morocco .seo-platform-card-featured {
+    grid-row: auto;
+  }
+}

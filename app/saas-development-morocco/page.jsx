@@ -97,8 +97,82 @@ export default function SaasDevelopmentMoroccoPage() {
         <div className="container">
           <section className="seo-intro">
             <p>
-              Au Maroc, les startups marocaines et les PME cherchent des solutions logicielles adaptées à leur croissance. Le développement SaaS sur mesure permet d&apos;avoir un outil qui évolue avec vous, sans dépendre de logiciels génériques. SmartDex, basée à Casablanca, accompagne les entreprises dans la création de logiciels cloud professionnels : plateformes de gestion, CRM, outils collaboratifs ou logiciels métier spécifiques à votre secteur. Notre approche combine qualité technique (React, Node.js, bases de données cloud) et accompagnement terrain pour garantir la scalabilité et la pérennité de votre projet. Que vous soyez une startup en phase de lancement ou une entreprise établie en transformation digitale, nous construisons avec vous le SaaS qui répond précisément à vos besoins et à ceux de vos clients au Maroc.
+              Au Maroc, les startups marocaines et les PME cherchent des solutions logicielles adaptées à 
+              leur croissance. Choisir entre un <Link href="/blog/saas-vs-logiciel-sur-mesure-maroc">SaaS
+              ou logiciel sur mesure</Link> permet d&apos;avoir un outil qui évolue avec vous, sans dépendre
+              de logiciels génériques. SmartDex, basée à Casablanca, accompagne les entreprises dans la 
+              création de logiciels cloud professionnels : plateformes de gestion, CRM, outils collaboratifs
+              ou logiciels métier spécifiques à votre secteur. Notre approche combine qualité technique 
+              (React, Node.js, bases de données cloud) et accompagnement terrain pour garantir la scalabilité
+              et la pérennité de votre projet. Que vous soyez une startup en phase de lancement ou une
+              entreprise établie en transformation digitale, nous construisons avec vous le SaaS qui répond 
+               précisément à vos besoins et à ceux de vos clients au Maroc.
             </p>
+          </section>
+
+          <section className="seo-solutions">
+            <h2>Solutions SaaS sur mesure au Maroc</h2>
+            <p>
+              Une solution SaaS efficace doit avant tout répondre à des besoins métier concrets : vendre plus vite,
+              mieux suivre les opérations et donner aux équipes une information fiable au bon moment. SmartDex
+              conçoit chaque solution SaaS comme une plateforme SaaS sur mesure, pensée pour les PME marocaines,
+              les startups et les entreprises marocaines qui veulent structurer leur croissance sans multiplier
+              les outils isolés. Nous développons par exemple un CRM pour gérer les clients, les prospects et 
+              les ventes, une plateforme de gestion ou ERP pour PME afin de centraliser stocks, factures, missions 
+              et tableaux de bord, ou encore un système de réservation pour hôtels, salons, cabinets ou services 
+              à domicile. Un logiciel SaaS peut aussi prendre la forme d’un portail client pour suivre commandes, 
+              documents, paiements et demandes de support, ou d’un outil collaboratif pour organiser projets,
+              équipes et validations internes. L’objectif reste simple : transformer vos processus quotidiens en
+              un outil cloud rapide, sécurisé et mesurable, capable d’améliorer la productivité, la qualité de 
+              service et la visibilité de votre activité.
+            </p>
+          </section>
+
+          <section className="seo-platform-proof">
+            <h2>Des plateformes SaaS conçues pour des besoins réels</h2>
+            <div className="seo-platform-proof-grid">
+              <article className="seo-platform-card seo-platform-card-featured">
+                <div>
+                  <h3>CasaMyWay</h3>
+                  <p className="seo-platform-client">GenSales / RATP</p>
+                </div>
+                <p>
+                  Plateforme SaaS pour la réservation et le renouvellement d’abonnements de transport, avec agents terrain, back-office admin, OCR et notifications WhatsApp.
+                </p>
+                <p>
+                  Impact business : processus client plus fluide, meilleure organisation terrain, réduction des tâches manuelles et suivi centralisé des opérations.
+                </p>
+                <Link href="/projects/casamyway">Voir le projet</Link>
+              </article>
+
+              <article className="seo-platform-card">
+                <div>
+                  <h3>Plateforme de suivi commercial SJM</h3>
+                  <p className="seo-platform-client">Master Blow / MDJS</p>
+                </div>
+                <p>
+                  Plateforme web de suivi en temps réel des performances des agents commerciaux, avec OCR, dashboard superviseur, KPI et reporting automatisé.
+                </p>
+                <p>
+                  Impact business : meilleure visibilité opérationnelle, réduction du temps de reporting et identification plus rapide des problèmes terrain.
+                </p>
+                <Link href="/projects/sjm-pilote-mdjs">Voir le projet</Link>
+              </article>
+
+              <article className="seo-platform-card">
+                <div>
+                  <h3>Quattro Plus</h3>
+                  <p className="seo-platform-client">MasterBlow / MDJS</p>
+                </div>
+                <p>
+                  Plateforme mobile et web de gestion de campagne promotionnelle avec instant win, quotas journaliers, stocks cadeaux, agents terrain et rapports.
+                </p>
+                <p>
+                  Impact business : distribution maîtrisée, reporting fiable, réduction des erreurs terrain et meilleure visibilité sur l’avancement de la campagne.
+                </p>
+                <Link href="/projects/quattro-plus">Voir le projet</Link>
+              </article>
+            </div>
           </section>
 
           <section className="seo-features">
