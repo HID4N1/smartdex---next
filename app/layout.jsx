@@ -1,5 +1,6 @@
 import './globals.css'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import ClientLayout from '../components/ClientLayout'
 
 export const metadata = {
@@ -97,7 +98,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#0a0a0f" />
         <link rel="icon" type="image/png" href="/logo.png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/logo.png" />
-        
+
         {/* Microsoft Clarity */}
         <script
           type="text/javascript"
@@ -120,6 +121,7 @@ export default function RootLayout({ children }) {
         <ClientLayout>
           {children}
         </ClientLayout>
+        <Analytics />
   
       </body>
     </html>
