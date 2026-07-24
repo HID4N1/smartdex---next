@@ -32,6 +32,7 @@ export default function Footer() {
             <Link href="/projects">Réalisations</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/about">À propos</Link>
+            <Link href="/contact">Contact</Link>
             <Link href="/devis">Obtenir une estimation instantanée</Link>
             <ChatbotTrigger className="footer-link-button">Parler à l’assistant IA</ChatbotTrigger>
           </div>
@@ -48,7 +49,8 @@ export default function Footer() {
         </div>
         <div>
           <h4>Coordonnées</h4>
-          <div className="muted">contact@smartdex.ma</div>
+          <Link href="/contact">Formulaire de contact</Link>
+          <div className="muted" style={{ marginTop: 6 }}>contact@smartdex.ma</div>
           <div className="muted">+212 70745-8386</div>
           <div className="muted">+212 52008-5689</div>
           <div style={{ marginTop: 8, display: 'flex', gap: 10 }}>

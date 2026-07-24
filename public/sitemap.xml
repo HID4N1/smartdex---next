@@ -94,11 +94,9 @@
 
 
   <!-- Project detail pages -->
-  <url><loc>https://smartdex.ma/projects/ratp-web-1</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/ratp-web-2</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/ratp-mobile-1</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/ratp-mobile-2</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/gensaales-web</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/gensaales-mobile</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/loterie-mobile</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://smartdex.ma/projects/sjm-pilote-mdjs</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://smartdex.ma/projects/lmatch-pro</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://smartdex.ma/projects/quattro-plus</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://smartdex.ma/projects/casamyway</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://smartdex.ma/projects/site-web-gensales</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

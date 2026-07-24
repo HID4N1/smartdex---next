@@ -302,11 +302,11 @@ export default function AiChatbotMoroccoPage() {
           <section className="seo-internal-links">
             <h2>Renforcez votre écosystème digital</h2>
             <p>
-              Un AI Chatbot Maroc devient plus puissant lorsqu’il est connecté à votre site, votre CRM et vos contenus. Explorez aussi nos pages <Link href="/services">services digitaux</Link>, <Link href="/saas-development">développement SaaS</Link>, <Link href="/contact">contact</Link> et nos ressources du <Link href="/blog">blog SmartDex</Link>.
+              Un AI Chatbot Maroc devient plus puissant lorsqu’il est connecté à votre site, votre CRM et vos contenus. Explorez aussi nos pages <Link href="/services">services digitaux</Link>, <Link href="/saas-development-morocco">développement SaaS</Link>, <Link href="/contact">contact</Link> et nos ressources du <Link href="/blog">blog SmartDex</Link>.
             </p>
             <div className="seo-link-row">
               <Link href="/services">Services</Link>
-              <Link href="/saas-development">SaaS Maroc</Link>
+              <Link href="/saas-development-morocco">SaaS Maroc</Link>
               <Link href="/blog/saas-vs-logiciel-sur-mesure-maroc">SaaS vs logiciel sur mesure</Link>
               <Link href="/blog/systeme-reservation-en-ligne-maroc-2026">Réservation en ligne Maroc</Link>
               <Link href="/contact">Contact</Link>
