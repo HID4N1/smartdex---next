@@ -56,14 +56,14 @@ export const metadata = {
   openGraph: {
     title: 'Agence Web Casablanca — Sites & Applications sur mesure',
     description: 'SmartDex, agence web à Casablanca. Création de sites web, applications React et plateformes digitales pour entreprises marocaines.',
-    url: 'https://smartdex.ma/agence-web-casablanca',
+    url: 'https://www.smartdex.ma/agence-web-casablanca',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://smartdex.ma/agence-web-casablanca',
+    canonical: 'https://www.smartdex.ma/agence-web-casablanca',
   },
 }
 

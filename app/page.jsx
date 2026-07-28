@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: 'SmartDex — Agence Digitale Maroc',
     description: "Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.",
-    url: 'https://smartdex.ma',
+    url: 'https://www.smartdex.ma',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',

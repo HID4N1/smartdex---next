@@ -137,14 +137,14 @@ export const metadata = {
   openGraph: {
     title: 'AI Chatbot Maroc — WhatsApp, Leads & Service Client',
     description: 'Automatisez votre service client et vos leads avec un chatbot IA connecté à WhatsApp Business pour les entreprises marocaines.',
-    url: 'https://smartdex.ma/ai-chatbot-morocco',
+    url: 'https://www.smartdex.ma/ai-chatbot-morocco',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://smartdex.ma/ai-chatbot-morocco',
+    canonical: 'https://www.smartdex.ma/ai-chatbot-morocco',
   },
 }
 
@@ -187,8 +187,8 @@ export default function AiChatbotMoroccoPage() {
               <p className="seo-chat-bubble user">Je veux automatiser WhatsApp pour mes leads.</p>
               <p className="seo-chat-bubble bot">Très bien. Je peux qualifier le besoin, collecter le budget et envoyer le prospect vers votre CRM.</p>
               <div className="seo-chat-metrics">
-                <span><strong>+40%</strong> leads</span>
-                <span><strong>-60%</strong> temps de réponse</span>
+                <span><strong>24/7</strong> disponibilité</span>
+                <span><strong>FR / AR / Darija</strong> multilingue</span>
               </div>
             </div>
           </div>
@@ -286,15 +286,15 @@ export default function AiChatbotMoroccoPage() {
 
           <section className="seo-results">
             <div>
-              <span className="section-badge">Résultats obtenus</span>
-              <h2>Un exemple réaliste de performance après déploiement</h2>
+              <span className="section-badge">Impact opérationnel</span>
+              <h2>Des bénéfices concrets après déploiement</h2>
               <p>
                 Pour une PME marocaine recevant des demandes via site web et WhatsApp, un chatbot IA bien configuré peut absorber les questions répétitives, capturer les leads hors horaires et transmettre les demandes prioritaires à l’équipe commerciale.
               </p>
             </div>
             <div className="seo-results-grid">
-              <div><strong>+40%</strong><span>leads mieux qualifiés</span></div>
-              <div><strong>-60%</strong><span>temps de réponse moyen</span></div>
+              <div><strong>Leads</strong><span>qualification des demandes</span></div>
+              <div><strong>Réactivité</strong><span>réduction du temps de réponse</span></div>
               <div><strong>24/7</strong><span>disponibilité client</span></div>
             </div>
           </section>

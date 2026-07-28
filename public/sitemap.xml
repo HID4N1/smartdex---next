@@ -1,102 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://smartdex.ma/</loc>
+    <loc>https://www.smartdex.ma/</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/services</loc>
+    <loc>https://www.smartdex.ma/services</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/projects</loc>
+    <loc>https://www.smartdex.ma/projects</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/about</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartdex.ma/contact</loc>
+    <loc>https://www.smartdex.ma/about</loc>
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/ai-chatbot-morocco</loc>
+    <loc>https://www.smartdex.ma/contact</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.smartdex.ma/ai-chatbot-morocco</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/saas-development-morocco</loc>
+    <loc>https://www.smartdex.ma/saas-development-morocco</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/agence-web-casablanca</loc>
+    <loc>https://www.smartdex.ma/agence-web-casablanca</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/creation-application-mobile-maroc</loc>
+    <loc>https://www.smartdex.ma/creation-application-mobile-maroc</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/developpement-erp-crm-maroc</loc>
+    <loc>https://www.smartdex.ma/developpement-erp-crm-maroc</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/blog</loc>
+    <loc>https://www.smartdex.ma/blog</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.7</priority>
   </url>
   <!-- blogs -->
   <url>
-    <loc>https://smartdex.ma/blog/combien-coute-un-site-web-maroc-2026</loc>
+    <loc>https://www.smartdex.ma/blog/combien-coute-un-site-web-maroc-2026</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/blog/pourquoi-entreprise-marocaine-application-mobile-2026</loc>
+    <loc>https://www.smartdex.ma/blog/pourquoi-entreprise-marocaine-application-mobile-2026</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/blog/transformation-digitale-tpe-pme-maroc-vision-2030</loc>
+    <loc>https://www.smartdex.ma/blog/transformation-digitale-tpe-pme-maroc-vision-2030</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/blog/saas-vs-logiciel-sur-mesure-maroc</loc>
+    <loc>https://www.smartdex.ma/blog/saas-vs-logiciel-sur-mesure-maroc</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartdex.ma/blog/systeme-reservation-en-ligne-maroc-2026</loc>
+    <loc>https://www.smartdex.ma/blog/systeme-reservation-en-ligne-maroc-2026</loc>
     <lastmod>2026-03-19</lastmod>
     <priority>0.8</priority>
   </url>
 
 
   <!-- Project detail pages -->
-  <url><loc>https://smartdex.ma/projects/sjm-pilote-mdjs</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/lmatch-pro</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/quattro-plus</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/casamyway</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://smartdex.ma/projects/site-web-gensales</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartdex.ma/projects/sjm-pilote-mdjs</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartdex.ma/projects/lmatch-pro</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartdex.ma/projects/quattro-plus</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartdex.ma/projects/casamyway</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartdex.ma/projects/site-web-gensales</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

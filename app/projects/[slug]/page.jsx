@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${p.name} — SmartDex`,
       description: p.description || `Projet ${p.name}`,
-      url: `https://smartdex.ma/projects/${slug}`,
+      url: `https://www.smartdex.ma/projects/${slug}`,
       siteName: 'SmartDex',
       locale: 'fr_MA',
       type: 'website',

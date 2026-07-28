@@ -56,14 +56,14 @@ export const metadata = {
   openGraph: {
     title: 'Développement SaaS Maroc — Logiciels cloud sur mesure',
     description: 'SmartDex conçoit des logiciels SaaS sur mesure pour entreprises marocaines. Architecture cloud, multi-tenant, sécurisé. Devis gratuit à Casablanca.',
-    url: 'https://smartdex.ma/saas-development-morocco',
+    url: 'https://www.smartdex.ma/saas-development-morocco',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://smartdex.ma/saas-development-morocco',
+    canonical: 'https://www.smartdex.ma/saas-development-morocco',
   },
 }
 

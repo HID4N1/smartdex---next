@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: 'Nos Projets — SmartDex',
     description: 'Réalisations web, mobile et logiciels sur mesure.',
-    url: 'https://smartdex.ma/projects',
+    url: 'https://www.smartdex.ma/projects',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',

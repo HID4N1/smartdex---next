@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: 'Nos Services — SmartDex',
     description: 'Développement web, mobile, SaaS et solutions cloud. Agence digitale Casablanca.',
-    url: 'https://smartdex.ma/services',
+    url: 'https://www.smartdex.ma/services',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',

@@ -56,14 +56,14 @@ export const metadata = {
   openGraph: {
     title: 'Création Application Mobile Maroc — iOS & Android',
     description: 'SmartDex développe vos applications mobiles iOS et Android sur mesure au Maroc. React Native, performance et design soigné. Devis gratuit.',
-    url: 'https://smartdex.ma/creation-application-mobile-maroc',
+    url: 'https://www.smartdex.ma/creation-application-mobile-maroc',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://smartdex.ma/creation-application-mobile-maroc',
+    canonical: 'https://www.smartdex.ma/creation-application-mobile-maroc',
   },
 }
 

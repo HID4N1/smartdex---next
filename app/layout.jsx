@@ -9,9 +9,9 @@ export const metadata = {
     template: '%s — SmartDex',
   },
   description: 'SmartDex est une agence digitale au Maroc spécialisée en développement web, SaaS, applications mobiles et solutions IA pour entreprises.',
-  metadataBase: new URL('https://smartdex.ma'),
+  metadataBase: new URL('https://www.smartdex.ma'),
   applicationName: 'SmartDex',
-  authors: [{ name: 'SmartDex', url: 'https://smartdex.ma' }],
+  authors: [{ name: 'SmartDex', url: 'https://www.smartdex.ma' }],
   creator: 'SmartDex',
   publisher: 'SmartDex',
   robots: {
@@ -31,7 +31,7 @@ export const metadata = {
   openGraph: {
     title: 'SmartDex — Agence Digitale au Maroc',
     description: 'Développement web, SaaS, applications mobiles et solutions IA pour entreprises au Maroc.',
-    url: 'https://smartdex.ma',
+    url: 'https://www.smartdex.ma',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
@@ -56,11 +56,11 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
-    '@id': 'https://smartdex.ma/#organization',
+    '@id': 'https://www.smartdex.ma/#organization',
     name: 'SmartDex',
-    url: 'https://smartdex.ma',
-    logo: 'https://smartdex.ma/logo.png',
-    image: 'https://smartdex.ma/og-image.png',
+    url: 'https://www.smartdex.ma',
+    logo: 'https://www.smartdex.ma/logo.png',
+    image: 'https://www.smartdex.ma/og-image.png',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Casablanca',

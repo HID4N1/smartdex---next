@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://smartdex.ma/sitemap.xml
+Sitemap: https://www.smartdex.ma/sitemap.xml

@@ -17,14 +17,14 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.description,
-      url: `https://smartdex.ma/blog/${slug}`,
+      url: `https://www.smartdex.ma/blog/${slug}`,
       siteName: 'SmartDex',
       locale: 'fr_MA',
       type: 'article',
       publishedTime: frontmatter.date,
       images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     },
-    alternates: { canonical: `https://smartdex.ma/blog/${slug}` },
+    alternates: { canonical: `https://www.smartdex.ma/blog/${slug}` },
   }
 }
 
@@ -53,12 +53,12 @@ export default async function BlogPostPage({ params }) {
     author: {
       '@type': 'Organization',
       name: 'SmartDex',
-      url: 'https://smartdex.ma',
+      url: 'https://www.smartdex.ma',
     },
     publisher: {
       '@type': 'Organization',
       name: 'SmartDex',
-      logo: 'https://smartdex.ma/logo.png',
+      logo: 'https://www.smartdex.ma/logo.png',
     },
   }
 

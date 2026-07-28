@@ -11,7 +11,7 @@ const CONTACT = {
   phone: "+212 7074-58386",
   phoneHref: "tel:+212707458386",
   website: "smartdex.ma",
-  websiteHref: "https://smartdex.ma",
+  websiteHref: "https://www.smartdex.ma",
   linkedIn: "https://www.linkedin.com/in/diyae-eddine-sayakoul/",
 };
 
@@ -24,7 +24,7 @@ const VCARD_LINES = [
   "TITLE:Founder & CEO",
   "TEL;TYPE=CELL:+212707458386",
   "EMAIL:Diyae-eddine@smartdex.ma",
-  "URL:https://smartdex.ma",
+  "URL:https://www.smartdex.ma",
   "URL;type=LinkedIn:https://www.linkedin.com/in/diyae-eddine-sayakoul/",
   "ADR;TYPE=WORK:;;Casablanca;;;Morocco",
   "END:VCARD",

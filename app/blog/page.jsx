@@ -9,13 +9,13 @@ export const metadata = {
   openGraph: {
     title: 'Blog SmartDex — Conseils digitaux Maroc',
     description: 'Articles sur le développement web, mobile, SaaS et IA pour entreprises marocaines.',
-    url: 'https://smartdex.ma/blog',
+    url: 'https://www.smartdex.ma/blog',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://smartdex.ma/blog' },
+  alternates: { canonical: 'https://www.smartdex.ma/blog' },
 }
 
 function formatDate(dateStr) {

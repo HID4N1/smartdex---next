@@ -56,14 +56,14 @@ export const metadata = {
   openGraph: {
     title: 'Développement ERP & CRM Maroc — Gestion sur mesure',
     description: 'SmartDex développe des ERP et CRM sur mesure pour entreprises marocaines. Gestion commerciale, RH, stocks. Basé à Casablanca.',
-    url: 'https://smartdex.ma/developpement-erp-crm-maroc',
+    url: 'https://www.smartdex.ma/developpement-erp-crm-maroc',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://smartdex.ma/developpement-erp-crm-maroc',
+    canonical: 'https://www.smartdex.ma/developpement-erp-crm-maroc',
   },
 }
 

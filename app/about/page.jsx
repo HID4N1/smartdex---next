@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: "À propos — SmartDex",
     description: "Agence digitale basée à Casablanca, Maroc.",
-    url: 'https://smartdex.ma/about',
+    url: 'https://www.smartdex.ma/about',
     siteName: 'SmartDex',
     locale: 'fr_MA',
     type: 'website',
