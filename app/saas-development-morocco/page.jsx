@@ -76,62 +76,182 @@ export default function SaasDevelopmentMoroccoPage() {
           __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
         }}
       />
-      <header className="seo-hero" data-reveal>
+      <header className="seo-hero saas-hero">
         <div className="seo-hero-bg" />
-        <div className="container seo-hero-content">
-          <div className="section-badge-wrapper">
-            <span className="section-badge">SaaS</span>
+        <div className="container seo-hero-grid">
+          <div className="seo-hero-copy">
+            <div className="section-badge-wrapper">
+              <span className="section-badge">SaaS</span>
+            </div>
+            <h1 className="seo-main-title">Développement SaaS Maroc</h1>
+            <p className="seo-subtitle muted">
+              Des logiciels cloud sur mesure pour startups et entreprises marocaines. Architecture scalable, multi-tenant et sécurisée pour accélérer votre transformation digitale.
+            </p>
+            <div className="seo-hero-ctas">
+              <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
+              <Link href="/projects" className="btn">Voir nos réalisations</Link>
+            </div>
+            <div className="seo-trust-row saas-trust-badges" aria-label="Indicateurs de confiance SmartDex">
+              <span><strong>Multi-tenant</strong> Cloud-ready</span>
+              <span><strong>RGPD</strong> Security-first</span>
+              <span><strong>Support</strong> Post-livraison</span>
+            </div>
           </div>
-          <h1 className="seo-main-title">Développement SaaS Maroc</h1>
-          <p className="seo-subtitle muted">
-            Des logiciels cloud sur mesure pour startups et entreprises marocaines. Architecture scalable, multi-tenant et sécurisée pour accélérer votre transformation digitale.
-          </p>
-          <div className="seo-hero-ctas">
-            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
-            <Link href="/projects" className="btn">Voir nos réalisations</Link>
+
+          <div className="saas-dashboard-stage" aria-hidden="true">
+            <div className="saas-dashboard-glow" />
+            <div className="saas-dashboard">
+              <div className="saas-dashboard-topbar">
+                <span />
+                <span />
+                <span />
+                <strong>SmartDex Cloud OS</strong>
+              </div>
+              <div className="saas-dashboard-grid">
+                <div className="saas-panel saas-revenue-panel">
+                  <span className="saas-panel-label">Revenue</span>
+                  <strong>1.8M MAD</strong>
+                  <small>+24.8% this quarter</small>
+                  <div className="saas-chart-line">
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+                </div>
+                <div className="saas-panel">
+                  <span className="saas-panel-label">Subscriptions</span>
+                  <strong>3,482</strong>
+                  <small>Active accounts</small>
+                  <div className="saas-progress"><span /></div>
+                </div>
+                <div className="saas-panel">
+                  <span className="saas-panel-label">Users</span>
+                  <strong>18.4k</strong>
+                  <small>Across tenants</small>
+                  <div className="saas-avatar-row">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+                <div className="saas-panel saas-invoices-panel">
+                  <span className="saas-panel-label">Invoices</span>
+                  <div className="saas-invoice-row"><b>CMI</b><em>Paid</em></div>
+                  <div className="saas-invoice-row"><b>Stripe</b><em>Synced</em></div>
+                  <div className="saas-invoice-row"><b>ERP</b><em>Queued</em></div>
+                </div>
+              </div>
+            </div>
+            <div className="saas-floating-card saas-floating-card-one">
+              <span>Growth</span>
+              <strong>98.9%</strong>
+            </div>
+            <div className="saas-floating-card saas-floating-card-two">
+              <span>Notifications</span>
+              <strong>WhatsApp OCR</strong>
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="seo-content" data-reveal>
+      <div className="seo-content">
         <div className="container">
-          <section className="seo-intro">
-            <p>
-              Au Maroc, les startups marocaines et les PME cherchent des solutions logicielles adaptées à 
-              leur croissance. Choisir entre un <Link href="/blog/saas-vs-logiciel-sur-mesure-maroc">SaaS
-              ou logiciel sur mesure</Link> permet d&apos;avoir un outil qui évolue avec vous, sans dépendre
-              de logiciels génériques. SmartDex, basée à Casablanca, accompagne les entreprises dans la 
-              création de logiciels cloud professionnels : plateformes de gestion, CRM, outils collaboratifs
-              ou logiciels métier spécifiques à votre secteur. Notre approche combine qualité technique 
-              (React, Node.js, bases de données cloud) et accompagnement terrain pour garantir la scalabilité
-              et la pérennité de votre projet. Que vous soyez une startup en phase de lancement ou une
-              entreprise établie en transformation digitale, nous construisons avec vous le SaaS qui répond 
-               précisément à vos besoins et à ceux de vos clients au Maroc.
-            </p>
+          <section className="seo-intro saas-story-section">
+            <div className="saas-story-copy">
+              <p>
+                Au Maroc, les startups marocaines et les PME cherchent des solutions logicielles adaptées à 
+                leur croissance. Choisir entre un <Link href="/blog/saas-vs-logiciel-sur-mesure-maroc">SaaS
+                ou logiciel sur mesure</Link> permet d&apos;avoir un outil qui évolue avec vous, sans dépendre
+                de logiciels génériques. SmartDex, basée à Casablanca, accompagne les entreprises dans la 
+                création de logiciels cloud professionnels : plateformes de gestion, CRM, outils collaboratifs
+                ou logiciels métier spécifiques à votre secteur. Notre approche combine qualité technique 
+                (React, Node.js, bases de données cloud) et accompagnement terrain pour garantir la scalabilité
+                et la pérennité de votre projet. Que vous soyez une startup en phase de lancement ou une
+                entreprise établie en transformation digitale, nous construisons avec vous le SaaS qui répond 
+                 précisément à vos besoins et à ceux de vos clients au Maroc.
+              </p>
+            </div>
+            <div className="saas-product-orbit" aria-hidden="true" data-reveal="right">
+              <div className="saas-orbit-card saas-orbit-main">
+                <span>CRM</span>
+                <strong>Pipeline</strong>
+                <i />
+              </div>
+              <div className="saas-orbit-card">
+                <span>ERP</span>
+                <strong>Stock &amp; factures</strong>
+              </div>
+              <div className="saas-orbit-card">
+                <span>BI</span>
+                <strong>KPI terrain</strong>
+              </div>
+            </div>
           </section>
 
-          <section className="seo-solutions">
-            <h2>Solutions SaaS sur mesure au Maroc</h2>
-            <p>
-              Une solution SaaS efficace doit avant tout répondre à des besoins métier concrets : vendre plus vite,
-              mieux suivre les opérations et donner aux équipes une information fiable au bon moment. SmartDex
-              conçoit chaque solution SaaS comme une plateforme SaaS sur mesure, pensée pour les PME marocaines,
-              les startups et les entreprises marocaines qui veulent structurer leur croissance sans multiplier
-              les outils isolés. Nous développons par exemple un CRM pour gérer les clients, les prospects et 
-              les ventes, une plateforme de gestion ou ERP pour PME afin de centraliser stocks, factures, missions 
-              et tableaux de bord, ou encore un système de réservation pour hôtels, salons, cabinets ou services 
-              à domicile. Un logiciel SaaS peut aussi prendre la forme d’un portail client pour suivre commandes, 
-              documents, paiements et demandes de support, ou d’un outil collaboratif pour organiser projets,
-              équipes et validations internes. L’objectif reste simple : transformer vos processus quotidiens en
-              un outil cloud rapide, sécurisé et mesurable, capable d’améliorer la productivité, la qualité de 
-              service et la visibilité de votre activité.
-            </p>
+          <section className="saas-social-proof" aria-label="Trusted by ambitious companies">
+            <p>Trusted by ambitious companies</p>
+            <div className="saas-logo-row">
+              <span>GenSales</span>
+              <span>RATP Dev</span>
+              <span>Master Blow</span>
+              <span>MDJS</span>
+              <span>CasaMyWay</span>
+            </div>
+          </section>
+
+          <section className="seo-solutions saas-solution-section">
+            <div className="saas-solution-visual" aria-hidden="true" data-reveal="left">
+              <div className="saas-window">
+                <div className="saas-window-header">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div className="saas-workflow">
+                  <div>Lead</div>
+                  <div>Reservation</div>
+                  <div>Invoice</div>
+                  <div>Support</div>
+                </div>
+                <div className="saas-workflow-bars">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2>Solutions SaaS sur mesure au Maroc</h2>
+              <p>
+                Une solution SaaS efficace doit avant tout répondre à des besoins métier concrets : vendre plus vite,
+                mieux suivre les opérations et donner aux équipes une information fiable au bon moment. SmartDex
+                conçoit chaque solution SaaS comme une plateforme SaaS sur mesure, pensée pour les PME marocaines,
+                les startups et les entreprises marocaines qui veulent structurer leur croissance sans multiplier
+                les outils isolés. Nous développons par exemple un CRM pour gérer les clients, les prospects et 
+                les ventes, une plateforme de gestion ou ERP pour PME afin de centraliser stocks, factures, missions 
+                et tableaux de bord, ou encore un système de réservation pour hôtels, salons, cabinets ou services 
+                à domicile. Un logiciel SaaS peut aussi prendre la forme d’un portail client pour suivre commandes, 
+                documents, paiements et demandes de support, ou d’un outil collaboratif pour organiser projets,
+                équipes et validations internes. L’objectif reste simple : transformer vos processus quotidiens en
+                un outil cloud rapide, sécurisé et mesurable, capable d’améliorer la productivité, la qualité de 
+                service et la visibilité de votre activité.
+              </p>
+            </div>
           </section>
 
           <section className="seo-platform-proof">
             <h2>Des plateformes SaaS conçues pour des besoins réels</h2>
             <div className="seo-platform-proof-grid">
               <article className="seo-platform-card seo-platform-card-featured">
+                <div className="saas-case-preview" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
                 <div>
                   <h3>CasaMyWay</h3>
                   <p className="seo-platform-client">GenSales / RATP</p>
@@ -146,6 +266,10 @@ export default function SaasDevelopmentMoroccoPage() {
               </article>
 
               <article className="seo-platform-card">
+                <div className="saas-case-preview saas-case-preview-compact" aria-hidden="true">
+                  <span />
+                  <span />
+                </div>
                 <div>
                   <h3>Plateforme de suivi commercial SJM</h3>
                   <p className="seo-platform-client">Master Blow / MDJS</p>
@@ -160,6 +284,10 @@ export default function SaasDevelopmentMoroccoPage() {
               </article>
 
               <article className="seo-platform-card">
+                <div className="saas-case-preview saas-case-preview-compact" aria-hidden="true">
+                  <span />
+                  <span />
+                </div>
                 <div>
                   <h3>Quattro Plus</h3>
                   <p className="seo-platform-client">MasterBlow / MDJS</p>
@@ -175,16 +303,26 @@ export default function SaasDevelopmentMoroccoPage() {
             </div>
           </section>
 
-          <section className="seo-features">
-            <h2>Ce que nous proposons</h2>
-            <ul className="seo-list muted">
-              <li>Architecture cloud multi-tenant avec React et Node.js pour une scalabilité optimale</li>
-              <li>Applications web responsives, rapides et accessibles sur tous les appareils</li>
-              <li>Authentification sécurisée, gestion des rôles et conformité RGPD</li>
-              <li>Intégrations paiement (CMI, Stripe), CRM et outils tiers via API</li>
-              <li>Base de données structurée (PostgreSQL, MongoDB) et backups automatiques</li>
-              <li>Maintenance, mises à jour, monitoring et support technique inclus</li>
-            </ul>
+          <section className="seo-features saas-features-section">
+            <div>
+              <h2>Ce que nous proposons</h2>
+              <ul className="seo-list muted">
+                <li>Architecture cloud multi-tenant avec React et Node.js pour une scalabilité optimale</li>
+                <li>Applications web responsives, rapides et accessibles sur tous les appareils</li>
+                <li>Authentification sécurisée, gestion des rôles et conformité RGPD</li>
+                <li>Intégrations paiement (CMI, Stripe), CRM et outils tiers via API</li>
+                <li>Base de données structurée (PostgreSQL, MongoDB) et backups automatiques</li>
+                <li>Maintenance, mises à jour, monitoring et support technique inclus</li>
+              </ul>
+            </div>
+            <div className="saas-stack-grid" aria-hidden="true" data-reveal="right">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>MongoDB</span>
+              <span>Cloud</span>
+              <span>DevOps</span>
+            </div>
           </section>
 
           <section className="seo-process">
@@ -208,7 +346,7 @@ export default function SaasDevelopmentMoroccoPage() {
             </div>
           </section>
 
-          <section className="seo-why">
+          <section className="seo-why saas-stats-section">
             <h2>Pourquoi choisir SmartDex</h2>
             <div className="seo-why-grid">
               <div className="seo-why-card">
