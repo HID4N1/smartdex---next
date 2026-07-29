@@ -39,7 +39,11 @@ export default function Projects({ teaser }) {
             <div className="section-badge-wrapper">
               <span className="section-badge">Réalisations</span>
             </div>
-            <h2 className="section-title">{teaser ? 'Projets réalisés' : 'Nos Projets'}</h2>
+            {teaser ? (
+              <h2 className="section-title">Projets réalisés</h2>
+            ) : (
+              <h1 className="section-title">Nos projets digitaux</h1>
+            )}
             <p className="section-desc muted">
               {teaser
                 ? "Découvrez quelques-unes de nos réalisations récentes qui illustrent notre expertise et notre engagement envers l'excellence"

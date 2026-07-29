@@ -1,8 +1,12 @@
 import Services from '../../components/Services'
+import { getCanonicalPath } from '../../lib/seo'
 
 export const metadata = {
-  title: 'Nos Services — Développement Web, Mobile, SaaS | SmartDex',
-  description: "Développement web et mobile, logiciels sur mesure, cloud, IA et support. Des solutions digitales complètes pour transformer vos défis en opportunités. Agence web Maroc, Casablanca.",
+  title: 'Services digitaux au Maroc | SmartDex',
+  description: 'Découvrez nos services web, mobile, ERP, SaaS et IA conçus sur mesure pour les entreprises et organisations au Maroc.',
+  alternates: {
+    canonical: getCanonicalPath('/services'),
+  },
   openGraph: {
     title: 'Nos Services — SmartDex',
     description: 'Développement web, mobile, SaaS et solutions cloud. Agence digitale Casablanca.',

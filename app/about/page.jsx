@@ -1,11 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getPartners } from '../../services'
+import { getCanonicalPath } from '../../lib/seo'
 import './About.css'
 
 export const metadata = {
-  title: "À propos — SmartDex | L'intelligence digitale au service de vos ambitions",
-  description: "SmartDex : équipe d'experts passionnés par la technologie. Innovation, design et performance pour des solutions web, mobiles et logicielles. Agence web Maroc, Casablanca.",
+  title: 'À propos de SmartDex | Agence digitale au Maroc',
+  description: 'Découvrez SmartDex, agence digitale marocaine spécialisée en développement web, mobile, logiciels métier, SaaS et intelligence artificielle.',
+  alternates: {
+    canonical: getCanonicalPath('/about'),
+  },
   openGraph: {
     title: "À propos — SmartDex",
     description: "Agence digitale basée à Casablanca, Maroc.",

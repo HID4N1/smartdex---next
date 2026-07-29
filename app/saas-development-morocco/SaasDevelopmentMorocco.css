@@ -5,6 +5,24 @@
   --saas-line: rgba(198, 218, 255, 0.18);
   --saas-purple: rgba(124, 92, 255, 0.76);
   --saas-cyan: rgba(49, 198, 255, 0.78);
+  overflow-x: clip;
+}
+
+.saas-development-morocco *,
+.saas-development-morocco *::before,
+.saas-development-morocco *::after {
+  box-sizing: border-box;
+}
+
+.saas-development-morocco .seo-hero-copy,
+.saas-development-morocco .saas-dashboard-stage,
+.saas-development-morocco .saas-story-section > *,
+.saas-development-morocco .saas-solution-section > *,
+.saas-development-morocco .saas-features-section > *,
+.saas-development-morocco .seo-platform-card,
+.saas-development-morocco .seo-why-card,
+.saas-development-morocco .seo-process-step {
+  min-width: 0;
 }
 
 .saas-development-morocco .seo-hero-bg {
@@ -870,6 +888,7 @@
 @media (max-width: 980px) {
   .saas-development-morocco .saas-hero {
     min-height: auto;
+    padding-bottom: 92px;
   }
 
   .saas-development-morocco .seo-hero-grid,
@@ -877,10 +896,13 @@
   .saas-solution-section,
   .saas-features-section {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 
   .saas-dashboard-stage {
+    width: min(100%, 680px);
     min-height: 500px;
+    margin: 0 auto;
   }
 
   .saas-solution-visual {
@@ -894,24 +916,64 @@
   .saas-logo-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .saas-development-morocco .seo-platform-card-featured {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 767px) {
   .saas-development-morocco .saas-hero {
-    padding: 128px 0 76px;
+    padding: 112px 0 58px;
+  }
+
+  .saas-development-morocco .seo-content {
+    padding: 58px 0 76px;
   }
 
   .saas-development-morocco .seo-main-title {
-    font-size: clamp(42px, 14vw, 58px);
+    max-width: 12ch;
+    font-size: clamp(38px, 12vw, 52px);
+    line-height: 1.05;
+  }
+
+  .saas-development-morocco .seo-subtitle {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .saas-development-morocco .seo-hero-ctas {
+    gap: 10px;
+  }
+
+  .saas-development-morocco .seo-hero-ctas .btn,
+  .saas-development-morocco .seo-cta-banner .btn {
+    justify-content: center;
+    min-height: 48px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .saas-development-morocco .saas-trust-badges {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .saas-development-morocco .saas-trust-badges span {
+    width: 100%;
   }
 
   .saas-dashboard-stage {
-    min-height: 520px;
+    min-height: auto;
+    display: grid;
+    gap: 12px;
   }
 
   .saas-dashboard {
     transform: none;
     animation: none;
+    padding: 12px;
   }
 
   .saas-dashboard-grid,
@@ -922,10 +984,69 @@
     grid-template-columns: 1fr;
   }
 
+  .saas-dashboard-grid {
+    gap: 10px;
+  }
+
+  .saas-panel {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .saas-revenue-panel {
+    min-height: 210px;
+    grid-row: auto;
+  }
+
+  .saas-panel strong {
+    font-size: clamp(22px, 8vw, 30px);
+  }
+
+  .saas-chart-line {
+    height: 84px;
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .saas-dashboard-topbar strong {
+    max-width: 56%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .saas-floating-card {
     position: relative;
     inset: auto;
-    margin-top: 12px;
+    margin-top: 0;
+    width: 100%;
+    backdrop-filter: none;
+  }
+
+  .saas-story-section,
+  .saas-solution-section,
+  .saas-features-section,
+  .saas-social-proof,
+  .saas-development-morocco .seo-platform-proof,
+  .saas-development-morocco .seo-process,
+  .saas-stats-section,
+  .saas-development-morocco .seo-faq {
+    margin-bottom: 56px;
+  }
+
+  .saas-story-copy,
+  .saas-features-section,
+  .saas-development-morocco .seo-platform-card,
+  .saas-development-morocco .seo-platform-card-featured,
+  .saas-development-morocco .seo-why-card {
+    padding: 20px;
+  }
+
+  .saas-development-morocco .seo-intro p,
+  .saas-development-morocco .seo-solutions p,
+  .saas-development-morocco .seo-features .seo-list {
+    font-size: 15.5px;
+    line-height: 1.75;
   }
 
   .saas-product-orbit {
@@ -948,9 +1069,78 @@
     transform: none;
   }
 
+  .saas-orbit-card,
+  .saas-orbit-main {
+    padding: 16px;
+  }
+
+  .saas-social-proof {
+    padding: 8px 0 22px;
+  }
+
+  .saas-logo-row span {
+    min-height: 58px;
+  }
+
+  .saas-solution-section h2,
+  .saas-development-morocco .seo-platform-proof h2,
+  .saas-features-section h2,
+  .saas-development-morocco .seo-process h2,
+  .saas-development-morocco .seo-why h2,
+  .saas-development-morocco .seo-faq h2 {
+    font-size: clamp(27px, 9vw, 36px);
+    line-height: 1.12;
+  }
+
+  .saas-solution-visual {
+    min-height: auto;
+  }
+
+  .saas-window {
+    min-height: auto;
+  }
+
+  .saas-workflow {
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .saas-workflow div {
+    padding: 14px;
+    padding-right: 42%;
+  }
+
+  .saas-workflow div::after {
+    right: 14px;
+    width: 30%;
+  }
+
+  .saas-workflow-bars {
+    padding: 0 18px 18px;
+  }
+
   .saas-development-morocco .seo-platform-card-featured {
     grid-row: auto;
     min-height: auto;
+  }
+
+  .saas-development-morocco .seo-platform-card {
+    min-height: auto;
+  }
+
+  .saas-case-preview {
+    min-height: 142px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .saas-case-preview-compact {
+    min-height: 76px;
+  }
+
+  .saas-stack-grid span {
+    min-height: 72px;
+    font-size: 16px;
   }
 
   .saas-development-morocco .seo-process-steps::before {
@@ -959,7 +1149,8 @@
 
   .saas-development-morocco .seo-process-step {
     margin-left: 42px;
-    padding: 24px;
+    min-height: auto;
+    padding: 20px;
   }
 
   .saas-development-morocco .seo-process-step::before {
@@ -968,8 +1159,107 @@
     height: 28px;
   }
 
+  .saas-development-morocco .seo-process-title {
+    font-size: 19px;
+  }
+
+  .saas-development-morocco .seo-why-card {
+    min-height: auto;
+  }
+
+  .saas-development-morocco .seo-why-card strong {
+    font-size: 22px;
+  }
+
+  .saas-development-morocco .seo-faq summary {
+    min-height: auto;
+    padding: 18px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .saas-development-morocco .seo-faq summary::after {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+    margin-top: -2px;
+  }
+
+  .saas-development-morocco .seo-faq .faq-answer {
+    padding: 0 18px 18px;
+  }
+
+  .saas-development-morocco .seo-cta-banner {
+    padding: 42px 20px;
+  }
+
   .saas-development-morocco .seo-cta-banner::before {
     display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .saas-development-morocco .seo-main-title {
+    max-width: 10ch;
+    font-size: clamp(34px, 11vw, 44px);
+  }
+
+  .saas-development-morocco .seo-hero-grid {
+    gap: 28px;
+  }
+
+  .saas-dashboard {
+    border-radius: var(--radius-lg);
+  }
+
+  .saas-panel-label {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  .saas-panel small {
+    font-size: 12px;
+  }
+
+  .saas-invoice-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .saas-story-copy,
+  .saas-features-section,
+  .saas-development-morocco .seo-platform-card,
+  .saas-development-morocco .seo-why-card,
+  .saas-development-morocco .seo-cta-banner {
+    border-radius: var(--radius-lg);
+  }
+
+  .saas-workflow div {
+    padding-right: 14px;
+  }
+
+  .saas-workflow div::after {
+    position: static;
+    display: block;
+    width: 68%;
+    margin-top: 12px;
+    transform: none;
+  }
+
+  .saas-development-morocco .seo-process-step {
+    margin-left: 34px;
+  }
+
+  .saas-development-morocco .seo-process-step::before {
+    left: -33px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .saas-development-morocco .seo-process-steps::before {
+    left: 12px;
   }
 }
 

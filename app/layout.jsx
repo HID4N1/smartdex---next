@@ -2,14 +2,14 @@ import './globals.css'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import ClientLayout from '../components/ClientLayout'
+import { SITE_URL } from '../lib/seo'
 
 export const metadata = {
   title: {
     default: 'SmartDex — Agence Digitale au Maroc',
-    template: '%s — SmartDex',
   },
   description: 'SmartDex est une agence digitale au Maroc spécialisée en développement web, SaaS, applications mobiles et solutions IA pour entreprises.',
-  metadataBase: new URL('https://www.smartdex.ma'),
+  metadataBase: new URL(SITE_URL),
   applicationName: 'SmartDex',
   authors: [{ name: 'SmartDex', url: 'https://www.smartdex.ma' }],
   creator: 'SmartDex',
@@ -24,9 +24,6 @@ export const metadata = {
       'max-snippet': -1,
       'max-video-preview': -1,
     },
-  },
-  alternates: {
-    canonical: '/',
   },
   openGraph: {
     title: 'SmartDex — Agence Digitale au Maroc',

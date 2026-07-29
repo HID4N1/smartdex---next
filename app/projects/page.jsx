@@ -1,8 +1,12 @@
 import Projects from '../../components/Projects'
+import { getCanonicalPath } from '../../lib/seo'
 
 export const metadata = {
   title: 'Nos Projets & Réalisations | SmartDex',
   description: "Découvrez nos réalisations : sites web, applications mobiles et logiciels sur mesure pour RATP, Gensaales, Loterie Nationale et plus. Agence web Maroc.",
+  alternates: {
+    canonical: getCanonicalPath('/projects'),
+  },
   openGraph: {
     title: 'Nos Projets — SmartDex',
     description: 'Réalisations web, mobile et logiciels sur mesure.',

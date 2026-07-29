@@ -1,8 +1,10 @@
+import { getCanonicalPath } from '../../lib/seo'
+
 export const metadata = {
-  title: 'Parler à l’assistant IA — Obtenir une estimation instantanée | SmartDex',
+  title: 'Contactez SmartDex | Agence digitale au Maroc',
   description: "Obtenez une estimation instantanée SmartDex pour votre projet digital. Réponse rapide, consultation gratuite. Casablanca, Maroc.",
   alternates: {
-    canonical: 'https://www.smartdex.ma/contact',
+    canonical: getCanonicalPath('/contact'),
   },
   openGraph: {
     title: 'Parler à l’assistant IA — SmartDex',

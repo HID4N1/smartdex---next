@@ -25,7 +25,7 @@ export default function Footer() {
           <p className="muted">Solutions digitales innovantes pour les entreprises ambitieuses.</p>
         </div>
         <div>
-          <h4>Liens rapides</h4>
+          <div className="footer-heading">Liens rapides</div>
           <div style={{ display: 'grid', gap: 6 }}>
             <Link href="/">Accueil</Link>
             <Link href="/services">Services</Link>
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <h4>Nos services</h4>
+          <div className="footer-heading">Nos services</div>
           <div style={{ display: 'grid', gap: 6 }}>
             <Link href="/ai-chatbot-morocco">AI Chatbot Maroc</Link>
             <Link href="/saas-development-morocco">Développement SaaS Maroc</Link>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <h4>Coordonnées</h4>
+          <div className="footer-heading">Coordonnées</div>
           <Link href="/contact">Formulaire de contact</Link>
           <div className="muted" style={{ marginTop: 6 }}>contact@smartdex.ma</div>
           <div className="muted">+212 70745-8386</div>

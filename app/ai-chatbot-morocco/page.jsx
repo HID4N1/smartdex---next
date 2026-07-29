@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ChatbotTrigger from '../../components/ChatbotTrigger'
+import { getCanonicalPath } from '../../lib/seo'
 import '../seo-pages.css'
 
 const features = [
@@ -131,7 +132,7 @@ const faqSchema = {
 }
 
 export const metadata = {
-  title: 'AI Chatbot Maroc — WhatsApp, Leads & Service Client | SmartDex',
+  title: 'Chatbot IA au Maroc pour entreprises | SmartDex',
   description: 'AI Chatbot Maroc pour PME, cliniques, e-commerce et services. Automatisez WhatsApp, qualifiez les leads et réduisez le temps de réponse avec SmartDex.',
   keywords: 'AI Chatbot Maroc, chatbot entreprise Maroc, chatbot WhatsApp Maroc, automatisation service client Maroc, WhatsApp API Maroc, chatbot IA Casablanca',
   openGraph: {
@@ -144,7 +145,7 @@ export const metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://www.smartdex.ma/ai-chatbot-morocco',
+    canonical: getCanonicalPath('/ai-chatbot-morocco'),
   },
 }
 

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getCanonicalPath } from '../../lib/seo'
 import '../seo-pages.css'
 import './SaasDevelopmentMorocco.css'
 
@@ -50,7 +51,7 @@ const faqSchema = {
 }
 
 export const metadata = {
-  title: 'Développement SaaS Maroc — Logiciels cloud sur mesure | SmartDex',
+  title: 'Développement SaaS au Maroc | SmartDex',
   description: 'SmartDex conçoit des logiciels SaaS sur mesure pour entreprises marocaines. Architecture cloud, multi-tenant, sécurisé. Devis gratuit à Casablanca.',
   keywords: 'développement SaaS Maroc, logiciel SaaS sur mesure Maroc, création SaaS Casablanca, agence web maroc, casablanca',
   openGraph: {
@@ -63,7 +64,7 @@ export const metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://www.smartdex.ma/saas-development-morocco',
+    canonical: getCanonicalPath('/saas-development-morocco'),
   },
 }
 

@@ -94,7 +94,7 @@ export default function Services({ compact }) {
                     <Icon type={s.key === 'mobile' ? 'web' : s.key} />
                   </div>
                   <div className="service-title-section">
-                    <h3 className="service-title-detailed">{s.title}</h3>
+                    <h2 className="service-title-detailed">{s.title}</h2>
                     <div className="service-divider" />
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export default function Services({ compact }) {
 
         <div className="services-cta-detailed">
           <div className="cta-content">
-            <h3 className="cta-title">Vous avez un projet ? Discutons-en !</h3>
+            <h2 className="cta-title">Vous avez un projet ? Discutons-en !</h2>
             <p className="cta-desc muted">Nous vous proposons un devis personnalisé adapté à vos besoins spécifiques.</p>
           </div>
           <Link href="/devis" className="btn btn-primary cta-button">

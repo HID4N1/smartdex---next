@@ -14,7 +14,7 @@
   grid-template-columns: repeat(4, minmax(0,1fr)); 
 }
 
-.footer-4cols h4 { 
+.footer-heading {
   margin: 0 0 10px; 
   color: var(--sd-text); 
   font-weight: 700; 

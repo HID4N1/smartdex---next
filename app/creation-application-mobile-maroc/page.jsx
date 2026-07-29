@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getCanonicalPath } from '../../lib/seo'
 import '../seo-pages.css'
 import './CreationApplicationMobileMaroc.css'
 
@@ -50,7 +51,7 @@ const faqSchema = {
 }
 
 export const metadata = {
-  title: 'Création Application Mobile Maroc — iOS & Android | SmartDex',
+  title: 'Création d’application mobile au Maroc | SmartDex',
   description: 'SmartDex développe vos applications mobiles iOS et Android sur mesure au Maroc. React Native, performance et design soigné. Devis gratuit.',
   keywords: 'création application mobile Maroc, développement app mobile Casablanca, application iOS Android Maroc, agence web maroc, casablanca',
   openGraph: {
@@ -63,7 +64,7 @@ export const metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://www.smartdex.ma/creation-application-mobile-maroc',
+    canonical: getCanonicalPath('/creation-application-mobile-maroc'),
   },
 }
 

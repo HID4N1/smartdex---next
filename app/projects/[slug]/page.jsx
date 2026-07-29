@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getProjectById } from '../../../services'
+import { getCanonicalPath } from '../../../lib/seo'
 import './ProjectDetail.css'
 
 const getProjectBanner = (type) =>
@@ -36,6 +37,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${p.name} | SmartDex`,
     description: p.description || `Projet ${p.name} - ${p.client}`,
+    alternates: {
+      canonical: getCanonicalPath(`/projects/${slug}`),
+    },
     openGraph: {
       title: `${p.name} — SmartDex`,
       description: p.description || `Projet ${p.name}`,

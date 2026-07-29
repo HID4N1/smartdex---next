@@ -1,0 +1,97 @@
+.devis-page {
+  background: #edf3f9;
+}
+
+.devis-support {
+  padding: 0 20px 72px;
+  background: linear-gradient(180deg, #edf3f9 0%, #f7fafc 100%);
+}
+
+.devis-support-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+
+.devis-support-intro,
+.devis-support-section {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(10, 42, 74, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 18px 50px rgba(10, 42, 74, 0.06);
+}
+
+.devis-support p {
+  margin: 0;
+  color: #5a6b7d;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.devis-support-section h2 {
+  margin: 0 0 18px;
+  color: #0a2239;
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.devis-project-types,
+.devis-faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.devis-project-types article,
+.devis-faq-list article,
+.devis-steps li {
+  border: 1px solid rgba(10, 42, 74, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
+}
+
+.devis-support-section h3 {
+  margin: 0 0 8px;
+  color: #17324d;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.devis-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.devis-steps li::marker {
+  color: #0f4f8a;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .devis-project-types,
+  .devis-faq-list,
+  .devis-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .devis-support {
+    padding: 0 16px 48px;
+  }
+
+  .devis-support-intro,
+  .devis-support-section {
+    padding: 22px;
+    border-radius: 20px;
+  }
+}

@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Testimonials from '../components/Testimonials'
 import ChatbotTrigger from '../components/ChatbotTrigger'
 import { getProjects } from '../services'
+import { getCanonicalUrl } from '../lib/seo'
 import './Home.css'
 
 export const metadata = {
   title: 'Agence Digitale Maroc | Développement Web, SaaS & IA',
-  description: "SmartDex est une agence digitale au Maroc spécialisée en développement web, SaaS, applications mobiles et solutions IA pour aider les entreprises à vendre plus, automatiser leurs opérations et accélérer leur transformation digitale.",
+  description: 'SmartDex conçoit des sites web, applications, ERP, SaaS et solutions IA sur mesure pour accompagner les entreprises au Maroc.',
   alternates: {
-    canonical: '/',
+    canonical: getCanonicalUrl('/'),
   },
   openGraph: {
     title: 'SmartDex — Agence Digitale Maroc',

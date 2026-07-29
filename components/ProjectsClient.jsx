@@ -69,7 +69,7 @@ export default function ProjectsClient() {
           </div>
           <div className="project-content">
             {p.highlight && <strong className="project-highlight">{p.highlight}</strong>}
-            <h3 className="project-name">{p.name}</h3>
+            <h2 className="project-name">{p.name}</h2>
             {p.client && (
               <div className="project-client">
                 <span className="client-name">{p.client}</span>

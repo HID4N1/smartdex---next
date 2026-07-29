@@ -196,7 +196,7 @@ export default function DevisForm() {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Obtenir une estimation instantanée</h1>
+          <h1 className={styles.title}>Demandez un devis pour votre projet digital</h1>
           <p className={styles.subtitle}>
             Décrivez votre besoin et obtenez une estimation structurée pour votre
             projet digital.
@@ -406,7 +406,7 @@ export default function DevisForm() {
             <div className={styles.optionSections}>
               {featureGroups.map((group) => (
                 <div key={group.title} className={styles.optionBlock}>
-                  <h3 className={styles.optionTitle}>{group.title}</h3>
+                  <h2 className={styles.optionTitle}>{group.title}</h2>
                   <div className={styles.optionGrid}>
                     {group.options.map((option) => {
                       const isActive = formData.features.includes(option.value);

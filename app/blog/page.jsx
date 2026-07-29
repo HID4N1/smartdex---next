@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import './page.css'
 import { getAllPosts } from '../../lib/posts'
+import { getCanonicalPath } from '../../lib/seo'
 
 export const metadata = {
-  title: 'Blog — Conseils digitaux pour entreprises marocaines',
+  title: 'Blog digital, IA et logiciels au Maroc | SmartDex',
   description:
     'Articles et conseils sur le développement web, mobile, SaaS et la transformation digitale pour les entreprises au Maroc.',
   openGraph: {
@@ -15,7 +16,7 @@ export const metadata = {
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://www.smartdex.ma/blog' },
+  alternates: { canonical: getCanonicalPath('/blog') },
 }
 
 function formatDate(dateStr) {
@@ -64,4 +65,3 @@ export default function BlogIndexPage() {
     </main>
   )
 }
-

@@ -2,6 +2,25 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import './page.css'
 import { getAllPosts, getPostBySlug } from '../../../lib/posts'
+import { getCanonicalPath } from '../../../lib/seo'
+
+const titleOverrides = {
+  'combien-coute-un-site-web-maroc-2026': 'Prix d’un site web au Maroc en 2026 | SmartDex',
+  'pourquoi-entreprise-marocaine-application-mobile-2026': 'Application mobile pour entreprise au Maroc | SmartDex',
+  'transformation-digitale-tpe-pme-maroc-vision-2030': 'Transformation digitale des PME au Maroc | SmartDex',
+  'saas-vs-logiciel-sur-mesure-maroc': 'SaaS ou logiciel sur mesure au Maroc | SmartDex',
+  'systeme-reservation-en-ligne-maroc-2026': 'Système de réservation en ligne au Maroc | SmartDex',
+}
+
+const descriptionOverrides = {
+  'pourquoi-entreprise-marocaine-application-mobile-2026': 'Découvrez pourquoi une application mobile peut améliorer l’expérience client, les opérations et la croissance des entreprises marocaines.',
+  'transformation-digitale-tpe-pme-maroc-vision-2030': 'Guide de la transformation digitale des TPE et PME marocaines : priorités, technologies, étapes et opportunités à l’horizon 2030.',
+  'systeme-reservation-en-ligne-maroc-2026': 'Découvrez comment choisir et mettre en place un système de réservation en ligne adapté aux entreprises marocaines en 2026.',
+}
+
+const mdxComponents = {
+  h1: (props) => <h2 {...props} />,
+}
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -11,9 +30,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await Promise.resolve(params)
   const { frontmatter } = getPostBySlug(slug)
+  const title = titleOverrides[slug] || `${frontmatter.title} | SmartDex`
+  const description = descriptionOverrides[slug] || frontmatter.description
+
   return {
-    title: frontmatter.title,
-    description: frontmatter.description,
+    title,
+    description,
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.description,
@@ -24,7 +46,7 @@ export async function generateMetadata({ params }) {
       publishedTime: frontmatter.date,
       images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     },
-    alternates: { canonical: `https://www.smartdex.ma/blog/${slug}` },
+    alternates: { canonical: getCanonicalPath(`/blog/${slug}`) },
   }
 }
 
@@ -80,7 +102,7 @@ export default async function BlogPostPage({ params }) {
         <div className="blog-divider" />
 
         <article className="blog-prose">
-          <MDXRemote source={content} />
+          <MDXRemote source={content} components={mdxComponents} />
         </article>
 
         <section className="blog-cta">
