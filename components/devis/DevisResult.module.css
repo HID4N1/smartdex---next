@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
   
   .headerCard,
@@ -16,7 +16,7 @@
   }
   
   .headerCard {
-    padding: 28px;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -62,7 +62,7 @@
   .metaCard,
   .totalsCard,
   .notesCard {
-    padding: 24px;
+    padding: 22px;
   }
   
   .metaGrid {
@@ -111,7 +111,7 @@
   }
   
   .tableCard {
-    padding: 24px;
+    padding: 22px;
     overflow-x: auto;
   }
   
@@ -197,7 +197,7 @@
   .notesCard h3 {
     margin: 0 0 18px;
     color: #0a2a4a;
-    font-size: 22px;
+    font-size: 18px;
   }
   
   .totalsGrid {
@@ -264,10 +264,10 @@
     .tableCard,
     .totalsCard,
     .notesCard {
-      padding: 20px;
+      padding: 18px;
     }
   
     .title {
-      font-size: 24px;
+      font-size: 18px;
     }
   }

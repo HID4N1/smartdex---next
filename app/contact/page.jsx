@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { FiArrowDown, FiArrowRight } from 'react-icons/fi'
 import { getFaqs, getMapConfig } from '../../services'
 import './Contact.css'
 
@@ -92,248 +93,264 @@ export default function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-hero">
-        <div className="container contact-hero-content">
-          <div className="section-badge-wrapper">
-            <span className="section-badge">Parler à l’assistant IA</span>
+        <div className="container contact-hero-grid">
+          <div className="contact-hero-copy">
+            <p className="contact-eyebrow">Parlons de votre projet</p>
+            <h1 className="contact-main-title">Vous avez un projet ?</h1>
+            <p className="contact-hero-subtitle">
+              Nous avons les solutions. Discutons ensemble de vos besoins et transformons vos idées en réalité digitale.
+            </p>
+            <div className="contact-trust-row" aria-label="Engagements SmartDex">
+              <span>Réponse sous 24h</span>
+              <span>Consultation gratuite</span>
+              <span>Accompagnement personnalisé</span>
+            </div>
+            <a className="contact-hero-cta" href="#contact-form">
+              <span>Décrivez-nous votre besoin</span>
+              <FiArrowDown aria-hidden="true" />
+            </a>
           </div>
-          <h1 className="contact-main-title">Vous avez un projet ?</h1>
-          <p className="contact-hero-subtitle">
-            Nous avons les solutions. Discutons ensemble de vos besoins et transformons vos idées en réalité digitale.
-          </p>
-          <div className="contact-stats">
-            <div className="contact-stat-item">
-              <div className="stat-value">24h</div>
-              <div className="stat-label">Délai de réponse</div>
-            </div>
-            <div className="contact-stat-divider" />
-            <div className="contact-stat-item">
-              <div className="stat-value">100%</div>
-              <div className="stat-label">Projets réussis</div>
-            </div>
-            <div className="contact-stat-divider" />
-            <div className="contact-stat-item">
-              <div className="stat-value">30min</div>
-              <div className="stat-label">Consultation gratuite</div>
-            </div>
+
+          <div className="contact-hero-visual" aria-hidden="true">
+            <div className="visual-grid" />
+            <div className="visual-orbit visual-orbit-one" />
+            <div className="visual-orbit visual-orbit-two" />
+            <div className="visual-mark">S</div>
+            <div className="visual-line visual-line-one" />
+            <div className="visual-line visual-line-two" />
           </div>
         </div>
       </div>
 
-      <div className="container contact-main">
-        <div className="quick-contact-section">
-          <div className="quick-contact-grid">
-            <div className="quick-contact-item">
-              <div className="quick-icon">✉️</div>
-              <div className="quick-content">
-                <div className="quick-label">Email</div>
-                <a href="mailto:contact@smartdex.ma" className="quick-value">contact@smartdex.ma</a>
+      <div className="contact-main">
+        <section className="contact-form-section" aria-labelledby="contact-form-title">
+          <div className="container contact-form-grid">
+            <div className="contact-form-intro">
+              <p className="contact-eyebrow">Contact</p>
+              <h2 id="contact-form-title" className="contact-section-title">Parlons de votre projet</h2>
+              <p>
+                Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
+                Notre équipe analyse votre contexte, vos objectifs et les prochaines étapes utiles pour transformer votre idée en solution digitale.
+              </p>
+              <div className="form-intro-details">
+                <a href="mailto:contact@smartdex.ma">contact@smartdex.ma</a>
+                <span>Casablanca, Maroc</span>
+                <small>Réponse généralement sous 24h</small>
               </div>
             </div>
-            <div className="quick-contact-item">
-              <div className="quick-icon">🕐</div>
-              <div className="quick-content">
-                <div className="quick-label">Horaires</div>
-                <div className="quick-value">Lun - Ven : 9h - 18h</div>
-              </div>
-            </div>
-            <div className="quick-contact-item">
-              <div className="quick-icon">📍</div>
-              <div className="quick-content">
-                <div className="quick-label">Localisation</div>
-                <div className="quick-value">Casablanca, Maroc</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="contact-main-grid">
-          <div className="contact-form-wrapper">
-            <div className="form-header">
-              <h2 className="form-title">Envoyez-nous un message</h2>
-              <p className="form-subtitle muted">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
-            </div>
-            <form className="contact-form-enhanced" onSubmit={onSubmit} noValidate>
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">
-                    <span className="label-text">Nom complet</span>
-                    <span className="label-required">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    className={`form-input ${errors.name ? 'error' : ''}`}
-                    value={form.name}
-                    onChange={(e) => setField('name', e.target.value)}
-                    placeholder="Votre nom complet"
-                    aria-invalid={!!errors.name}
-                    disabled={isSubmitting}
-                  />
-                  {errors.name && <span className="field-error">{errors.name}</span>}
-                </div>
-                <div className="form-group">
-                  <label className="form-label">
-                    <span className="label-text">Email professionnel</span>
-                    <span className="label-required">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    className={`form-input ${errors.email ? 'error' : ''}`}
-                    value={form.email}
-                    onChange={(e) => setField('email', e.target.value)}
-                    placeholder="votre@email.com"
-                    aria-invalid={!!errors.email}
-                    disabled={isSubmitting}
-                  />
-                  {errors.email && <span className="field-error">{errors.email}</span>}
-                </div>
-              </div>
-              <div className="form-group">
-                <label className="form-label"><span className="label-text">Entreprise</span></label>
-                <input
-                  type="text"
-                  className="form-input"
-                  value={form.company}
-                  onChange={(e) => setField('company', e.target.value)}
-                  placeholder="Nom de votre entreprise"
-                  disabled={isSubmitting}
-                />
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label"><span className="label-text">Type de projet</span></label>
-                  <select className="form-select" value={form.projectType} onChange={(e) => setField('projectType', e.target.value)} disabled={isSubmitting}>
-                    <option value="">Sélectionnez un type</option>
-                    <option value="web">Développement Web</option>
-                    <option value="mobile">Application Mobile</option>
-                    <option value="saas">Plateforme SaaS</option>
-                    <option value="ecommerce">E-commerce</option>
-                    <option value="integration">Intégration & API</option>
-                    <option value="other">Autre</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label"><span className="label-text">Budget estimé</span></label>
-                  <select className="form-select" value={form.budget} onChange={(e) => setField('budget', e.target.value)} disabled={isSubmitting}>
-                    <option value="">Sélectionnez une fourchette</option>
-                    <option value="<5k">Moins de 5 000 MAD</option>
-                    <option value="5k-15k">5 000 MAD - 15 000 MAD</option>
-                    <option value="15k-50k">15 000 MAD - 50 000 MAD</option>
-                    <option value="50k+">Plus de 50 000 MAD</option>
-                    <option value="discuss">À discuter</option>
-                  </select>
-                </div>
-              </div>
-              <div className="form-group">
-                <label className="form-label">
-                  <span className="label-text">Sujet</span>
-                  <span className="label-required">*</span>
-                </label>
-                <input
-                  type="text"
-                  className={`form-input ${errors.subject ? 'error' : ''}`}
-                  value={form.subject}
-                  onChange={(e) => setField('subject', e.target.value)}
-                  placeholder="Objet de votre message"
-                  aria-invalid={!!errors.subject}
-                  disabled={isSubmitting}
-                />
-                {errors.subject && <span className="field-error">{errors.subject}</span>}
-              </div>
-              <div className="form-group">
-                <label className="form-label">
-                  <span className="label-text">Message détaillé</span>
-                  <span className="label-required">*</span>
-                  <span className="label-counter">{messageLength}/500</span>
-                </label>
-                <textarea
-                  rows={8}
-                  className={`form-textarea ${errors.message ? 'error' : ''}`}
-                  value={form.message}
-                  onChange={(e) => setField('message', e.target.value)}
-                  placeholder="Décrivez votre projet en détail... (minimum 20 caractères)"
-                  aria-invalid={!!errors.message}
-                  maxLength={500}
-                  disabled={isSubmitting}
-                />
-                {errors.message && <span className="field-error">{errors.message}</span>}
-                <div className="char-counter">
-                  {messageLength < 20 && (
-                    <span className="char-warning">Minimum 20 caractères requis ({20 - messageLength} restants)</span>
-                  )}
-                </div>
-              </div>
-              <button className={`btn btn-primary contact-submit-btn ${isSubmitting ? 'submitting' : ''}`} type="submit" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <><span className="spinner" /><span>Envoi en cours...</span></>
-                ) : (
-                  <><span>Envoyer le message</span><span className="btn-arrow">→</span></>
-                )}
-              </button>
-              {status === 'success' && (
-                <div className="form-status success">
-                  <div className="status-icon">✓</div>
-                  <div>
-                    <strong>Message envoyé avec succès !</strong>
-                    <p>Nous vous répondrons dans les plus brefs délais.</p>
+            <div className="contact-form-wrapper">
+              <form id="contact-form" className="contact-form-enhanced" onSubmit={onSubmit} noValidate>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-name">
+                      <span className="label-text">Nom complet</span>
+                      <span className="label-required">*</span>
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      className={`form-input ${errors.name ? 'error' : ''}`}
+                      value={form.name}
+                      onChange={(e) => setField('name', e.target.value)}
+                      placeholder="Votre nom complet"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'contact-name-error' : undefined}
+                      disabled={isSubmitting}
+                    />
+                    {errors.name && <span id="contact-name-error" className="field-error">{errors.name}</span>}
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-email">
+                      <span className="label-text">Email professionnel</span>
+                      <span className="label-required">*</span>
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      className={`form-input ${errors.email ? 'error' : ''}`}
+                      value={form.email}
+                      onChange={(e) => setField('email', e.target.value)}
+                      placeholder="vous@entreprise.ma"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'contact-email-error' : undefined}
+                      disabled={isSubmitting}
+                    />
+                    {errors.email && <span id="contact-email-error" className="field-error">{errors.email}</span>}
                   </div>
                 </div>
-              )}
-            </form>
-          </div>
 
-          <div className="contact-sidebar">
-            <div className="contact-map-card">
-              <div className="map-header">
-                <h3 className="map-title">Notre Localisation</h3>
-                <p className="map-subtitle muted">Visitez notre bureau à Casablanca</p>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-company">
+                      <span className="label-text">Entreprise</span>
+                    </label>
+                    <input
+                      id="contact-company"
+                      type="text"
+                      className="form-input"
+                      value={form.company}
+                      onChange={(e) => setField('company', e.target.value)}
+                      placeholder="Nom de votre entreprise"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-project-type">
+                      <span className="label-text">Type de projet</span>
+                    </label>
+                    <select id="contact-project-type" className="form-select" value={form.projectType} onChange={(e) => setField('projectType', e.target.value)} disabled={isSubmitting}>
+                      <option value="">Sélectionnez un type</option>
+                      <option value="web">Développement Web</option>
+                      <option value="mobile">Application Mobile</option>
+                      <option value="saas">Plateforme SaaS</option>
+                      <option value="ecommerce">E-commerce</option>
+                      <option value="integration">Intégration & API</option>
+                      <option value="other">Autre</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-budget">
+                      <span className="label-text">Budget estimé</span>
+                    </label>
+                    <select id="contact-budget" className="form-select" value={form.budget} onChange={(e) => setField('budget', e.target.value)} disabled={isSubmitting}>
+                      <option value="">Sélectionnez une fourchette</option>
+                      <option value="<5k">Moins de 5 000 MAD</option>
+                      <option value="5k-15k">5 000 MAD - 15 000 MAD</option>
+                      <option value="15k-50k">15 000 MAD - 50 000 MAD</option>
+                      <option value="50k+">Plus de 50 000 MAD</option>
+                      <option value="discuss">À discuter</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact-subject">
+                      <span className="label-text">Sujet</span>
+                      <span className="label-required">*</span>
+                    </label>
+                    <input
+                      id="contact-subject"
+                      type="text"
+                      className={`form-input ${errors.subject ? 'error' : ''}`}
+                      value={form.subject}
+                      onChange={(e) => setField('subject', e.target.value)}
+                      placeholder="Objet de votre message"
+                      aria-invalid={!!errors.subject}
+                      aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
+                      disabled={isSubmitting}
+                    />
+                    {errors.subject && <span id="contact-subject-error" className="field-error">{errors.subject}</span>}
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label" htmlFor="contact-message">
+                    <span className="label-text">Message détaillé</span>
+                    <span className="label-required">*</span>
+                    <span className="label-counter">{messageLength}/500</span>
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    rows={8}
+                    className={`form-textarea ${errors.message ? 'error' : ''}`}
+                    value={form.message}
+                    onChange={(e) => setField('message', e.target.value)}
+                    placeholder="Décrivez votre projet en détail... (minimum 20 caractères)"
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? 'contact-message-error contact-message-counter' : 'contact-message-counter'}
+                    maxLength={500}
+                    disabled={isSubmitting}
+                  />
+                  {errors.message && <span id="contact-message-error" className="field-error">{errors.message}</span>}
+                  <div id="contact-message-counter" className="char-counter">
+                    {messageLength < 20 && (
+                      <span className="char-warning">Minimum 20 caractères requis ({20 - messageLength} restants)</span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-actions">
+                  <p className="form-helper">Minimum 20 caractères. Une réponse claire facilite notre première analyse.</p>
+                  <button className={`contact-submit-btn ${isSubmitting ? 'submitting' : ''}`} type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <><span className="spinner" /><span>Envoi en cours...</span></>
+                    ) : (
+                      <><span>Envoyer ma demande</span><FiArrowRight aria-hidden="true" /></>
+                    )}
+                  </button>
+                  {status === 'success' && (
+                    <div className="form-status success" role="status" aria-live="polite">
+                      <div className="status-icon">✓</div>
+                      <div>
+                        <strong>Merci, votre demande a bien été envoyée.</strong>
+                        <p>Notre équipe vous répondra dans les meilleurs délais.</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-location-section" aria-labelledby="location-title">
+          <div className="container contact-location-grid">
+            <div className="location-copy">
+              <p className="contact-eyebrow">Localisation</p>
+              <h2 id="location-title" className="contact-section-title">Nous trouver à Casablanca</h2>
+              <p>Visitez notre bureau à Casablanca ou contactez-nous par email pour organiser une consultation autour de votre projet digital.</p>
+              <div className="location-meta">
+                <span>Lun - Ven · 9h - 18h</span>
+                <a href="mailto:contact@smartdex.ma">contact@smartdex.ma</a>
               </div>
+            </div>
+            <div className="contact-map-card">
               <div id="contact-map" className="contact-map" />
             </div>
-            <div className="contact-socials-card">
-              <h3 className="socials-title">Suivez-nous sur les réseaux</h3>
-              <p className="socials-subtitle muted">Restez connecté avec nous</p>
-              <div className="social-links-enhanced">
-                <a href="#" className="social-link" aria-label="LinkedIn"><span className="social-label">LinkedIn</span></a>
-                <a href="#" className="social-link" aria-label="GitHub"><span className="social-label">GitHub</span></a>
-                <a href="#" className="social-link" aria-label="X/Twitter"><span className="social-label">X / Twitter</span></a>
-                <a href="#" className="social-link" aria-label="Facebook"><span className="social-label">Facebook</span></a>
-              </div>
+          </div>
+        </section>
+
+        <section className="contact-faq-section" aria-labelledby="faq-title">
+          <div className="container contact-faq-grid">
+            <div className="faq-header">
+              <p className="contact-eyebrow">FAQ</p>
+              <h2 id="faq-title" className="contact-section-title">Questions fréquentes</h2>
+              <p className="faq-subtitle">Trouvez rapidement les réponses à vos questions.</p>
+            </div>
+            <div className="faq-list">
+              {faqs.map((faq, index) => (
+                <details key={index} className="faq-item">
+                  <summary className="faq-question">
+                    <span className="faq-number">{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{faq.question}</h3>
+                  </summary>
+                  <p className="faq-answer">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="contact-faq-section">
-          <div className="faq-header">
-            <h2 className="faq-title">Questions Fréquentes</h2>
-            <p className="faq-subtitle muted">Trouvez rapidement les réponses à vos questions</p>
-          </div>
-          <div className="faq-grid">
-            {faqs.map((faq, index) => (
-              <div key={index} className="faq-item">
-                <div className="faq-question">
-                  <span className="faq-number">{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{faq.question}</h3>
-                </div>
-                <p className="faq-answer muted">{faq.answer}</p>
+        <section className="contact-cta-section" aria-labelledby="contact-cta-title">
+          <div className="container">
+            <div className="contact-cta-panel">
+              <div>
+                <p className="contact-eyebrow">Réponse rapide</p>
+                <h2 id="contact-cta-title" className="cta-title">Besoin d&apos;une réponse rapide ?</h2>
+                <p className="cta-description">Envoyez-nous un email et nous vous répondrons dans les plus brefs délais.</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="contact-cta-section">
-          <div className="contact-cta-card">
-            <div className="cta-icon-wrapper">
-              <div className="cta-icon">💬</div>
-            </div>
-            <h3 className="cta-title">Besoin d&apos;une réponse rapide ?</h3>
-            <p className="cta-description muted">Envoyez-nous un email et nous vous répondrons dans les plus brefs délais.</p>
-            <div className="cta-buttons">
-              <a href="mailto:contact@smartdex.ma" className="btn btn-primary cta-btn">
-                <span>✉️ Envoyer un email</span>
+              <a href="mailto:contact@smartdex.ma" className="contact-secondary-btn">
+                <span>Envoyer un email</span>
+                <FiArrowRight aria-hidden="true" />
               </a>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import Header from './layout/Header'
@@ -15,14 +15,14 @@ export default function ClientLayout({ children }) {
   const [showTop, setShowTop] = useState(false)
   const [showChatWidget, setShowChatWidget] = useState(false)
   const [pendingChatOpen, setPendingChatOpen] = useState(false)
+  const showTopRef = useRef(false)
   const pathname = usePathname()
   const isBusinessCardPage = pathname === '/business-card'
 
   useEffect(() => {
-    let timeoutId = null
     let rafId = null
     const onScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId)
+      if (rafId) return
       rafId = requestAnimationFrame(() => {
         try {
           const scrolled = window.scrollY || 0
@@ -30,24 +30,20 @@ export default function ClientLayout({ children }) {
           if (max > 0) {
             const pct = Math.max(0, Math.min(100, (scrolled / max) * 100))
             document.documentElement.style.setProperty('--scroll', pct.toFixed(0))
-            setShowTop(scrolled > 400)
+            const shouldShowTop = scrolled > 400
+            if (shouldShowTop !== showTopRef.current) {
+              showTopRef.current = shouldShowTop
+              setShowTop(shouldShowTop)
+            }
           }
         } catch (_) {}
         rafId = null
       })
     }
-    const throttledScroll = () => {
-      if (timeoutId) return
-      timeoutId = setTimeout(() => {
-        onScroll()
-        timeoutId = null
-      }, 100)
-    }
     onScroll()
-    window.addEventListener('scroll', throttledScroll, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      window.removeEventListener('scroll', throttledScroll)
-      if (timeoutId) clearTimeout(timeoutId)
+      window.removeEventListener('scroll', onScroll)
       if (rafId) cancelAnimationFrame(rafId)
     }
   }, [])
@@ -80,18 +76,10 @@ export default function ClientLayout({ children }) {
       setShowChatWidget(true)
       if (!event?.detail?.replayed) setPendingChatOpen(true)
     }
-    const idleId = window.requestIdleCallback
-      ? window.requestIdleCallback(() => setShowChatWidget(true), { timeout: 2500 })
-      : window.setTimeout(() => setShowChatWidget(true), 1800)
 
     window.addEventListener('smartdex:open-chat', loadChat)
     return () => {
       window.removeEventListener('smartdex:open-chat', loadChat)
-      if (window.cancelIdleCallback) {
-        window.cancelIdleCallback(idleId)
-      } else {
-        window.clearTimeout(idleId)
-      }
     }
   }, [])
 

@@ -21,7 +21,7 @@ export const faqs = [
 ]
 
 export const mapConfig = {
-  center: [33.5731, -7.5898],
+  center: [33.60379015147185, -7.5333995451568985],
   zoom: 12,
   popup: 'SmartDex — Siège',
 }

@@ -33,23 +33,23 @@
 }
 
 .saas-development-morocco .saas-hero {
-  min-height: 760px;
-  padding: 150px 0 116px;
+  min-height: 680px;
+  padding: 132px 0 102px;
 }
 
 .saas-development-morocco .seo-hero-grid {
   grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
-  gap: clamp(40px, 6vw, 84px);
+  gap: clamp(36px, 5.4vw, 74px);
 }
 
 .saas-development-morocco .seo-main-title {
-  max-width: 720px;
-  font-size: clamp(48px, 7vw, 82px);
+  max-width: 660px;
+  font-size: clamp(44px, 6.4vw, 72px);
   letter-spacing: 0;
 }
 
 .saas-development-morocco .seo-subtitle {
-  font-size: clamp(17px, 1.7vw, 20px);
+  font-size: clamp(16px, 1.55vw, 18px);
 }
 
 .saas-development-morocco .section-badge {
@@ -65,7 +65,7 @@
 
 .saas-dashboard-stage {
   position: relative;
-  min-height: 560px;
+  min-height: 500px;
   perspective: 1200px;
 }
 
@@ -142,8 +142,8 @@
 }
 
 .saas-panel {
-  min-height: 150px;
-  padding: 18px;
+  min-height: 136px;
+  padding: 16px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
   background: var(--saas-panel);
@@ -151,7 +151,7 @@
 }
 
 .saas-revenue-panel {
-  min-height: 260px;
+  min-height: 234px;
   grid-row: span 2;
   background:
     radial-gradient(circle at 16% 18%, rgba(49, 198, 255, 0.17), transparent 34%),
@@ -171,7 +171,7 @@
 .saas-panel strong {
   display: block;
   color: var(--sd-text);
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(22px, 2.7vw, 32px);
   line-height: 1.05;
 }
 
@@ -185,8 +185,8 @@
   display: flex;
   align-items: end;
   gap: 10px;
-  height: 118px;
-  margin-top: 28px;
+  height: 106px;
+  margin-top: 24px;
   padding-top: 20px;
 }
 
@@ -208,7 +208,7 @@
 .saas-progress {
   overflow: hidden;
   height: 8px;
-  margin-top: 24px;
+  margin-top: 20px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
@@ -223,7 +223,7 @@
 
 .saas-avatar-row {
   display: flex;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .saas-avatar-row span {
@@ -262,7 +262,7 @@
 .saas-floating-card {
   position: absolute;
   z-index: 2;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border: 1px solid rgba(206, 225, 255, 0.22);
   border-radius: var(--radius-lg);
   background: rgba(9, 18, 34, 0.72);
@@ -299,12 +299,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   align-items: center;
-  gap: clamp(32px, 6vw, 78px);
-  margin-bottom: 64px;
+  gap: clamp(30px, 5.4vw, 68px);
+  margin-bottom: 44px;
 }
 
 .saas-story-copy {
-  padding: clamp(24px, 4vw, 42px);
+  padding: clamp(22px, 3.6vw, 36px);
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-xl);
   background:
@@ -318,13 +318,13 @@
 .saas-development-morocco .seo-features .seo-list {
   max-width: none;
   margin: 0;
-  font-size: 16px;
-  line-height: 1.9;
+  font-size: 15.5px;
+  line-height: 1.78;
 }
 
 .saas-product-orbit {
   position: relative;
-  min-height: 360px;
+  min-height: 292px;
 }
 
 .saas-product-orbit::before {
@@ -337,8 +337,8 @@
 
 .saas-orbit-card {
   position: absolute;
-  width: 190px;
-  padding: 18px;
+  width: 176px;
+  padding: 16px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
   background: var(--saas-panel);
@@ -360,7 +360,7 @@
 .saas-orbit-main {
   top: 76px;
   left: 50%;
-  width: 230px;
+  width: 208px;
   transform: translateX(-50%);
 }
 
@@ -385,8 +385,8 @@
 }
 
 .saas-social-proof {
-  margin: 0 0 76px;
-  padding: 28px 0 34px;
+  margin: 0 0 64px;
+  padding: 24px 0 30px;
   text-align: center;
 }
 
@@ -407,7 +407,7 @@
 
 .saas-logo-row span {
   display: grid;
-  min-height: 74px;
+  min-height: 66px;
   place-items: center;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
@@ -436,17 +436,17 @@
 .saas-development-morocco .seo-process h2,
 .saas-development-morocco .seo-why h2,
 .saas-development-morocco .seo-faq h2 {
-  font-size: clamp(30px, 4vw, 48px);
+  font-size: clamp(28px, 3.6vw, 43px);
   letter-spacing: 0;
 }
 
 .saas-solution-visual {
-  min-height: 430px;
+  min-height: 350px;
 }
 
 .saas-window {
   overflow: hidden;
-  min-height: 390px;
+  min-height: 352px;
   border: 1px solid rgba(206, 225, 255, 0.2);
   border-radius: var(--radius-xl);
   background:
@@ -472,13 +472,13 @@
 
 .saas-workflow {
   display: grid;
-  gap: 14px;
-  padding: 28px;
+  gap: 12px;
+  padding: 22px;
 }
 
 .saas-workflow div {
   position: relative;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.045);
@@ -500,8 +500,8 @@
 
 .saas-workflow-bars {
   display: grid;
-  gap: 10px;
-  padding: 0 28px 28px;
+  gap: 9px;
+  padding: 0 24px 24px;
 }
 
 .saas-workflow-bars span {
@@ -515,7 +515,7 @@
 .saas-workflow-bars span:nth-child(3) { width: 72%; }
 
 .saas-development-morocco .seo-platform-proof {
-  margin-bottom: 72px;
+  margin-bottom: 62px;
 }
 
 .saas-development-morocco .seo-platform-proof-grid {
@@ -528,10 +528,10 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  min-height: 290px;
+  min-height: 262px;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px;
+  gap: 14px;
+  padding: 20px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-xl);
   background:
@@ -549,8 +549,8 @@
 
 .saas-development-morocco .seo-platform-card-featured {
   grid-row: span 2;
-  min-height: 604px;
-  padding: 30px;
+  min-height: 544px;
+  padding: 26px;
   background:
     radial-gradient(circle at 20% 16%, rgba(124, 92, 255, 0.16), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035)),
@@ -561,8 +561,8 @@
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 12px;
-  min-height: 220px;
-  padding: 14px;
+  min-height: 178px;
+  padding: 12px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
   background: rgba(2, 8, 18, 0.42);
@@ -580,7 +580,7 @@
 }
 
 .saas-case-preview-compact {
-  min-height: 96px;
+  min-height: 86px;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -591,11 +591,11 @@
 .saas-development-morocco .seo-platform-card h3 {
   margin: 0 0 8px;
   color: var(--sd-text);
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .saas-development-morocco .seo-platform-card-featured h3 {
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: clamp(25px, 3.6vw, 34px);
 }
 
 .saas-development-morocco .seo-platform-client {
@@ -631,7 +631,7 @@
 
 .saas-features-section {
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-  padding: clamp(36px, 5vw, 56px);
+  padding: clamp(32px, 4.5vw, 50px);
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-xl);
   background:
@@ -640,8 +640,8 @@
 }
 
 .saas-development-morocco .seo-list li {
-  margin-bottom: 16px;
-  padding-left: 30px;
+  margin-bottom: 14px;
+  padding-left: 27px;
 }
 
 .saas-development-morocco .seo-list li::before {
@@ -662,13 +662,13 @@
 
 .saas-stack-grid span {
   display: grid;
-  min-height: 118px;
+  min-height: 106px;
   place-items: center;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
   background: rgba(7, 16, 30, 0.7);
   color: var(--sd-text);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: transform var(--sd-transition), border-color var(--sd-transition), background-color var(--sd-transition);
@@ -681,7 +681,7 @@
 }
 
 .saas-development-morocco .seo-process {
-  margin-bottom: 82px;
+  margin-bottom: 72px;
 }
 
 .saas-development-morocco .seo-process-steps {
@@ -702,9 +702,9 @@
 }
 
 .saas-development-morocco .seo-process-step {
-  min-height: 150px;
+  min-height: 136px;
   margin-left: 72px;
-  padding: 28px 30px;
+  padding: 25px 27px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.035);
@@ -740,7 +740,7 @@
 }
 
 .saas-development-morocco .seo-process-title {
-  font-size: clamp(20px, 2vw, 26px);
+  font-size: clamp(19px, 1.8vw, 24px);
 }
 
 .saas-development-morocco .seo-process-desc {
@@ -749,7 +749,7 @@
 }
 
 .saas-stats-section {
-  margin-bottom: 82px;
+  margin-bottom: 72px;
 }
 
 .saas-development-morocco .seo-why-grid {
@@ -758,8 +758,8 @@
 }
 
 .saas-development-morocco .seo-why-card {
-  min-height: 210px;
-  padding: 24px;
+  min-height: 190px;
+  padding: 20px;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-xl);
   background:
@@ -776,20 +776,20 @@
 }
 
 .saas-development-morocco .seo-why-card strong {
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(19px, 1.8vw, 25px);
   line-height: 1.12;
 }
 
 .saas-development-morocco .seo-faq {
   max-width: 940px;
-  margin: 0 auto 86px;
+  margin: 0 auto 76px;
 }
 
 .saas-development-morocco .seo-faq details {
   overflow: hidden;
   border: 1px solid var(--saas-line);
   border-radius: var(--radius-lg);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   background: rgba(255, 255, 255, 0.035);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
   transition: border-color var(--sd-transition), background-color var(--sd-transition), transform var(--sd-transition);
@@ -803,9 +803,9 @@
 }
 
 .saas-development-morocco .seo-faq summary {
-  min-height: 70px;
-  padding: 20px 24px;
-  gap: 18px;
+  min-height: 64px;
+  padding: 18px 22px;
+  gap: 16px;
 }
 
 .saas-development-morocco .seo-faq summary::after {
@@ -820,13 +820,13 @@
 }
 
 .saas-development-morocco .seo-faq .faq-answer {
-  padding: 0 24px 22px;
+  padding: 0 22px 20px;
 }
 
 .saas-development-morocco .seo-cta-banner {
   position: relative;
   overflow: hidden;
-  padding: clamp(54px, 8vw, 92px) clamp(24px, 5vw, 72px);
+  padding: clamp(48px, 7vw, 82px) clamp(22px, 4.5vw, 64px);
   border: 1px solid rgba(206, 225, 255, 0.2);
   border-radius: var(--radius-xl);
   background:
@@ -859,7 +859,7 @@
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(29px, 4.5vw, 50px);
 }
 
 .saas-development-morocco .seo-cta-banner p,
@@ -924,7 +924,7 @@
 
 @media (max-width: 767px) {
   .saas-development-morocco .saas-hero {
-    padding: 112px 0 58px;
+    padding: 78px 0 58px;
   }
 
   .saas-development-morocco .seo-content {
@@ -1031,7 +1031,7 @@
   .saas-development-morocco .seo-process,
   .saas-stats-section,
   .saas-development-morocco .seo-faq {
-    margin-bottom: 56px;
+    margin-bottom: 50px;
   }
 
   .saas-story-copy,
@@ -1039,7 +1039,7 @@
   .saas-development-morocco .seo-platform-card,
   .saas-development-morocco .seo-platform-card-featured,
   .saas-development-morocco .seo-why-card {
-    padding: 20px;
+    padding: 18px;
   }
 
   .saas-development-morocco .seo-intro p,
@@ -1135,11 +1135,11 @@
   }
 
   .saas-case-preview-compact {
-    min-height: 76px;
+    min-height: 70px;
   }
 
   .saas-stack-grid span {
-    min-height: 72px;
+    min-height: 66px;
     font-size: 16px;
   }
 
@@ -1150,7 +1150,7 @@
   .saas-development-morocco .seo-process-step {
     margin-left: 42px;
     min-height: auto;
-    padding: 20px;
+    padding: 18px;
   }
 
   .saas-development-morocco .seo-process-step::before {
@@ -1160,7 +1160,7 @@
   }
 
   .saas-development-morocco .seo-process-title {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .saas-development-morocco .seo-why-card {
@@ -1168,7 +1168,7 @@
   }
 
   .saas-development-morocco .seo-why-card strong {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .saas-development-morocco .seo-faq summary {
@@ -1206,7 +1206,7 @@
   }
 
   .saas-development-morocco .seo-hero-grid {
-    gap: 28px;
+    gap: 25px;
   }
 
   .saas-dashboard {
