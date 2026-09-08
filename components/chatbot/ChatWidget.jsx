@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./ChatWidget.module.css";
-import { generateDevisFromChat } from "../../services/devis";
+import { downloadDevisPdf, generateDevisFromChat } from "../../services/devis";
 import { sendChatMessage } from "../../services/chatbot";
-import { resolveApiUrl } from "../../services/apiClient";
 
 const DEFAULT_ASSISTANT_MESSAGE =
   "Bonjour 👋 Je suis l’assistant SmartDex. Je peux vous aider à choisir une solution digitale, répondre à vos questions, ou vous guider vers un devis.";
@@ -105,10 +104,14 @@ export default function ChatWidget() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isGeneratingDevis, setIsGeneratingDevis] = useState(false);
+  const [isDownloadingDevisPdf, setIsDownloadingDevisPdf] = useState(false);
   const [devisResult, setDevisResult] = useState(null);
   const [devisError, setDevisError] = useState("");
+  const [devisPdfError, setDevisPdfError] = useState("");
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const isGeneratingDevisRef = useRef(false);
+  const isDownloadingDevisPdfRef = useRef(false);
 
   const userMessages = messages.filter(
     (message) => message.role === "user" && message.content?.trim()
@@ -121,9 +124,11 @@ export default function ChatWidget() {
     devisResult?.clarification_questions
   );
   const costDrivers = safeArray(generatedEstimate?.cost_drivers);
-  const pdfUrl = devisResult?.pdf_url
-    ? resolveApiUrl(devisResult.pdf_url)
-    : "";
+  const devisId =
+    devisResult?.id || devisResult?.request_id || devisResult?.request?.id;
+  const devisAccessToken =
+    devisResult?.access_token || devisResult?.request?.access_token;
+  const canDownloadPdf = Boolean(devisId && devisAccessToken);
 
   useEffect(() => {
     let existingSessionId = localStorage.getItem("smartdex_chat_session_id");
@@ -226,7 +231,7 @@ export default function ChatWidget() {
             "Je rencontre un problème technique pour le moment. Vous pouvez nous contacter directement via le formulaire ou demander un devis.",
         },
       ]);
-      console.error("Chatbot error:", error);
+      console.error("Chatbot error status:", error?.status || "unknown");
     } finally {
       setIsLoading(false);
     }
@@ -257,11 +262,15 @@ export default function ChatWidget() {
     setInput("");
     setDevisResult(null);
     setDevisError("");
+    setDevisPdfError("");
+    isGeneratingDevisRef.current = false;
+    isDownloadingDevisPdfRef.current = false;
     setIsGeneratingDevis(false);
+    setIsDownloadingDevisPdf(false);
   };
 
   const handleGenerateDevis = async () => {
-    if (isGeneratingDevis || isLoading) return;
+    if (isGeneratingDevisRef.current || isLoading) return;
 
     const payload = buildDevisPayload(messages);
 
@@ -273,8 +282,10 @@ export default function ChatWidget() {
       return;
     }
 
+    isGeneratingDevisRef.current = true;
     setIsGeneratingDevis(true);
     setDevisError("");
+    setDevisPdfError("");
 
     try {
       const response = await generateDevisFromChat(payload);
@@ -295,14 +306,49 @@ export default function ChatWidget() {
 
       setDevisResult(normalizedResponse);
     } catch (error) {
-      console.error("Generate devis error:", error);
+      console.error("Generate devis error status:", error?.status || "unknown");
       setDevisResult({ status: "failed" });
       setDevisError(
         error?.message ||
           "Impossible de générer le devis pour le moment. Veuillez réessayer."
       );
     } finally {
+      isGeneratingDevisRef.current = false;
       setIsGeneratingDevis(false);
+    }
+  };
+
+  const handleDownloadDevisPdf = async () => {
+    if (isDownloadingDevisPdfRef.current || !canDownloadPdf) return;
+
+    isDownloadingDevisPdfRef.current = true;
+    setIsDownloadingDevisPdf(true);
+    setDevisPdfError("");
+
+    try {
+      const blob = await downloadDevisPdf({
+        devisId,
+        accessToken: devisAccessToken,
+        pdfUrl: devisResult?.pdf_url,
+      });
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = objectUrl;
+      link.download = `smartdex-devis-${devisId}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    } catch (error) {
+      setDevisPdfError(
+        error?.message ||
+          "Impossible de télécharger le PDF pour le moment. Veuillez réessayer."
+      );
+    } finally {
+      isDownloadingDevisPdfRef.current = false;
+      setIsDownloadingDevisPdf(false);
     }
   };
 
@@ -525,15 +571,23 @@ export default function ChatWidget() {
                         </div>
                       )}
 
-                      {pdfUrl && (
-                        <a
-                          href={pdfUrl}
-                          target="_blank"
-                          rel="noreferrer"
+                      {devisPdfError && (
+                        <div className={styles.devisStateError}>
+                          {devisPdfError}
+                        </div>
+                      )}
+
+                      {canDownloadPdf && (
+                        <button
+                          type="button"
+                          onClick={handleDownloadDevisPdf}
+                          disabled={isDownloadingDevisPdf}
                           className={styles.devisPdfLink}
                         >
-                          Télécharger le devis PDF
-                        </a>
+                          {isDownloadingDevisPdf
+                            ? "Préparation du PDF..."
+                            : "Télécharger le devis PDF"}
+                        </button>
                       )}
                     </div>
                   )}

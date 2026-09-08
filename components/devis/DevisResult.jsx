@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef, useState } from "react";
 import styles from "./DevisResult.module.css";
+import { downloadDevisPdf } from "../../services/devis";
 
 function formatMoney(value) {
   if (value === null || value === undefined || value === "") return "—";
@@ -20,8 +22,13 @@ function safeArray(value) {
 }
 
 export default function DevisResult({ result, onReset }) {
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [downloadError, setDownloadError] = useState("");
+  const isDownloadingPdfRef = useRef(false);
   const request = result?.request || {};
   const quoteResponse = result?.quote || {};
+  const devisId = request?.id || request?.request_id || quoteResponse?.id;
+  const accessToken = request?.access_token;
 
   const estimate = quoteResponse?.estimate || {};
   const quote = quoteResponse?.quote || {};
@@ -61,6 +68,40 @@ export default function DevisResult({ result, onReset }) {
       max: item?.price_max,
     })),
   ];
+
+  const handleDownloadPdf = async () => {
+    if (isDownloadingPdfRef.current) return;
+
+    isDownloadingPdfRef.current = true;
+    setIsDownloadingPdf(true);
+    setDownloadError("");
+
+    try {
+      const blob = await downloadDevisPdf({
+        devisId,
+        accessToken,
+        pdfUrl: quoteResponse?.pdf_url,
+      });
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = objectUrl;
+      link.download = `smartdex-devis-${devisId}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    } catch (error) {
+      setDownloadError(
+        error?.message ||
+          "Impossible de télécharger le PDF pour le moment. Veuillez réessayer."
+      );
+    } finally {
+      isDownloadingPdfRef.current = false;
+      setIsDownloadingPdf(false);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -208,6 +249,20 @@ export default function DevisResult({ result, onReset }) {
           </ul>
         </div>
       )}
+
+      <div className={styles.actionsCard}>
+        {downloadError && <p className={styles.errorText}>{downloadError}</p>}
+        <button
+          type="button"
+          className={styles.primaryButton}
+          onClick={handleDownloadPdf}
+          disabled={isDownloadingPdf || !devisId || !accessToken}
+        >
+          {isDownloadingPdf
+            ? "Préparation du PDF..."
+            : "Télécharger le devis PDF"}
+        </button>
+      </div>
     </div>
   );
 }

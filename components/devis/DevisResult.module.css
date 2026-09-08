@@ -8,7 +8,8 @@
   .metaCard,
   .tableCard,
   .totalsCard,
-  .notesCard {
+  .notesCard,
+  .actionsCard {
     background: #ffffff;
     border: 1px solid rgba(10, 42, 74, 0.08);
     border-radius: 20px;
@@ -58,11 +59,47 @@
     color: #17324d;
     border: 1px solid rgba(10, 42, 74, 0.12);
   }
+
+  .primaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #0a2a4a;
+    color: #ffffff;
+  }
+
+  .primaryButton:hover:not(:disabled) {
+    background: #103e68;
+  }
+
+  .primaryButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
   
   .metaCard,
   .totalsCard,
-  .notesCard {
+  .notesCard,
+  .actionsCard {
     padding: 22px;
+  }
+
+  .actionsCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .errorText {
+    margin: 0;
+    color: #9f1239;
+    font-weight: 600;
   }
   
   .metaGrid {

@@ -10,6 +10,7 @@ export { getFaqs, getMapConfig, submitContactMessage } from './contactService'
 export { API_BASE_URL, ApiError, apiRequest, resolveApiUrl } from './apiClient'
 export {
   createDevisRequest,
+  downloadDevisPdf,
   generateDevisFromChat,
   generateDevisRequest,
   submitDevisRequest,

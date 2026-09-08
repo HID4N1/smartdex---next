@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./DevisForm.module.css";
 import DevisResult from "./DevisResult";
 import { submitDevisRequest } from "../../services/devis";
@@ -55,6 +55,7 @@ export default function DevisForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
+  const isSubmittingRef = useRef(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -148,6 +149,9 @@ export default function DevisForm() {
 
   const submitDevis = async (e) => {
     e.preventDefault();
+    if (isSubmittingRef.current) return;
+
+    isSubmittingRef.current = true;
     setIsSubmitting(true);
     setError("");
     setResult(null);
@@ -158,12 +162,13 @@ export default function DevisForm() {
 
       setResult(devisResult);
     } catch (err) {
-      console.error("Devis submission error:", err);
+      console.error("Devis submission error status:", err?.status || "unknown");
       setError(
         err.message ||
           "Une erreur est survenue lors de la génération du devis."
       );
     } finally {
+      isSubmittingRef.current = false;
       setIsSubmitting(false);
     }
   };
