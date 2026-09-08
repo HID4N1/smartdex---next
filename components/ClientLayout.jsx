@@ -13,8 +13,6 @@ const ChatWidget = dynamic(() => import('./chatbot/ChatWidget'), {
 
 export default function ClientLayout({ children }) {
   const [showTop, setShowTop] = useState(false)
-  const [showChatWidget, setShowChatWidget] = useState(false)
-  const [pendingChatOpen, setPendingChatOpen] = useState(false)
   const showTopRef = useRef(false)
   const pathname = usePathname()
   const isBusinessCardPage = pathname === '/business-card'
@@ -71,27 +69,6 @@ export default function ClientLayout({ children }) {
     }
   }, [pathname])
 
-  useEffect(() => {
-    const loadChat = (event) => {
-      setShowChatWidget(true)
-      if (!event?.detail?.replayed) setPendingChatOpen(true)
-    }
-
-    window.addEventListener('smartdex:open-chat', loadChat)
-    return () => {
-      window.removeEventListener('smartdex:open-chat', loadChat)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!showChatWidget || !pendingChatOpen) return
-    const id = window.setTimeout(() => {
-      window.dispatchEvent(new CustomEvent('smartdex:open-chat', { detail: { replayed: true } }))
-      setPendingChatOpen(false)
-    }, 0)
-    return () => window.clearTimeout(id)
-  }, [showChatWidget, pendingChatOpen])
-
   return (
     <>
       <a href="#main-content" className="skip-link">Aller au contenu</a>
@@ -102,7 +79,7 @@ export default function ClientLayout({ children }) {
         {children}
       </main>
       {!isBusinessCardPage && <Footer />}
-      {showChatWidget && <ChatWidget />}
+      {!isBusinessCardPage && <ChatWidget />}
 
       {showTop && !isBusinessCardPage && (
         <button

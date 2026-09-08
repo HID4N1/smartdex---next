@@ -6,7 +6,7 @@ export { getTestimonials } from './testimonialService'
 export { getServices, getServiceDetails } from './serviceService'
 export { getStats, getValues } from './achievementsService'
 export { getPartners } from './aboutService'
-export { getFaqs, getMapConfig } from './contactService'
+export { getFaqs, getMapConfig, submitContactMessage } from './contactService'
 export { API_BASE_URL, ApiError, apiRequest, resolveApiUrl } from './apiClient'
 export {
   createDevisRequest,

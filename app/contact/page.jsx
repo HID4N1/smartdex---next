@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { FiArrowDown, FiArrowRight } from 'react-icons/fi'
-import { getFaqs, getMapConfig } from '../../services'
+import { getFaqs, getMapConfig, submitContactMessage } from '../../services'
 import './Contact.css'
 
 export default function Contact() {
@@ -11,6 +11,7 @@ export default function Contact() {
   })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState(null)
+  const [submitError, setSubmitError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [messageLength, setMessageLength] = useState(0)
   const mapRef = useRef(null)
@@ -29,19 +30,36 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    if (isSubmitting) return
+
     const v = validate(form)
     setErrors(v)
     if (Object.keys(v).length) return
+
     setIsSubmitting(true)
     setStatus(null)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setStatus('success')
-    setTimeout(() => {
+    setSubmitError('')
+
+    try {
+      await submitContactMessage({
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        project_type: form.projectType,
+        budget: form.budget,
+        subject: form.subject,
+        message: form.message,
+      })
+
+      setStatus('success')
       setForm({ name: '', email: '', company: '', projectType: '', budget: '', subject: '', message: '' })
       setMessageLength(0)
-      setStatus(null)
-    }, 5000)
+    } catch (error) {
+      setSubmitError(error?.message || 'Veuillez vérifier les informations saisies ou réessayer dans un instant.')
+      setStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   useEffect(() => {
@@ -289,6 +307,15 @@ export default function Contact() {
                       <div>
                         <strong>Merci, votre demande a bien été envoyée.</strong>
                         <p>Notre équipe vous répondra dans les meilleurs délais.</p>
+                      </div>
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div className="form-status error" role="alert" aria-live="assertive">
+                      <div className="status-icon">!</div>
+                      <div>
+                        <strong>Impossible d&apos;envoyer votre demande.</strong>
+                        <p>{submitError}</p>
                       </div>
                     </div>
                   )}

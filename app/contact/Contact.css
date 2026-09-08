@@ -522,6 +522,21 @@
   line-height: 1.5;
 }
 
+.form-status.error,
+.form-status.error .status-icon,
+.form-status.error strong {
+  color: #ffb3b3;
+}
+
+.form-status.error .status-icon {
+  background: rgba(255, 96, 96, 0.13);
+  border-color: rgba(255, 96, 96, 0.38);
+}
+
+.form-status.error p {
+  color: rgba(255, 210, 210, 0.74);
+}
+
 .contact-location-section {
   padding: 104px 0 112px;
   background:
