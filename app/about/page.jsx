@@ -44,7 +44,7 @@ export default function About() {
           </p>
           <div className="about-hero-stats">
             <div className="hero-stat">
-              <div className="hero-stat-value">7+</div>
+              <div className="hero-stat-value">5+</div>
               <div className="hero-stat-label">Projets</div>
             </div>
             <div className="hero-stat">

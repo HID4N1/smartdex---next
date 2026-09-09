@@ -68,6 +68,9 @@ export default function Footer() {
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} SmartDex. Tous droits réservés.</span>
         <div className="footer-bottom-actions">
+          <Link href="/conditions-generales" className="footer-link-button">
+            Conditions générales d&apos;utilisation
+          </Link>
           <Link href={PRIVACY_POLICY_ROUTE} className="footer-link-button">
             Politique de confidentialité
           </Link>

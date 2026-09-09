@@ -2,7 +2,7 @@
  * Achievements data - stats and values sections
  */
 export const achievementStats = [
-  { value: '7+', label: 'Projets livrés', description: 'Projets réussis pour des entreprises de renom' },
+  { value: '5+', label: 'Projets livrés', description: 'Projets réussis pour des entreprises de renom' },
   { value: '100%', label: 'Satisfaction client', description: 'Clients satisfaits et partenaires fidèles' },
   { value: '< 2s', label: 'Temps de chargement', description: 'Performances optimales garanties' },
   { value: '100%', label: 'Sécurité garantie', description: 'Protection maximale des données' },

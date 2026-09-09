@@ -12,6 +12,7 @@ const pages = [
   '/projects',
   '/about',
   '/devis',
+  '/conditions-generales',
   '/blog/combien-coute-un-site-web-maroc-2026',
   '/projects/sjm-pilote-mdjs',
   '/projects/lmatch-pro',

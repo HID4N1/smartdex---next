@@ -31,6 +31,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.smartdex.ma/conditions-generales</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.smartdex.ma/ai-chatbot-morocco</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
