@@ -6,6 +6,7 @@ import './Footer.css'
 import ThemeToggle from '../ui/ThemeToggle'
 import ChatbotTrigger from '../ChatbotTrigger'
 import { COOKIE_CONSENT_OPEN_EVENT } from '../../lib/cookieConsent'
+import { PRIVACY_POLICY_ROUTE } from '../../lib/privacy'
 
 function openCookiePreferences() {
   window.dispatchEvent(new Event(COOKIE_CONSENT_OPEN_EVENT))
@@ -67,6 +68,9 @@ export default function Footer() {
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} SmartDex. Tous droits réservés.</span>
         <div className="footer-bottom-actions">
+          <Link href={PRIVACY_POLICY_ROUTE} className="footer-link-button">
+            Politique de confidentialité
+          </Link>
           <button type="button" className="footer-link-button" onClick={openCookiePreferences}>
             Gérer les cookies
           </button>

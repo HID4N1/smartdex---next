@@ -1,0 +1,237 @@
+.privacy-page {
+  color: var(--sd-text);
+}
+
+.privacy-hero {
+  padding: 112px 0 56px;
+  border-bottom: 1px solid var(--sd-border);
+  background: rgba(8, 17, 31, 0.48);
+}
+
+.privacy-hero-inner {
+  max-width: 940px;
+}
+
+.privacy-eyebrow {
+  margin: 0 0 14px;
+  color: var(--sd-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.privacy-hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(34px, 6vw, 58px);
+}
+
+.privacy-hero p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--sd-text-muted);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.75;
+}
+
+.privacy-version {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.privacy-version span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-btn);
+  color: var(--sd-text-muted);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 14px;
+}
+
+.privacy-content {
+  padding: 56px 0 88px;
+}
+
+.privacy-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 820px);
+  gap: 48px;
+  align-items: start;
+}
+
+.privacy-summary {
+  position: sticky;
+  top: 96px;
+  padding: 22px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.privacy-summary h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.privacy-summary p {
+  margin: 0 0 14px;
+  color: var(--sd-text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.privacy-summary a,
+.privacy-article a {
+  color: var(--sd-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.privacy-article {
+  max-width: 820px;
+}
+
+.privacy-article section {
+  padding: 0 0 34px;
+  margin: 0 0 34px;
+  border-bottom: 1px solid var(--sd-border);
+}
+
+.privacy-article section:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.privacy-article h2 {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.25;
+}
+
+.privacy-article h3 {
+  margin: 24px 0 8px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.privacy-article p,
+.privacy-article li,
+.privacy-article dd,
+.privacy-article address {
+  color: var(--sd-text-muted);
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.privacy-article p {
+  margin: 0 0 16px;
+}
+
+.privacy-article ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.privacy-article li {
+  margin-bottom: 8px;
+}
+
+.privacy-identity {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 0;
+}
+
+.privacy-identity div {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--sd-border);
+}
+
+.privacy-identity dt {
+  color: var(--sd-text);
+  font-weight: 700;
+}
+
+.privacy-identity dd {
+  margin: 0;
+}
+
+.privacy-table-wrap {
+  overflow-x: auto;
+  margin: 18px 0 8px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--radius-lg);
+}
+
+.privacy-table-wrap table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.privacy-table-wrap th,
+.privacy-table-wrap td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--sd-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.privacy-table-wrap tr:last-child td {
+  border-bottom: 0;
+}
+
+.privacy-table-wrap th {
+  color: var(--sd-text);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.privacy-table-wrap td {
+  color: var(--sd-text-muted);
+  line-height: 1.65;
+}
+
+.privacy-article address {
+  margin: 0;
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .privacy-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .privacy-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .privacy-hero {
+    padding: 92px 0 42px;
+  }
+
+  .privacy-content {
+    padding: 38px 0 64px;
+  }
+
+  .privacy-identity div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .privacy-article section {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+  }
+}
