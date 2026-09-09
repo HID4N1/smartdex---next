@@ -82,6 +82,9 @@ export default function SaasDevelopmentMoroccoPage() {
               <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
               <Link href="/projects" className="btn">Voir nos réalisations</Link>
             </div>
+            <Link href="/contact" className="seo-secondary-cta">
+              Ou contactez-nous pour discuter de votre projet →
+            </Link>
             <div className="seo-trust-row saas-trust-badges" aria-label="Indicateurs de confiance SmartDex">
               <span><strong>Multi-tenant</strong> Cloud-ready</span>
               <span><strong>RGPD</strong> Security-first</span>
@@ -236,8 +239,12 @@ export default function SaasDevelopmentMoroccoPage() {
 
           <section className="seo-platform-proof">
             <h2>Des plateformes SaaS conçues pour des besoins réels</h2>
+            <p className="seo-platform-context">
+              Ces projets illustrent notre service de développement SaaS : le contexte métier reste central, les cas clients servent de preuve concrète avant d’explorer le détail de chaque réalisation.
+            </p>
             <div className="seo-platform-proof-grid">
               <article className="seo-platform-card seo-platform-card-featured">
+                <span className="seo-service-proof-label">Preuve du service SaaS</span>
                 <div className="saas-case-preview" aria-hidden="true">
                   <span />
                   <span />
@@ -253,10 +260,11 @@ export default function SaasDevelopmentMoroccoPage() {
                 <p>
                   Impact business : processus client plus fluide, meilleure organisation terrain, réduction des tâches manuelles et suivi centralisé des opérations.
                 </p>
-                <Link href="/projects/casamyway">Voir le projet</Link>
+                <Link href="/projects/casamyway">Voir le projet en détail</Link>
               </article>
 
               <article className="seo-platform-card">
+                <span className="seo-service-proof-label">Preuve du service SaaS</span>
                 <div className="saas-case-preview saas-case-preview-compact" aria-hidden="true">
                   <span />
                   <span />
@@ -271,10 +279,11 @@ export default function SaasDevelopmentMoroccoPage() {
                 <p>
                   Impact business : meilleure visibilité opérationnelle, réduction du temps de reporting et identification plus rapide des problèmes terrain.
                 </p>
-                <Link href="/projects/sjm-pilote-mdjs">Voir le projet</Link>
+                <Link href="/projects/sjm-pilote-mdjs">Voir le projet en détail</Link>
               </article>
 
               <article className="seo-platform-card">
+                <span className="seo-service-proof-label">Preuve du service SaaS</span>
                 <div className="saas-case-preview saas-case-preview-compact" aria-hidden="true">
                   <span />
                   <span />
@@ -289,7 +298,7 @@ export default function SaasDevelopmentMoroccoPage() {
                 <p>
                   Impact business : distribution maîtrisée, reporting fiable, réduction des erreurs terrain et meilleure visibilité sur l’avancement de la campagne.
                 </p>
-                <Link href="/projects/quattro-plus">Voir le projet</Link>
+                <Link href="/projects/quattro-plus">Voir le projet en détail</Link>
               </article>
             </div>
           </section>
@@ -397,6 +406,10 @@ export default function SaasDevelopmentMoroccoPage() {
             <h3>Prêt à lancer votre projet ?</h3>
             <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
             <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
+            <br />
+            <Link href="/contact" className="seo-secondary-cta">
+              Ou contactez-nous pour discuter de votre projet →
+            </Link>
           </section>
         </div>
       </div>

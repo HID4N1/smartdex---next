@@ -167,6 +167,19 @@
   margin-top: 24px;
 }
 
+.seo-secondary-cta {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--sd-accent);
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.seo-secondary-cta:hover {
+  text-decoration: underline;
+}
+
 .seo-hero-copy .seo-hero-ctas,
 .seo-cta-banner .seo-hero-ctas {
   justify-content: flex-start;
@@ -522,6 +535,11 @@
   .seo-cta-strip .btn,
   .seo-pricing-card .btn {
     width: 100%;
+  }
+
+  .seo-secondary-cta {
+    width: 100%;
+    justify-content: center;
   }
 
   .seo-cta-strip {

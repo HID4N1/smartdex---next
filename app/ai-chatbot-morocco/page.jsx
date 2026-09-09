@@ -165,6 +165,9 @@ export default function AiChatbotMoroccoPage() {
             <div className="seo-hero-ctas">
               <ChatbotTrigger className="btn">Voir une démo</ChatbotTrigger>
             </div>
+            <Link href="/contact" className="seo-secondary-cta">
+              Ou contactez-nous pour discuter de votre projet →
+            </Link>
             <div className="seo-trust-row" aria-label="Indicateurs de confiance">
               <span><strong>+7</strong> projets réalisés</span>
               <span><strong>PME</strong> marocaines accompagnées</span>
@@ -219,7 +222,12 @@ export default function AiChatbotMoroccoPage() {
               <h2>Vous perdez des leads hors horaires ouvrables ?</h2>
               <p>Recevez une estimation courte, claire et adaptée à votre activité au Maroc.</p>
             </div>
-            <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
+            <div>
+              <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
+              <Link href="/contact" className="seo-secondary-cta">
+                Ou contactez-nous pour discuter de votre projet →
+              </Link>
+            </div>
           </section>
 
           <section className="seo-features">
@@ -322,8 +330,10 @@ export default function AiChatbotMoroccoPage() {
             <p>Décrivez votre besoin en quelques étapes. Nous vous donnons une estimation claire, sans jargon et adaptée au marché marocain.</p>
             <div className="seo-hero-ctas">
               <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
-              <Link href="/contact" className="btn">Parler à SmartDex</Link>
             </div>
+            <Link href="/contact" className="seo-secondary-cta">
+              Ou contactez-nous pour discuter de votre projet →
+            </Link>
           </section>
         </div>
       </div>

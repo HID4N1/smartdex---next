@@ -144,6 +144,9 @@ export default function Services({ compact }) {
             <span>Obtenir une estimation instantanée</span>
             <span className="btn-arrow">→</span>
           </Link>
+          <Link href="/contact" className="services-secondary-cta">
+            Ou contactez-nous pour discuter de votre projet →
+          </Link>
         </div>
       </div>
     </section>

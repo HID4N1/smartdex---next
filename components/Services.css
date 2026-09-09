@@ -438,6 +438,20 @@
   transform: scale(1.02);
 }
 
+.services-secondary-cta {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  color: var(--sd-accent);
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.services-secondary-cta:hover {
+  text-decoration: underline;
+}
+
 /* Illustration: dashboard */
 .ill-dashboard { 
   padding: 16px; 

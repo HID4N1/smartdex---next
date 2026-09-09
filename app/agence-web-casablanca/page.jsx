@@ -81,6 +81,9 @@ export default function AgenceWebCasablancaPage() {
             <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
             <Link href="/projects" className="btn">Voir nos réalisations</Link>
           </div>
+          <Link href="/contact" className="seo-secondary-cta">
+            Ou contactez-nous pour discuter de votre projet →
+          </Link>
         </div>
       </header>
 
@@ -185,6 +188,10 @@ export default function AgenceWebCasablancaPage() {
             <h3>Prêt à lancer votre projet ?</h3>
             <p>Décrivez votre projet et recevez une estimation détaillée immédiatement.</p>
             <Link href="/devis" className="btn btn-primary">Obtenir une estimation instantanée</Link>
+            <br />
+            <Link href="/contact" className="seo-secondary-cta">
+              Ou contactez-nous pour discuter de votre projet →
+            </Link>
           </section>
         </div>
       </div>
