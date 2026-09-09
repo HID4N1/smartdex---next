@@ -35,7 +35,7 @@ function getErrorMessage(data, fallback) {
 
   if (typeof data === "string") return data;
 
-  return data.detail || data.message || fallback || JSON.stringify(data, null, 2);
+  return data.detail || data.message || fallback || "Une erreur est survenue lors de la requête.";
 }
 
 export async function apiRequest(path, options = {}) {

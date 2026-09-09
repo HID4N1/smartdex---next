@@ -216,6 +216,26 @@
   overflow-x: auto;
 }
 
+.privacyNotice {
+  margin: 2px 0 18px;
+  color: #5a6b7d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.privacyNotice a {
+  color: #0f4f8a;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.privacyNotice a:focus-visible {
+  outline: 2px solid #0f4f8a;
+  outline-offset: 4px;
+}
+
 .submitButton {
   width: 100%;
   border: none;

@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { FiArrowDown, FiArrowRight } from 'react-icons/fi'
+import Link from 'next/link'
 import { getFaqs, getMapConfig, submitContactMessage } from '../../services'
+import { PRIVACY_NOTICE_VERSION, PRIVACY_POLICY_ROUTE } from '../../lib/privacy'
 import './Contact.css'
 
 export default function Contact() {
@@ -49,6 +51,8 @@ export default function Contact() {
         budget: form.budget,
         subject: form.subject,
         message: form.message,
+        privacy_notice_version: PRIVACY_NOTICE_VERSION,
+        marketing_consent: false,
       })
 
       setStatus('success')
@@ -294,6 +298,10 @@ export default function Contact() {
 
                 <div className="form-actions">
                   <p className="form-helper">Minimum 20 caractères. Une réponse claire facilite notre première analyse.</p>
+                  <p className="privacy-notice">
+                    En envoyant ce formulaire, vous reconnaissez avoir pris connaissance de notre{' '}
+                    <Link href={PRIVACY_POLICY_ROUTE}>Politique de confidentialité</Link>.
+                  </p>
                   <button className={`contact-submit-btn ${isSubmitting ? 'submitting' : ''}`} type="submit" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <><span className="spinner" /><span>Envoi en cours...</span></>

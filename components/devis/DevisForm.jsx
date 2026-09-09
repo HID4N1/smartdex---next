@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./DevisForm.module.css";
 import DevisResult from "./DevisResult";
 import { submitDevisRequest } from "../../services/devis";
+import { PRIVACY_NOTICE_VERSION, PRIVACY_POLICY_ROUTE } from "../../lib/privacy";
 
 const initialForm = {
   full_name: "",
@@ -112,6 +114,8 @@ export default function DevisForm() {
       budget_range: formData.budget_range?.trim(),
       timeline: formData.deadline?.trim(),
       preferred_language: "fr",
+      privacy_notice_version: PRIVACY_NOTICE_VERSION,
+      marketing_consent: false,
     };
   
     if (formData.features?.length) {
@@ -446,7 +450,12 @@ export default function DevisForm() {
               />
             </div>
 
-            {error && <pre className={styles.error}>{error}</pre>}
+            <p className={styles.privacyNotice}>
+              En envoyant ce formulaire, vous reconnaissez avoir pris connaissance de notre{" "}
+              <Link href={PRIVACY_POLICY_ROUTE}>Politique de confidentialité</Link>.
+            </p>
+
+            {error && <p className={styles.error}>{error}</p>}
 
             <button
               type="submit"

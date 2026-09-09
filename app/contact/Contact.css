@@ -137,6 +137,7 @@
 .contact-hero-cta:focus-visible,
 .contact-secondary-btn:focus-visible,
 .contact-submit-btn:focus-visible,
+.privacy-notice a:focus-visible,
 .faq-question:focus-visible {
   outline: 2px solid var(--sd-accent);
   outline-offset: 4px;
@@ -457,6 +458,23 @@
   color: var(--sd-text-light);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.privacy-notice {
+  flex: 1 1 100%;
+  max-width: 620px;
+  margin: 0;
+  color: var(--sd-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.privacy-notice a {
+  color: var(--sd-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 
 .contact-submit-btn {
