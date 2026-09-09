@@ -1,24 +1,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getPartners } from '../../services'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import './About.css'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/about',
   title: 'À propos de SmartDex | Agence digitale au Maroc',
   description: 'Découvrez SmartDex, agence digitale marocaine spécialisée en développement web, mobile, logiciels métier, SaaS et intelligence artificielle.',
-  alternates: {
-    canonical: getCanonicalPath('/about'),
-  },
-  openGraph: {
-    title: "À propos — SmartDex",
-    description: "Agence digitale basée à Casablanca, Maroc.",
-    url: 'https://www.smartdex.ma/about',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-  },
-}
+  ogTitle: 'À propos — SmartDex',
+  ogDescription: 'Agence digitale basée à Casablanca, spécialisée en web, mobile, SaaS, logiciels métier et IA.',
+})
 
 export default function About() {
   const partners = getPartners()

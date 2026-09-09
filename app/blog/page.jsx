@@ -1,23 +1,16 @@
 import Link from 'next/link'
 import './page.css'
 import { getAllPosts } from '../../lib/posts'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/blog',
   title: 'Blog digital, IA et logiciels au Maroc | SmartDex',
   description:
     'Articles et conseils sur le développement web, mobile, SaaS et la transformation digitale pour les entreprises au Maroc.',
-  openGraph: {
-    title: 'Blog SmartDex — Conseils digitaux Maroc',
-    description: 'Articles sur le développement web, mobile, SaaS et IA pour entreprises marocaines.',
-    url: 'https://www.smartdex.ma/blog',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  alternates: { canonical: getCanonicalPath('/blog') },
-}
+  ogTitle: 'Blog SmartDex — Conseils digitaux Maroc',
+  ogDescription: 'Articles sur le développement web, mobile, SaaS et IA pour entreprises marocaines.',
+})
 
 function formatDate(dateStr) {
   try {

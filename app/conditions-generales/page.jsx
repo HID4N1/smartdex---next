@@ -1,27 +1,20 @@
 import Link from 'next/link'
-import { getCanonicalUrl } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import '../politique-de-confidentialite/page.css'
 
 /* eslint-disable react/no-unescaped-entities */
 
 const canonicalPath = '/conditions-generales'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: canonicalPath,
   title: "Conditions générales d'utilisation | SmartDex",
   description:
-    "Consultez les conditions générales d'utilisation du site SmartDex : accès au site, formulaire de contact, demandes de devis, chatbot, propriété intellectuelle et règles d'usage.",
-  alternates: {
-    canonical: getCanonicalUrl(canonicalPath),
-  },
-  openGraph: {
-    title: "Conditions générales d'utilisation | SmartDex",
-    description:
-      "Règles applicables à l'accès et à l'utilisation du site SmartDex, de ses formulaires, du chatbot et du parcours de devis.",
-    url: getCanonicalUrl(canonicalPath),
-    type: 'article',
-    locale: 'fr_MA',
-  },
-}
+    "Conditions d'utilisation du site SmartDex : accès, formulaires, demandes de devis, chatbot, propriété intellectuelle et règles d'usage.",
+  ogDescription:
+    "Règles applicables à l'accès et à l'utilisation du site SmartDex, de ses formulaires, du chatbot et du parcours de devis.",
+  type: 'article',
+})
 
 export default function ConditionsGeneralesPage() {
   return (

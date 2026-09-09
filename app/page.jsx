@@ -3,38 +3,24 @@ import Image from 'next/image'
 import Testimonials from '../components/Testimonials'
 import ChatbotTrigger from '../components/ChatbotTrigger'
 import { getProjects } from '../services'
-import { getCanonicalUrl } from '../lib/seo'
+import { createPageMetadata } from '../lib/seo'
 import './Home.css'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/',
   title: 'Agence Digitale Maroc | Développement Web, SaaS & IA',
   description: 'SmartDex conçoit des sites web, applications, ERP, SaaS et solutions IA sur mesure pour accompagner les entreprises au Maroc.',
-  alternates: {
-    canonical: getCanonicalUrl('/'),
-  },
-  openGraph: {
-    title: 'SmartDex — Agence Digitale Maroc',
-    description: "Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.",
-    url: 'https://www.smartdex.ma',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'SmartDex — Agence Digitale Maroc',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SmartDex — Agence Digitale Maroc',
-    description: "Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.",
-    images: ['/og-image.png'],
-  },
-}
+  ogTitle: 'SmartDex — Agence Digitale Maroc',
+  ogDescription: 'Développement web, SaaS, applications mobiles et solutions IA sur mesure pour entreprises au Maroc.',
+  images: [
+    {
+      url: '/og-image.png',
+      width: 1200,
+      height: 630,
+      alt: 'SmartDex — Agence Digitale Maroc',
+    },
+  ],
+})
 
 const IMAGE_MAP = {
   pilote: '/images/pilote.png',

@@ -5,6 +5,7 @@ import { SITE_URL } from '../lib/seo'
 export const metadata = {
   title: {
     default: 'SmartDex — Agence Digitale au Maroc',
+    template: '%s',
   },
   description: 'SmartDex est une agence digitale au Maroc spécialisée en développement web, SaaS, applications mobiles et solutions IA pour entreprises.',
   metadataBase: new URL(SITE_URL),
@@ -12,6 +13,14 @@ export const metadata = {
   authors: [{ name: 'SmartDex', url: 'https://www.smartdex.ma' }],
   creator: 'SmartDex',
   publisher: 'SmartDex',
+  category: 'technology',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/logo.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [{ url: '/logo.png' }],
+  },
   robots: {
     index: true,
     follow: true,
@@ -47,8 +56,14 @@ export const metadata = {
   },
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0a0a0f',
+}
+
 export default function RootLayout({ children }) {
-  const jsonLd = {
+  const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': 'https://www.smartdex.ma/#organization',
@@ -72,18 +87,28 @@ export default function RootLayout({ children }) {
       'https://www.linkedin.com/company/smartdex-ma/',
     ],
   }
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://www.smartdex.ma/#website',
+    name: 'SmartDex',
+    url: SITE_URL,
+    inLanguage: 'fr-MA',
+    publisher: {
+      '@id': 'https://www.smartdex.ma/#organization',
+    },
+  }
 
   return (
     <html lang="fr">
-      <head>
-        <meta name="theme-color" content="#0a0a0f" />
-        <link rel="icon" type="image/png" href="/logo.png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/logo.png" />
-      </head>
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c') }}
         />
         <ClientLayout>
           {children}

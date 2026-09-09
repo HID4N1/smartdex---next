@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ChatbotTrigger from '../../components/ChatbotTrigger'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import '../seo-pages.css'
 
 const features = [
@@ -131,23 +131,14 @@ const faqSchema = {
   })),
 }
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/ai-chatbot-morocco',
   title: 'Chatbot IA au Maroc pour entreprises | SmartDex',
   description: 'AI Chatbot Maroc pour PME, cliniques, e-commerce et services. Automatisez WhatsApp, qualifiez les leads et réduisez le temps de réponse avec SmartDex.',
   keywords: 'AI Chatbot Maroc, chatbot entreprise Maroc, chatbot WhatsApp Maroc, automatisation service client Maroc, WhatsApp API Maroc, chatbot IA Casablanca',
-  openGraph: {
-    title: 'AI Chatbot Maroc — WhatsApp, Leads & Service Client',
-    description: 'Automatisez votre service client et vos leads avec un chatbot IA connecté à WhatsApp Business pour les entreprises marocaines.',
-    url: 'https://www.smartdex.ma/ai-chatbot-morocco',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  alternates: {
-    canonical: getCanonicalPath('/ai-chatbot-morocco'),
-  },
-}
+  ogTitle: 'AI Chatbot Maroc — WhatsApp, Leads & Service Client',
+  ogDescription: 'Automatisez votre service client et vos leads avec un chatbot IA connecté à WhatsApp Business pour les entreprises marocaines.',
+})
 
 export default function AiChatbotMoroccoPage() {
   return (

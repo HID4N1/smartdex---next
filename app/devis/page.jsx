@@ -1,5 +1,5 @@
 import DevisForm from '../../components/devis/DevisForm'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import './devis.css'
 
 const devisFaqs = [
@@ -25,13 +25,13 @@ const devisFaqs = [
   },
 ]
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/devis',
   title: 'Demandez un devis digital au Maroc | SmartDex',
   description: 'Demandez un devis pour un site web, une application, un SaaS, un ERP, un CRM ou une solution IA avec SmartDex au Maroc.',
-  alternates: {
-    canonical: getCanonicalPath('/devis'),
-  },
-}
+  ogTitle: 'Devis digital au Maroc — SmartDex',
+  ogDescription: 'Demandez une estimation pour un site web, une application, un SaaS, un ERP, un CRM ou une solution IA.',
+})
 
 export default function DevisPage() {
   const faqSchema = {

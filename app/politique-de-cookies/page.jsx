@@ -1,25 +1,18 @@
 import Link from 'next/link'
-import { getCanonicalUrl } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import '../politique-de-confidentialite/page.css'
 
 const canonicalPath = '/politique-de-cookies'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: canonicalPath,
   title: 'Politique de cookies | SmartDex',
   description:
     'Découvrez comment SmartDex utilise les cookies strictement nécessaires et les outils optionnels de mesure d’audience, ainsi que vos choix de consentement.',
-  alternates: {
-    canonical: getCanonicalUrl(canonicalPath),
-  },
-  openGraph: {
-    title: 'Politique de cookies | SmartDex',
-    description:
-      'Informations sur les cookies nécessaires, les analytics optionnels et la gestion du consentement sur smartdex.ma.',
-    url: getCanonicalUrl(canonicalPath),
-    type: 'article',
-    locale: 'fr_MA',
-  },
-}
+  ogDescription:
+    'Informations sur les cookies nécessaires, les analytics optionnels et la gestion du consentement sur smartdex.ma.',
+  type: 'article',
+})
 
 export default function PolitiqueDeCookiesPage() {
   return (

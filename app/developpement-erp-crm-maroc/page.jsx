@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import '../seo-pages.css'
 import './DeveloppementErpCrmMaroc.css'
 
@@ -50,23 +50,13 @@ const faqSchema = {
   ]
 }
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/developpement-erp-crm-maroc',
   title: 'Développement ERP et CRM au Maroc | SmartDex',
   description: 'SmartDex développe des ERP et CRM sur mesure pour entreprises marocaines. Gestion commerciale, RH, stocks. Basé à Casablanca.',
   keywords: 'développement ERP CRM Maroc, logiciel gestion entreprise Maroc, CRM sur mesure Casablanca, agence web maroc, casablanca',
-  openGraph: {
-    title: 'Développement ERP & CRM Maroc — Gestion sur mesure',
-    description: 'SmartDex développe des ERP et CRM sur mesure pour entreprises marocaines. Gestion commerciale, RH, stocks. Basé à Casablanca.',
-    url: 'https://www.smartdex.ma/developpement-erp-crm-maroc',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  alternates: {
-    canonical: getCanonicalPath('/developpement-erp-crm-maroc'),
-  },
-}
+  ogTitle: 'Développement ERP & CRM Maroc — Gestion sur mesure',
+})
 
 export default function DeveloppementErpCrmMarocPage() {
   return (

@@ -1,21 +1,13 @@
 import Projects from '../../components/Projects'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/projects',
   title: 'Nos Projets & Réalisations | SmartDex',
-  description: "Découvrez nos réalisations : sites web, applications mobiles et logiciels sur mesure pour RATP, Gensaales, Loterie Nationale et plus. Agence web Maroc.",
-  alternates: {
-    canonical: getCanonicalPath('/projects'),
-  },
-  openGraph: {
-    title: 'Nos Projets — SmartDex',
-    description: 'Réalisations web, mobile et logiciels sur mesure.',
-    url: 'https://www.smartdex.ma/projects',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-  },
-}
+  description: 'Découvrez les réalisations SmartDex : sites web, applications mobiles, SaaS et logiciels métier sur mesure pour entreprises au Maroc.',
+  ogTitle: 'Nos Projets — SmartDex',
+  ogDescription: 'Réalisations web, mobile, SaaS et logiciels sur mesure développées par SmartDex.',
+})
 
 export default function ProjectsPage() {
   return <Projects teaser={false} />

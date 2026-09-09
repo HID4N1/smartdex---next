@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getCanonicalUrl } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import './page.css'
 
 const canonicalPath = '/politique-de-confidentialite'
@@ -10,22 +10,15 @@ const cndpComplianceStatus = {
   foreignTransferReference: null,
 }
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: canonicalPath,
   title: 'Politique de confidentialité | SmartDex',
   description:
-    'Découvrez comment SmartDex collecte, utilise, protège et conserve les données personnelles traitées via son site, ses formulaires, son chatbot et ses services de devis.',
-  alternates: {
-    canonical: getCanonicalUrl(canonicalPath),
-  },
-  openGraph: {
-    title: 'Politique de confidentialité | SmartDex',
-    description:
-      'Informations sur la collecte, l’utilisation, la protection et la conservation des données personnelles par SmartDex.',
-    url: getCanonicalUrl(canonicalPath),
-    type: 'article',
-    locale: 'fr_MA',
-  },
-}
+    'Comment SmartDex collecte, utilise, protège et conserve les données personnelles liées au site, aux formulaires, au chatbot et aux devis.',
+  ogDescription:
+    'Informations sur la collecte, l’utilisation, la protection et la conservation des données personnelles par SmartDex.',
+  type: 'article',
+})
 
 export default function PolitiqueDeConfidentialitePage() {
   return (

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getCanonicalPath } from '../../lib/seo'
+import { createPageMetadata } from '../../lib/seo'
 import '../seo-pages.css'
 import './AgenceWebCasablanca.css'
 
@@ -50,23 +50,13 @@ const faqSchema = {
   ]
 }
 
-export const metadata = {
+export const metadata = createPageMetadata({
+  path: '/agence-web-casablanca',
   title: 'Agence web à Casablanca | SmartDex',
   description: 'SmartDex, agence web à Casablanca. Création de sites web, applications React et plateformes digitales pour entreprises marocaines.',
   keywords: 'agence web Casablanca, création site web Casablanca, développement web Casablanca, agence web maroc, casablanca',
-  openGraph: {
-    title: 'Agence Web Casablanca — Sites & Applications sur mesure',
-    description: 'SmartDex, agence web à Casablanca. Création de sites web, applications React et plateformes digitales pour entreprises marocaines.',
-    url: 'https://www.smartdex.ma/agence-web-casablanca',
-    siteName: 'SmartDex',
-    locale: 'fr_MA',
-    type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  alternates: {
-    canonical: getCanonicalPath('/agence-web-casablanca'),
-  },
-}
+  ogTitle: 'Agence Web Casablanca — Sites & Applications sur mesure',
+})
 
 export default function AgenceWebCasablancaPage() {
   return (

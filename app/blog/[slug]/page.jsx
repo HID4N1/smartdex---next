@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import './page.css'
 import { getAllPosts, getPostBySlug } from '../../../lib/posts'
-import { getCanonicalPath } from '../../../lib/seo'
+import { createPageMetadata } from '../../../lib/seo'
 
 const titleOverrides = {
   'combien-coute-un-site-web-maroc-2026': 'Prix d’un site web au Maroc en 2026 | SmartDex',
@@ -33,21 +33,15 @@ export async function generateMetadata({ params }) {
   const title = titleOverrides[slug] || `${frontmatter.title} | SmartDex`
   const description = descriptionOverrides[slug] || frontmatter.description
 
-  return {
+  return createPageMetadata({
+    path: `/blog/${slug}`,
     title,
     description,
-    openGraph: {
-      title: frontmatter.title,
-      description: frontmatter.description,
-      url: `https://www.smartdex.ma/blog/${slug}`,
-      siteName: 'SmartDex',
-      locale: 'fr_MA',
-      type: 'article',
-      publishedTime: frontmatter.date,
-      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-    },
-    alternates: { canonical: getCanonicalPath(`/blog/${slug}`) },
-  }
+    ogTitle: frontmatter.title,
+    ogDescription: frontmatter.description,
+    type: 'article',
+    publishedTime: frontmatter.date,
+  })
 }
 
 function formatDate(dateStr) {
