@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import Header from './layout/Header'
 import Footer from './layout/Footer'
 import ScrollToTop from './ScrollToTop'
+import CookieConsent from './CookieConsent'
 
 const ChatWidget = dynamic(() => import('./chatbot/ChatWidget'), {
   ssr: false,
@@ -80,6 +81,7 @@ export default function ClientLayout({ children }) {
       </main>
       {!isBusinessCardPage && <Footer />}
       {!isBusinessCardPage && <ChatWidget />}
+      {!isBusinessCardPage && <CookieConsent />}
 
       {showTop && !isBusinessCardPage && (
         <button

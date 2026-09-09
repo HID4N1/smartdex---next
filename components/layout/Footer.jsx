@@ -5,6 +5,11 @@ import Image from 'next/image'
 import './Footer.css'
 import ThemeToggle from '../ui/ThemeToggle'
 import ChatbotTrigger from '../ChatbotTrigger'
+import { COOKIE_CONSENT_OPEN_EVENT } from '../../lib/cookieConsent'
+
+function openCookiePreferences() {
+  window.dispatchEvent(new Event(COOKIE_CONSENT_OPEN_EVENT))
+}
 
 export default function Footer() {
   return (
@@ -61,7 +66,12 @@ export default function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} SmartDex. Tous droits réservés.</span>
-        <ThemeToggle />
+        <div className="footer-bottom-actions">
+          <button type="button" className="footer-link-button" onClick={openCookiePreferences}>
+            Gérer les cookies
+          </button>
+          <ThemeToggle />
+        </div>
       </div>
     </footer>
   )
