@@ -9,7 +9,14 @@ import './Contact.css'
 
 export default function Contact() {
   const [form, setForm] = useState({
-    name: '', email: '', company: '', projectType: '', budget: '', subject: '', message: ''
+    name: '',
+    email: '',
+    company: '',
+    projectType: '',
+    budget: '',
+    subject: '',
+    message: '',
+    privacyAcknowledged: false,
   })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState(null)
@@ -27,6 +34,9 @@ export default function Contact() {
     else if (freeDomains.test(f.email)) next.email = 'Utilisez un email professionnel.'
     if (!f.subject.trim()) next.subject = 'Sujet requis.'
     if (!f.message.trim() || f.message.trim().length < 20) next.message = 'Message trop court (minimum 20 caractères).'
+    if (!f.privacyAcknowledged) {
+      next.privacyAcknowledged = 'Veuillez prendre connaissance de la Politique de confidentialité avant de continuer.'
+    }
     return next
   }
 
@@ -56,7 +66,16 @@ export default function Contact() {
       })
 
       setStatus('success')
-      setForm({ name: '', email: '', company: '', projectType: '', budget: '', subject: '', message: '' })
+      setForm({
+        name: '',
+        email: '',
+        company: '',
+        projectType: '',
+        budget: '',
+        subject: '',
+        message: '',
+        privacyAcknowledged: false,
+      })
       setMessageLength(0)
     } catch (error) {
       setSubmitError(error?.message || 'Veuillez vérifier les informations saisies ou réessayer dans un instant.')
@@ -298,10 +317,29 @@ export default function Contact() {
 
                 <div className="form-actions">
                   <p className="form-helper">Minimum 20 caractères. Une réponse claire facilite notre première analyse.</p>
-                  <p className="privacy-notice">
-                    En envoyant ce formulaire, vous reconnaissez avoir pris connaissance de notre{' '}
-                    <Link href={PRIVACY_POLICY_ROUTE}>Politique de confidentialité</Link>.
-                  </p>
+                  <div className="privacy-ack">
+                    <input
+                      id="contact-privacy-acknowledgement"
+                      type="checkbox"
+                      checked={form.privacyAcknowledged}
+                      onChange={(e) => setField('privacyAcknowledged', e.target.checked)}
+                      aria-invalid={!!errors.privacyAcknowledged}
+                      aria-describedby={errors.privacyAcknowledged ? 'contact-privacy-error' : undefined}
+                      disabled={isSubmitting}
+                    />
+                    <label htmlFor="contact-privacy-acknowledgement">
+                      J&apos;ai lu et pris connaissance de la{' '}
+                      <Link href={PRIVACY_POLICY_ROUTE} target="_blank" rel="noopener noreferrer">
+                        Politique de confidentialité
+                      </Link>{' '}
+                      de SMARTDEX.
+                    </label>
+                    {errors.privacyAcknowledged && (
+                      <span id="contact-privacy-error" className="field-error privacy-ack__error">
+                        {errors.privacyAcknowledged}
+                      </span>
+                    )}
+                  </div>
                   <button className={`contact-submit-btn ${isSubmitting ? 'submitting' : ''}`} type="submit" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <><span className="spinner" /><span>Envoi en cours...</span></>

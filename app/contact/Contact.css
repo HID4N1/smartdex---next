@@ -137,7 +137,7 @@
 .contact-hero-cta:focus-visible,
 .contact-secondary-btn:focus-visible,
 .contact-submit-btn:focus-visible,
-.privacy-notice a:focus-visible,
+.privacy-ack a:focus-visible,
 .faq-question:focus-visible {
   outline: 2px solid var(--sd-accent);
   outline-offset: 4px;
@@ -460,21 +460,58 @@
   line-height: 1.5;
 }
 
-.privacy-notice {
+.privacy-ack {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px 12px;
   flex: 1 1 100%;
-  max-width: 620px;
+  max-width: 720px;
   margin: 0;
+  padding: 13px 14px;
+  border: 1px solid rgba(183, 215, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
   color: var(--sd-text-muted);
   font-size: 14px;
   line-height: 1.55;
 }
 
-.privacy-notice a {
+.privacy-ack input {
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  border: 1px solid rgba(183, 215, 255, 0.42);
+  border-radius: 7px;
+  accent-color: var(--sd-accent);
+  cursor: pointer;
+}
+
+.privacy-ack input:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 3px;
+}
+
+.privacy-ack input:disabled,
+.privacy-ack input:disabled + label {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.privacy-ack label {
+  min-width: 0;
+  cursor: pointer;
+}
+
+.privacy-ack a {
   color: var(--sd-accent);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
+}
+
+.privacy-ack__error {
+  grid-column: 2;
 }
 
 .contact-submit-btn {

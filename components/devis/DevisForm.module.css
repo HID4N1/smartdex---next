@@ -124,6 +124,12 @@
     0 8px 24px rgba(15, 79, 138, 0.08);
 }
 
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #b42318;
+  background: #fffafa;
+}
+
 .field textarea {
   resize: vertical;
   min-height: 108px;
@@ -216,14 +222,48 @@
   overflow-x: auto;
 }
 
-.privacyNotice {
+.fieldError {
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.privacyAck {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px 12px;
   margin: 2px 0 18px;
-  color: #5a6b7d;
+  padding: 14px 15px;
+  border: 1px solid rgba(10, 42, 74, 0.10);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f4f8fc 100%);
+  color: #40556c;
   font-size: 14px;
   line-height: 1.6;
 }
 
-.privacyNotice a {
+.privacyAck input {
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  border-radius: 7px;
+  accent-color: #0f4f8a;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.privacyAck input:focus-visible {
+  outline: 2px solid #0f4f8a;
+  outline-offset: 3px;
+}
+
+.privacyAck label {
+  min-width: 0;
+  cursor: pointer;
+}
+
+.privacyAck a {
   color: #0f4f8a;
   font-weight: 800;
   text-decoration: underline;
@@ -231,9 +271,13 @@
   overflow-wrap: anywhere;
 }
 
-.privacyNotice a:focus-visible {
+.privacyAck a:focus-visible {
   outline: 2px solid #0f4f8a;
   outline-offset: 4px;
+}
+
+.privacyAck .fieldError {
+  grid-column: 2;
 }
 
 .submitButton {

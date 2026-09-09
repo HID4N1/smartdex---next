@@ -19,6 +19,7 @@ const initialForm = {
   features: [],
   budget_range: "",
   deadline: "",
+  privacyAcknowledged: false,
   // needs_admin_panel: false,
   // needs_authentication: false,
   // needs_payment: false,
@@ -56,6 +57,7 @@ export default function DevisForm() {
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
   const [result, setResult] = useState(null);
   const isSubmittingRef = useRef(false);
 
@@ -66,6 +68,7 @@ export default function DevisForm() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+    setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const handleFeatureToggle = (feature) => {
@@ -79,6 +82,29 @@ export default function DevisForm() {
           : [...prev.features, feature],
       };
     });
+  };
+
+  const validateForm = () => {
+    const nextErrors = {};
+
+    if (!formData.full_name.trim()) {
+      nextErrors.full_name = "Nom complet requis.";
+    }
+
+    if (!/.+@.+\..+/.test(formData.email)) {
+      nextErrors.email = "Email invalide.";
+    }
+
+    if (!formData.project_goal.trim()) {
+      nextErrors.project_goal = "Objectif du projet requis.";
+    }
+
+    if (!formData.privacyAcknowledged) {
+      nextErrors.privacyAcknowledged =
+        "Veuillez prendre connaissance de la Politique de confidentialité avant de continuer.";
+    }
+
+    return nextErrors;
   };
 
   const buildPayload = () => {
@@ -155,6 +181,14 @@ export default function DevisForm() {
     e.preventDefault();
     if (isSubmittingRef.current) return;
 
+    setError("");
+    const validationErrors = validateForm();
+    setFieldErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
     isSubmittingRef.current = true;
     setIsSubmitting(true);
     setError("");
@@ -164,6 +198,7 @@ export default function DevisForm() {
       const payload = buildPayload();
       const devisResult = await submitDevisRequest(payload);
 
+      setFieldErrors({});
       setResult(devisResult);
     } catch (err) {
       console.error("Devis submission error status:", err?.status || "unknown");
@@ -213,28 +248,42 @@ export default function DevisForm() {
         </div>
 
         {!result && (
-          <form className={styles.form} onSubmit={submitDevis}>
+          <form className={styles.form} onSubmit={submitDevis} noValidate>
             <div className={styles.grid}>
               <div className={styles.field}>
-                <label>Nom complet</label>
+                <label htmlFor="devis-full-name">Nom complet</label>
                 <input
+                  id="devis-full-name"
                   type="text"
                   name="full_name"
                   value={formData.full_name}
                   onChange={handleChange}
-                  required
+                  aria-invalid={!!fieldErrors.full_name}
+                  aria-describedby={fieldErrors.full_name ? "devis-full-name-error" : undefined}
                 />
+                {fieldErrors.full_name && (
+                  <span id="devis-full-name-error" className={styles.fieldError}>
+                    {fieldErrors.full_name}
+                  </span>
+                )}
               </div>
 
               <div className={styles.field}>
-                <label>Email</label>
+                <label htmlFor="devis-email">Email</label>
                 <input
+                  id="devis-email"
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
+                  aria-invalid={!!fieldErrors.email}
+                  aria-describedby={fieldErrors.email ? "devis-email-error" : undefined}
                 />
+                {fieldErrors.email && (
+                  <span id="devis-email-error" className={styles.fieldError}>
+                    {fieldErrors.email}
+                  </span>
+                )}
               </div>
 
               <div className={styles.field}>
@@ -329,15 +378,22 @@ export default function DevisForm() {
             </div>
 
             <div className={styles.field}>
-              <label>Objectif du projet</label>
+              <label htmlFor="devis-project-goal">Objectif du projet</label>
               <textarea
+                id="devis-project-goal"
                 name="project_goal"
                 value={formData.project_goal}
                 onChange={handleChange}
                 rows={4}
                 placeholder="Expliquez ce que vous voulez construire..."
-                required
+                aria-invalid={!!fieldErrors.project_goal}
+                aria-describedby={fieldErrors.project_goal ? "devis-project-goal-error" : undefined}
               />
+              {fieldErrors.project_goal && (
+                <span id="devis-project-goal-error" className={styles.fieldError}>
+                  {fieldErrors.project_goal}
+                </span>
+              )}
             </div>
 
             <div className={styles.field}>
@@ -450,10 +506,31 @@ export default function DevisForm() {
               />
             </div>
 
-            <p className={styles.privacyNotice}>
-              En envoyant ce formulaire, vous reconnaissez avoir pris connaissance de notre{" "}
-              <Link href={PRIVACY_POLICY_ROUTE}>Politique de confidentialité</Link>.
-            </p>
+            <div className={styles.privacyAck}>
+              <input
+                id="devis-privacy-acknowledgement"
+                type="checkbox"
+                name="privacyAcknowledged"
+                checked={formData.privacyAcknowledged}
+                onChange={handleChange}
+                aria-invalid={!!fieldErrors.privacyAcknowledged}
+                aria-describedby={
+                  fieldErrors.privacyAcknowledged ? "devis-privacy-error" : undefined
+                }
+              />
+              <label htmlFor="devis-privacy-acknowledgement">
+                J&apos;ai lu et pris connaissance de la{" "}
+                <Link href={PRIVACY_POLICY_ROUTE} target="_blank" rel="noopener noreferrer">
+                  Politique de confidentialité
+                </Link>{" "}
+                de SMARTDEX.
+              </label>
+              {fieldErrors.privacyAcknowledged && (
+                <span id="devis-privacy-error" className={styles.fieldError}>
+                  {fieldErrors.privacyAcknowledged}
+                </span>
+              )}
+            </div>
 
             {error && <p className={styles.error}>{error}</p>}
 
@@ -473,6 +550,7 @@ export default function DevisForm() {
             onReset={() => {
               setResult(null);
               setFormData(initialForm);
+              setFieldErrors({});
             }}
           />
         )}
