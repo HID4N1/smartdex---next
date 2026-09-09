@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Analytics } from '@vercel/analytics/next'
+import Link from 'next/link'
 import {
   ANALYTICS_CONSENT_ACCEPTED,
   ANALYTICS_CONSENT_REJECTED,
@@ -147,6 +148,9 @@ function rejectAnalytics() {
 export default function CookieConsent() {
   const [choice, setChoice] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+  const [isLeaving, setIsLeaving] = useState(false)
+  const [isCustomizing, setIsCustomizing] = useState(false)
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false)
   const [analyticsWasActivated, setAnalyticsWasActivated] = useState(false)
 
   useEffect(() => {
@@ -174,16 +178,22 @@ export default function CookieConsent() {
   }, [])
 
   useEffect(() => {
-    const openPreferences = () => setIsOpen(true)
+    const openPreferences = () => {
+      setIsLeaving(false)
+      setIsCustomizing(false)
+      setAnalyticsEnabled(choice === ANALYTICS_CONSENT_ACCEPTED)
+      setIsOpen(true)
+    }
 
     window.addEventListener(COOKIE_CONSENT_OPEN_EVENT, openPreferences)
     return () => window.removeEventListener(COOKIE_CONSENT_OPEN_EVENT, openPreferences)
-  }, [])
+  }, [choice])
 
   const saveChoice = (nextChoice) => {
     writeConsentCookie(nextChoice)
     setChoice(nextChoice)
-    setIsOpen(false)
+    setIsCustomizing(false)
+    setIsLeaving(true)
 
     if (nextChoice === ANALYTICS_CONSENT_ACCEPTED) {
       activateAnalytics()
@@ -191,6 +201,16 @@ export default function CookieConsent() {
     } else {
       rejectAnalytics()
     }
+
+    window.setTimeout(() => {
+      setIsOpen(false)
+      setIsLeaving(false)
+    }, 280)
+  }
+
+  const openCustomization = () => {
+    setAnalyticsEnabled(choice === ANALYTICS_CONSENT_ACCEPTED)
+    setIsCustomizing(true)
   }
 
   return (
@@ -204,36 +224,141 @@ export default function CookieConsent() {
       )}
 
       {isOpen && (
-        <section
-          className="cookie-consent"
-          aria-labelledby="cookie-consent-title"
-          aria-describedby="cookie-consent-description"
-        >
-          <div className="cookie-consent__content">
-            <div>
-              <h2 id="cookie-consent-title">Préférences cookies</h2>
-              <p id="cookie-consent-description">
-                SmartDex utilise des cookies nécessaires au fonctionnement du site. Les cookies analytiques sont optionnels et nous aident à comprendre l’utilisation du site.
-              </p>
+        <>
+          <section
+            className={`cookie-consent${isLeaving ? ' cookie-consent--leaving' : ''}`}
+            aria-labelledby="cookie-consent-title"
+            aria-describedby="cookie-consent-description"
+          >
+            <div className="cookie-consent__content">
+              <div className="cookie-consent__icon" aria-hidden="true">
+                <span>🍪</span>
+              </div>
+
+              <div className="cookie-consent__copy">
+                <h2 id="cookie-consent-title">Votre confidentialité compte</h2>
+                <p id="cookie-consent-description">
+                  Nous utilisons uniquement les cookies nécessaires au fonctionnement du site.
+                  Les cookies d&apos;analyse sont optionnels et nous aident à améliorer SmartDex.
+                </p>
+
+                <div className="cookie-consent__trust" aria-label="Garanties cookies">
+                  <span>Aucun cookie publicitaire</span>
+                  <span>Vous pouvez modifier votre choix à tout moment</span>
+                </div>
+
+                <Link className="cookie-consent__link" href="/politique-de-cookies">
+                  En savoir plus
+                </Link>
+              </div>
+
+              <div className="cookie-consent__actions" aria-label="Choix des cookies">
+                <button
+                  type="button"
+                  className="cookie-consent__button cookie-consent__button--reject"
+                  onClick={() => saveChoice(ANALYTICS_CONSENT_REJECTED)}
+                >
+                  Refuser
+                </button>
+                <button
+                  type="button"
+                  className="cookie-consent__button cookie-consent__button--neutral"
+                  onClick={openCustomization}
+                >
+                  Personnaliser
+                </button>
+                <button
+                  type="button"
+                  className="cookie-consent__button cookie-consent__button--primary"
+                  onClick={() => saveChoice(ANALYTICS_CONSENT_ACCEPTED)}
+                >
+                  Accepter
+                </button>
+              </div>
             </div>
-            <div className="cookie-consent__actions" aria-label="Choix des cookies">
-              <button
-                type="button"
-                className="cookie-consent__button cookie-consent__button--secondary"
-                onClick={() => saveChoice(ANALYTICS_CONSENT_REJECTED)}
+          </section>
+
+          {isCustomizing && (
+            <div className="cookie-modal" role="presentation">
+              <div
+                className="cookie-modal__panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="cookie-modal-title"
+                aria-describedby="cookie-modal-description"
               >
-                Refuser
-              </button>
-              <button
-                type="button"
-                className="cookie-consent__button cookie-consent__button--primary"
-                onClick={() => saveChoice(ANALYTICS_CONSENT_ACCEPTED)}
-              >
-                Tout accepter
-              </button>
+                <div className="cookie-modal__header">
+                  <div className="cookie-consent__icon" aria-hidden="true">
+                    <span>🍪</span>
+                  </div>
+                  <div>
+                    <h2 id="cookie-modal-title">Personnaliser les cookies</h2>
+                    <p id="cookie-modal-description">
+                      Choisissez si SmartDex peut utiliser des mesures d&apos;audience optionnelles.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="cookie-modal__categories">
+                  <div className="cookie-modal__category">
+                    <div>
+                      <h3>Cookies nécessaires</h3>
+                      <p>Indispensables au fonctionnement du site.</p>
+                    </div>
+                    <span className="cookie-modal__status">Toujours actifs</span>
+                  </div>
+
+                  <label className="cookie-modal__category cookie-modal__category--interactive">
+                    <div>
+                      <h3>Cookies d&apos;analyse</h3>
+                      <p>Mesure d&apos;audience optionnelle pour améliorer l&apos;expérience.</p>
+                    </div>
+                    <span className="cookie-switch">
+                      <input
+                        type="checkbox"
+                        checked={analyticsEnabled}
+                        onChange={(event) => setAnalyticsEnabled(event.target.checked)}
+                      />
+                      <span className="cookie-switch__track" aria-hidden="true">
+                        <span className="cookie-switch__thumb" />
+                      </span>
+                    </span>
+                  </label>
+                </div>
+
+                <div className="cookie-modal__actions" aria-label="Enregistrer les préférences cookies">
+                  <button
+                    type="button"
+                    className="cookie-consent__button cookie-consent__button--reject"
+                    onClick={() => saveChoice(ANALYTICS_CONSENT_REJECTED)}
+                  >
+                    Refuser
+                  </button>
+                  <button
+                    type="button"
+                    className="cookie-consent__button cookie-consent__button--neutral"
+                    onClick={() =>
+                      saveChoice(
+                        analyticsEnabled
+                          ? ANALYTICS_CONSENT_ACCEPTED
+                          : ANALYTICS_CONSENT_REJECTED
+                      )
+                    }
+                  >
+                    Enregistrer
+                  </button>
+                  <button
+                    type="button"
+                    className="cookie-consent__button cookie-consent__button--primary"
+                    onClick={() => saveChoice(ANALYTICS_CONSENT_ACCEPTED)}
+                  >
+                    Tout accepter
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          )}
+        </>
       )}
     </>
   )
