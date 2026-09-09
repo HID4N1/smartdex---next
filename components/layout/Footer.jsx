@@ -71,6 +71,9 @@ export default function Footer() {
           <Link href={PRIVACY_POLICY_ROUTE} className="footer-link-button">
             Politique de confidentialité
           </Link>
+          <Link href="/politique-de-cookies" className="footer-link-button">
+            Politique de cookies
+          </Link>
           <button type="button" className="footer-link-button" onClick={openCookiePreferences}>
             Gérer les cookies
           </button>
