@@ -23,13 +23,14 @@ export const metadata = createPageMetadata({
 })
 
 const IMAGE_MAP = {
+  'gensales-erp': '/images/ERP-gensales.png',
   pilote: '/images/pilote.png',
   lmatch: '/images/lmatch.png',
   quattro: '/images/quattro.png',
   casamyway: '/images/casamyway.png',
 }
 
-const featuredProjectIds = ['casamyway', 'sjm-pilote-mdjs', 'quattro-plus']
+const featuredProjectIds = ['gensales-operations-erp', 'casamyway', 'sjm-pilote-mdjs']
 
 const projectLabels = {
   'sjm-pilote-mdjs': 'Match Pilot Pro',
@@ -138,8 +139,16 @@ const kpis = [
 const logos = ['GenSales', 'RATP Dev', 'MDJS', 'Master Blow', 'SISAL']
 
 export default function Home() {
+  const projects = getProjects()
+  const projectCount = projects.length
+  const heroProofItems = heroProof.map((item) =>
+    item.label === 'Projets livrés' ? { ...item, value: `${projectCount}+` } : item
+  )
+  const kpiItems = kpis.map((item) =>
+    item.label === 'Projets livrés' ? { ...item, value: `${projectCount}+` } : item
+  )
   const featuredProjects = featuredProjectIds
-    .map((id) => getProjects().find((project) => project.id === id))
+    .map((id) => projects.find((project) => project.id === id))
     .filter(Boolean)
 
   return (
@@ -159,7 +168,7 @@ export default function Home() {
               <Link href="/projects" className="btn">Voir nos réalisations</Link>
             </div>
             <div className="hero-proof" aria-label="Indicateurs de confiance">
-              {heroProof.map((item) => (
+              {heroProofItems.map((item) => (
                 <div className="hero-proof-item" key={item.label}>
                   <strong>{item.value}</strong>
                   <span>{item.label}</span>
@@ -359,7 +368,7 @@ export default function Home() {
               </p>
             </div>
             <div className="kpi-grid">
-              {kpis.map((kpi) => (
+              {kpiItems.map((kpi) => (
                 <article className="kpi-card" key={kpi.label}>
                   <strong>{kpi.value}</strong>
                   <span>{kpi.label}</span>

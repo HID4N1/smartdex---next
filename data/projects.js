@@ -1,4 +1,74 @@
 export const projects = [
+// gensales operations erp
+  {
+    id: 'gensales-operations-erp',
+    name: 'GenSales Operations ERP',
+    type: 'erp',
+    categoryLabel: 'ERP SUR MESURE + AUTOMATISATION DES OPÉRATIONS',
+    client: 'Gen-Sales Morocco',
+    stack: 'Django, Django REST Framework, React, PostgreSQL, IA, Document Intelligence',
+    status: 'ongoing',
+    imageKey: 'gensales-erp',
+    imageAlt: 'ERP de gestion des opérations Gen-Sales Morocco développé par SmartDex',
+
+    description:
+      'ERP métier conçu pour centraliser les opérations terrain, automatiser le traitement documentaire et assurer le suivi financier et opérationnel de bout en bout.',
+
+    highlight: "Des opérations terrain au pilotage décisionnel : un système métier centralisé conçu autour des processus réels de l'entreprise.",
+
+    problem:
+      'Les opérations reposaient sur plusieurs canaux et supports : suivi terrain, échanges opérationnels, fichiers Excel, documents papier ou images et reporting manuel. Cette fragmentation complexifiait la consolidation des données, le contrôle des opérations, la traçabilité documentaire et le suivi financier.',
+
+    solution:
+      "SmartDex a conçu et développé un ERP métier centralisant l'ensemble du cycle opérationnel. La plateforme structure les missions terrain, les agents et les TPVS, automatise le traitement des documents grâce à l'intelligence artificielle, rapproche les flux financiers et transforme les données opérationnelles en indicateurs de pilotage.",
+
+    impact:
+      "La plateforme fournit désormais un environnement unique pour piloter les opérations terrain, contrôler les flux documentaires et financiers, suivre l'avancement des missions et disposer d'une vision consolidée de l'activité.",
+
+    features: [
+      'Gestion des agents, missions et opérations terrain',
+      'Traitement intelligent et extraction des documents par IA',
+      'Gestion des FFS et workflows de validation',
+      'Suivi des transactions, dépenses et rapprochements financiers',
+      'Reporting opérationnel, tableaux de bord et BI',
+      'Interface mobile dédiée aux agents terrain',
+    ],
+  },
+// sareine craft
+  {
+    id: 'sareine-craft',
+    name: 'Sareine Craft',
+    type: 'website',
+    categoryLabel: 'SITE VITRINE PREMIUM + EXPÉRIENCE DE MARQUE',
+    client: 'Sareine Craft',
+    stack: 'Next.js, React, Responsive Design, SEO',
+    status: 'completed',
+    imageKey: 'sareinecraft',
+    imageAlt: 'Site web Sareine Craft conçu et développé par SmartDex',
+
+    description:
+      'Conception d’une expérience web premium pour une marque marocaine de créations artisanales et d’événements sur mesure.',
+
+    highlight: 'Un univers digital pensé pour transformer l’identité artisanale de Sareine Craft en une expérience de marque élégante, visuelle et orientée conversion.',
+
+    problem:
+      'Sareine Craft réunit deux univers complémentaires : les créations artisanales et l’organisation d’événements sur mesure. Le principal enjeu consistait à présenter ces activités au sein d’une même expérience digitale sans diluer l’identité de la marque, tout en conservant une navigation claire, une forte dimension visuelle et un parcours simple vers la prise de contact.',
+
+    solution:
+      'SmartDex a conçu une expérience web sur mesure articulée autour de l’identité visuelle de Sareine Craft. L’interface associe une direction artistique chaleureuse et premium à une architecture claire permettant de découvrir les créations, explorer les prestations événementielles et contacter facilement la marque. Le site a été développé avec une approche responsive, performante et prête à évoluer.',
+
+    impact:
+      'Sareine Craft dispose désormais d’une présence digitale cohérente avec son positionnement, capable de valoriser visuellement ses créations et ses événements tout en offrant un parcours fluide de la découverte jusqu’à la prise de contact.',
+
+    features: [
+      'Direction artistique et expérience UI/UX sur mesure',
+      'Présentation immersive des créations artisanales',
+      'Mise en valeur des prestations événementielles',
+      'Expérience responsive desktop, tablette et mobile',
+      'Navigation multilingue français, anglais et arabe',
+      'Parcours de conversion orienté vers WhatsApp',
+    ],
+  },
 // sjm pilote
   {
     id: 'sjm-pilote-mdjs',

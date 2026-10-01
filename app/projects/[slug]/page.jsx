@@ -7,15 +7,17 @@ import './ProjectDetail.css'
 const getProjectBanner = (type) =>
   ({
     web: 'linear-gradient(135deg, rgba(42,166,255,.35), rgba(255,255,255,.06))',
+    website: 'linear-gradient(135deg, rgba(42,166,255,.35), rgba(255,255,255,.06))',
     mobile: 'linear-gradient(135deg, rgba(156,39,176,.3), rgba(255,255,255,.06))',
     webapp: 'linear-gradient(135deg, rgba(0,184,212,.32), rgba(255,255,255,.06))',
+    erp: 'linear-gradient(135deg, rgba(39,243,200,.26), rgba(255,255,255,.06))',
     logiciels: 'linear-gradient(135deg, rgba(255,152,0,.3), rgba(255,255,255,.06))',
     cloud: 'linear-gradient(135deg, rgba(76,175,80,.3), rgba(255,255,255,.06))',
     ai: 'linear-gradient(135deg, rgba(103,58,183,.3), rgba(255,255,255,.06))',
   }[type] || 'linear-gradient(135deg, rgba(42,166,255,.22), rgba(255,255,255,.06))')
 
 const getTypeLabel = (type) =>
-  ({ web: 'Site web', mobile: 'Application mobile', webapp: 'Plateforme web', logiciels: 'Logiciel', cloud: 'Cloud', ai: 'IA' }[type] || type)
+  ({ web: 'Site web', website: 'Site web', mobile: 'Application mobile', webapp: 'Plateforme web', erp: 'ERP sur mesure', logiciels: 'Logiciel', cloud: 'Cloud', ai: 'IA' }[type] || type)
 
 const getStatusLabel = (status) =>
   ({ completed: 'Complété', ongoing: 'En cours', planned: 'Planifié' }[status] || status || 'Non précisé')

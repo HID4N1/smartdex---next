@@ -93,6 +93,9 @@ export default function DeveloppementErpCrmMarocPage() {
             <p>
               La gestion interne des PME marocaines est souvent freinée par des outils génériques qui ne collent pas à leurs process. Un <strong>ERP</strong> ou un <strong>CRM</strong> sur mesure centralise vos données, automatise les tâches répétitives et améliore l&apos;<strong>efficacité opérationnelle</strong>. SmartDex, basée à <strong>Casablanca</strong>, développe des logiciels de gestion adaptés aux entreprises marocaines : gestion commerciale, suivi des leads, stocks, facturation, RH, tableaux de bord. Nous concevons des solutions évolutives avec React, Node.js et des bases de données robustes. Que vous soyez dans la distribution, la logistique, les services ou l&apos;industrie, nous intégrons l&apos;ERP ou le CRM à vos outils existants et à vos habitudes de travail. Découvrez nos <Link href="/services">services</Link> et nos <Link href="/projects">réalisations</Link>, ou <Link href="/devis">obtenez une estimation instantanée</Link> pour vos besoins.
             </p>
+            <p>
+              Exemple de réalisation : <Link href="/projects/gensales-operations-erp">GenSales Operations ERP</Link>, un ERP métier centralisant opérations terrain, traitement documentaire par IA, suivi financier et reporting décisionnel pour Gen-Sales Morocco.
+            </p>
           </section>
 
           <section className="seo-features">

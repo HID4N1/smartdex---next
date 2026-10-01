@@ -5,6 +5,8 @@ import ProjectsClient from './ProjectsClient'
 import './Projects.css'
 
 const IMAGE_MAP = {
+  'gensales-erp': '/images/ERP-gensales.png',
+  sareinecraft: '/images/sareinecraft.png',
   pilote: '/images/pilote.png',
   lmatch: '/images/lmatch.png',
   quattro: '/images/quattro.png',
@@ -17,8 +19,10 @@ const IMAGE_MAP = {
 const getTypeColor = (type) =>
   ({
     web: 'rgba(42,166,255,0.3)',
+    website: 'rgba(42,166,255,0.3)',
     mobile: 'rgba(156,39,176,0.3)',
     webapp: 'rgba(0,184,212,0.3)',
+    erp: 'rgba(39,243,200,0.26)',
     logiciels: 'rgba(255,152,0,0.3)',
     cloud: 'rgba(76,175,80,0.3)',
     ai: 'rgba(103,58,183,0.3)',
@@ -98,9 +102,9 @@ export default function Projects({ teaser }) {
                   {p.image && (
                     <Image
                       src={p.image}
-                      alt={p.name}
+                      alt={p.imageAlt || p.name}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: 'contain' }}
                       sizes="(max-width: 768px) 100vw, 380px"
                     />
                   )}

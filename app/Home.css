@@ -435,6 +435,7 @@
 .field-project-media {
   position: relative;
   min-height: 184px;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(49, 198, 255, 0.18), rgba(124, 92, 255, 0.14));
 }
@@ -447,12 +448,12 @@
 }
 
 .field-project-media img {
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--sd-transition-slow);
 }
 
 .field-project-card:hover .field-project-media img {
-  transform: scale(1.04);
+  transform: none;
 }
 
 .field-project-media span {

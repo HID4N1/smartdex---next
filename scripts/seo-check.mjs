@@ -27,6 +27,8 @@ const indexablePages = [
   '/blog/pourquoi-entreprise-marocaine-application-mobile-2026',
   '/blog/saas-vs-logiciel-sur-mesure-maroc',
   '/blog/combien-coute-un-site-web-maroc-2026',
+  '/projects/gensales-operations-erp',
+  '/projects/sareine-craft',
   '/projects/sjm-pilote-mdjs',
   '/projects/lmatch-pro',
   '/projects/quattro-plus',

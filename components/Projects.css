@@ -277,7 +277,8 @@
 
 .project-thumb {
   position: relative;
-  height: 180px;
+  height: auto;
+  aspect-ratio: 3 / 2;
   background-size: cover;
   background-position: center;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
