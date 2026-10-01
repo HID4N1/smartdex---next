@@ -1,8 +1,21 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getProjectById } from '../../../services'
 import { createPageMetadata } from '../../../lib/seo'
 import './ProjectDetail.css'
+
+const IMAGE_MAP = {
+  'gensales-erp': '/images/ERP-gensales.png',
+  sareinecraft: '/images/sareinecraft.png',
+  pilote: '/images/pilote.png',
+  lmatch: '/images/lmatch.png',
+  quattro: '/images/quattro.png',
+  casamyway: '/images/casamyway.png',
+  ratp: '/images/RATPDev.jpg',
+  gen: '/images/gen.png',
+  loto: '/images/loto.svg',
+}
 
 const getProjectBanner = (type) =>
   ({
@@ -49,19 +62,33 @@ export default async function ProjectDetailPage({ params }) {
   const { slug } = await params
   const p = getProjectById(slug)
   if (!p) notFound()
+  const projectImage = IMAGE_MAP[p.imageKey] || null
 
   return (
     <section className="project-detail-page">
       <div className="project-banner" style={{ backgroundImage: getProjectBanner(p.type) }}>
         <div className="container">
-          <div className="project-hero-content">
-            <div className="project-kicker">{p.categoryLabel}</div>
-            <h1 className="project-title">{p.name}</h1>
-            <div className="project-hero-client">{p.client}</div>
-            {p.highlight && <p className="project-highlight-lead">{p.highlight}</p>}
-            <Link href="/devis" className="btn btn-primary project-hero-cta">
-              Discuter d’un projet similaire
-            </Link>
+          <div className="project-hero-shell">
+            <div className="project-hero-content">
+              <div className="project-kicker">{p.categoryLabel}</div>
+              <h1 className="project-title">{p.name}</h1>
+              <div className="project-hero-client">{p.client}</div>
+              {p.highlight && <p className="project-highlight-lead">{p.highlight}</p>}
+              <Link href="/devis" className="btn btn-primary project-hero-cta">
+                Discuter d’un projet similaire
+              </Link>
+            </div>
+            {projectImage && (
+              <div className="project-hero-preview" aria-label={`Aperçu du projet ${p.name}`}>
+                <Image
+                  src={projectImage}
+                  alt={p.imageAlt || p.name}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 460px"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -71,6 +98,13 @@ export default async function ProjectDetailPage({ params }) {
           <span className="project-section-label">Overview</span>
           <h2>Vue d’ensemble</h2>
         </div>
+
+        {p.description && (
+          <div className="project-summary-card">
+            <span>Résumé du projet</span>
+            <p>{p.description}</p>
+          </div>
+        )}
 
         <div className="project-overview-grid">
           <div className="project-overview-card">
