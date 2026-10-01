@@ -131,11 +131,6 @@ export default function Projects({ teaser }) {
                     </div>
                   )}
                   <p className="project-description">{p.description}</p>
-                  <div className="project-meta">
-                    <div className="meta-item">
-                      <span className="meta-text">{p.stack}</span>
-                    </div>
-                  </div>
                 </div>
               </Link>
             ))}
