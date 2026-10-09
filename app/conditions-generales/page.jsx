@@ -56,7 +56,7 @@ export default function ConditionsGeneralesPage() {
                 Les présentes Conditions Générales d'Utilisation, ci-après les
                 « CGU », définissent les règles applicables à l'accès, à la
                 consultation et à l'utilisation du site internet accessible à
-                l'adresse <a href="https://smartdex.ma">https://smartdex.ma</a>,
+                l'adresse du <Link href="/">site officiel de SmartDex</Link>,
                 ci-après le « Site ».
               </p>
               <p>
@@ -104,7 +104,7 @@ export default function ConditionsGeneralesPage() {
                 <div>
                   <dt>Site internet</dt>
                   <dd>
-                    <a href="https://smartdex.ma">https://smartdex.ma</a>
+                    <Link href="/">Site officiel SmartDex</Link>
                   </dd>
                 </div>
               </dl>

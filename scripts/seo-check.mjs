@@ -81,6 +81,11 @@ function h1Count(html) {
   return countMatches(html, /<h1(?:\s|>)/gi)
 }
 
+function incomingLinkSources(targetRoute) {
+  const hrefPattern = new RegExp(`href=["']${targetRoute.replaceAll('/', '\\/')}["']`, 'i')
+  return indexablePages.filter((sourceRoute) => sourceRoute !== targetRoute && hrefPattern.test(readHtml(sourceRoute)))
+}
+
 for (const route of indexablePages) {
   const html = readHtml(route)
   assert.equal(countMatches(html, /rel=["']canonical["']/gi), 1, `${route} should render one canonical tag`)
@@ -91,6 +96,11 @@ for (const route of indexablePages) {
   assert.ok(getOgContent(html, 'image'), `${route} should render an OpenGraph image`)
   assert.ok(getMetaContent(html, 'twitter:card'), `${route} should render Twitter card metadata`)
   assert.ok(!/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(html), `${route} should be indexable`)
+  assert.doesNotMatch(
+    html,
+    /href=["']https:\/\/smartdex\.ma(?:\/|["'])/i,
+    `${route} should not link through the non-canonical hostname`
+  )
 }
 
 assert.equal(h1Count(readHtml('/projects')), 1, '/projects should render exactly one H1')
@@ -100,9 +110,28 @@ assert.equal(
   'affected blog article should render exactly one H1'
 )
 
+const internallyLinkedPages = [
+  '/blog/combien-coute-un-site-web-maroc-2026',
+  '/blog/pourquoi-entreprise-marocaine-application-mobile-2026',
+  '/blog/transformation-digitale-tpe-pme-maroc-vision-2030',
+  '/projects/lmatch-pro',
+  '/projects/site-web-gensales',
+]
+
+for (const route of internallyLinkedPages) {
+  assert.ok(
+    incomingLinkSources(route).length >= 2,
+    `${route} should receive internal links from at least two indexable pages`
+  )
+}
+
 const devisHtml = readHtml('/devis')
 assert.ok(!/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(devisHtml), '/devis should remain indexable')
 assert.ok(/<form[^>]+class=["'][^"']*form/i.test(devisHtml), '/devis should contain the quote form')
+
+const termsHtml = readHtml('/conditions-generales')
+assert.match(termsHtml, /<a[^>]+href=["']\/["'][^>]*>site officiel de SmartDex<\/a>/i, 'terms should use descriptive homepage anchor text')
+assert.match(termsHtml, /<a[^>]+href=["']\/["'][^>]*>Site officiel SmartDex<\/a>/, 'terms identity block should use descriptive homepage anchor text')
 
 for (const route of excludedPages) {
   const html = readHtml(route)

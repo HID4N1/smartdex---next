@@ -94,7 +94,7 @@ export default function AgenceWebCasablancaPage() {
               À Casablanca et au Maroc, la présence en ligne est devenue indispensable pour les PME. Une vitrine professionnelle ou une application web sur mesure permet de capter des clients, générer des leads et renforcer votre crédibilité. SmartDex, <strong>agence web à Casablanca</strong>, conçoit des sites performants avec <strong>React</strong> et <strong>Next.js</strong> : chargement rapide, bon référencement naturel et expérience utilisateur soignée. Nous accompagnons les entreprises marocaines dans tous les secteurs : services, commerce, immobilier, santé. Que vous ayez besoin d&apos;un site vitrine, d&apos;une plateforme e-commerce ou d&apos;un outil interne, notre équipe maîtrise les technologies modernes pour livrer des projets robustes et maintenables. Consultez nos <Link href="/projects">réalisations</Link> et découvrez nos <Link href="/services">services</Link> pour passer à l&apos;action.
             </p>
             <p>
-              Exemple de réalisation : <Link href="/projects/sareine-craft">Sareine Craft</Link>, une expérience web premium conçue pour réunir créations artisanales, prestations événementielles et parcours de contact responsive.
+              Exemples de réalisations : <Link href="/projects/sareine-craft">Sareine Craft</Link>, une expérience web premium conçue pour réunir créations artisanales, prestations événementielles et parcours de contact responsive, et le <Link href="/projects/site-web-gensales">site web de GenSales</Link>, pensé pour structurer sa présence digitale et soutenir ses actions commerciales.
             </p>
           </section>
 
@@ -158,7 +158,7 @@ export default function AgenceWebCasablancaPage() {
             <details>
               <summary>Combien coûte un site web professionnel à Casablanca ?</summary>
               <div className="faq-answer">
-                <p>Un site vitrine professionnel démarre autour de 15 000 à 35 000 MAD. Une application web sur mesure peut aller de 50 000 à 200 000 MAD. <Link href="/devis">Obtenir une estimation instantanée</Link>.</p>
+                <p>Un site vitrine professionnel démarre autour de 15 000 à 35 000 MAD. Une application web sur mesure peut aller de 50 000 à 200 000 MAD. Consultez notre <Link href="/blog/combien-coute-un-site-web-maroc-2026">guide détaillé des prix d’un site web au Maroc en 2026</Link> ou <Link href="/devis">obtenez une estimation instantanée</Link>.</p>
               </div>
             </details>
             <details>

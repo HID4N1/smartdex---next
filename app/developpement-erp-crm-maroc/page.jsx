@@ -96,6 +96,9 @@ export default function DeveloppementErpCrmMarocPage() {
             <p>
               Exemple de réalisation : <Link href="/projects/gensales-operations-erp">GenSales Operations ERP</Link>, un ERP métier centralisant opérations terrain, traitement documentaire par IA, suivi financier et reporting décisionnel pour Gen-Sales Morocco.
             </p>
+            <p>
+              Un ERP ou un CRM s’inscrit dans une démarche plus large : notre guide de la <Link href="/blog/transformation-digitale-tpe-pme-maroc-vision-2030">transformation digitale des TPE et PME marocaines</Link> aide à prioriser les chantiers et à construire une feuille de route progressive jusqu’en 2030.
+            </p>
           </section>
 
           <section className="seo-features">

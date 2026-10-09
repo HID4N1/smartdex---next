@@ -93,6 +93,9 @@ export default function CreationApplicationMobileMarocPage() {
             <p>
               Les applications mobiles sont devenues un canal incontournable pour les entreprises marocaines : réservation, livraison, fidélisation client, vente en ligne. SmartDex, basée à Casablanca, développe des applications <strong>iOS</strong> et <strong>Android</strong> sur mesure avec <strong>React Native</strong>. Une seule codebase permet de publier sur l&apos;<strong>App Store</strong> et <strong>Google Play</strong>, réduisant les coûts et accélérant la mise sur le marché. Nous accompagnons les PME marocaines dans tous les secteurs : restauration, retail, services, santé, logistique. Notre équipe maîtrise le design UX, les performances et les intégrations (paiement, géolocalisation, push notifications). Consultez nos <Link href="/projects">réalisations</Link> et nos <Link href="/services">services</Link> pour lancer votre projet mobile.
             </p>
+            <p>
+              Pour cadrer votre réflexion, découvrez <Link href="/blog/pourquoi-entreprise-marocaine-application-mobile-2026">pourquoi une entreprise marocaine devrait investir dans une application mobile</Link>. Vous pouvez aussi consulter <Link href="/projects/lmatch-pro">Lmatch Pro</Link>, une solution mobile et web conçue pour gérer des animations commerciales et suivre leurs performances en temps réel.
+            </p>
           </section>
 
           <section className="seo-features">
