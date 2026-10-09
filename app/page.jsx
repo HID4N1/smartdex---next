@@ -427,7 +427,7 @@ export default function Home() {
             </div>
             <div className="final-cta-actions">
               <Link href="/contact" className="btn btn-primary">Réserver un appel</Link>
-              <a href="https://wa.me/212707458386" className="btn">WhatsApp</a>
+              <a href="tel:+212707458386" className="btn">Appeler SmartDex</a>
             </div>
           </div>
         </div>

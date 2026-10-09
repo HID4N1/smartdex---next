@@ -110,6 +110,10 @@ assert.equal(
   'affected blog article should render exactly one H1'
 )
 
+const homeHtml = readHtml('/')
+assert.doesNotMatch(homeHtml, /href=["']https:\/\/wa\.me\//i, 'homepage should not expose the rate-limited WhatsApp URL')
+assert.match(homeHtml, /href=["']tel:\+212707458386["']/i, 'homepage should provide a direct callable phone link')
+
 const internallyLinkedPages = [
   '/blog/combien-coute-un-site-web-maroc-2026',
   '/blog/pourquoi-entreprise-marocaine-application-mobile-2026',
