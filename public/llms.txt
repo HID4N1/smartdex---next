@@ -1,0 +1,35 @@
+# SmartDex
+
+> SmartDex est une agence digitale basée au Maroc. Elle conçoit des sites web, applications mobiles, logiciels SaaS, ERP/CRM et solutions IA pour les entreprises.
+
+Les liens pointent vers des versions Markdown propres des pages publiques. Les contenus sont en français, sauf indication contraire.
+
+## Présentation
+- [SmartDex — Agence digitale au Maroc](https://www.smartdex.ma/index.md): Présentation de SmartDex et de ses solutions web, SaaS, mobiles et IA pour les entreprises au Maroc.
+
+## Services
+- [Services digitaux au Maroc | SmartDex](https://www.smartdex.ma/services.md): Services web, mobile, ERP, SaaS et IA conçus sur mesure pour les entreprises et organisations au Maroc.
+- [Chatbot IA au Maroc | SmartDex](https://www.smartdex.ma/ai-chatbot-morocco.md): Solutions de chatbot et assistant IA pour les entreprises marocaines.
+- [Développement SaaS au Maroc | SmartDex](https://www.smartdex.ma/saas-development-morocco.md): Logiciels SaaS sur mesure avec architecture cloud, multi-tenant et sécurisée.
+- [Agence web à Casablanca | SmartDex](https://www.smartdex.ma/agence-web-casablanca.md): Création de sites web et applications pour les entreprises à Casablanca et au Maroc.
+- [Création d’application mobile au Maroc | SmartDex](https://www.smartdex.ma/creation-application-mobile-maroc.md): Développement d’applications mobiles sur mesure pour iOS et Android.
+- [Développement ERP et CRM au Maroc | SmartDex](https://www.smartdex.ma/developpement-erp-crm-maroc.md): Logiciels ERP et CRM sur mesure pour structurer les opérations et les données métier.
+
+## Entreprise
+- [À propos de SmartDex](https://www.smartdex.ma/about.md): Présentation de l’agence digitale SmartDex, de sa mission et de ses expertises.
+- [Projets et réalisations SmartDex](https://www.smartdex.ma/projects.md): Réalisations web, mobile, SaaS et logiciels métier développées par SmartDex.
+- [Contactez SmartDex](https://www.smartdex.ma/contact.md): Coordonnées et formulaire pour contacter SmartDex au sujet d’un projet digital.
+- [Demander un devis digital](https://www.smartdex.ma/devis.md): Formulaire de demande de devis pour un site web, une application, un SaaS, un ERP, un CRM ou une solution IA.
+
+## Ressources
+- [Blog digital, IA et logiciels au Maroc](https://www.smartdex.ma/blog.md): Articles et conseils sur le développement web, mobile, SaaS et la transformation digitale au Maroc.
+- [Combien coûte un site web professionnel au Maroc en 2026 ?](https://www.smartdex.ma/blog/combien-coute-un-site-web-maroc-2026.md): Tarifs réels, facteurs de prix et conseils pour bien budgéter votre projet web au Maroc. Guide complet pour PME marocaines.
+- [Pourquoi votre entreprise marocaine a besoin d'une application mobile en 2026](https://www.smartdex.ma/blog/pourquoi-entreprise-marocaine-application-mobile-2026.md): Plus de 70% des Marocains utilisent internet depuis leur smartphone. Découvrez pourquoi une application mobile est devenue indispensable pour les entreprises au Maroc.
+- [SaaS vs logiciel sur mesure : que choisir pour votre PME marocaine ?](https://www.smartdex.ma/blog/saas-vs-logiciel-sur-mesure-maroc.md): Comment choisir entre un SaaS existant et un logiciel développé sur mesure ? Guide complet pour dirigeants de PME au Maroc en 2026.
+- [Pourquoi un système de réservation en ligne est indispensable pour les professionnels marocains en 2026](https://www.smartdex.ma/blog/systeme-reservation-en-ligne-maroc-2026.md): Cabinets dentaires, avocats, médecins, coaches : découvrez comment un système de réservation en ligne transforme votre activité au Maroc et réduit les rendez-vous manqués.
+- [Transformation digitale des TPE et PME marocaines : un impératif pour la Vision 2030](https://www.smartdex.ma/blog/transformation-digitale-tpe-pme-maroc-vision-2030.md): Pourquoi la transformation digitale est devenue indispensable pour les TPE et PME marocaines dans le cadre de la Vision 2030. Enjeux, opportunités et premiers pas concrets.
+
+## Optional
+- [Politique de confidentialité](https://www.smartdex.ma/politique-de-confidentialite.md): Traitement des données personnelles sur le site SmartDex.
+- [Politique de cookies](https://www.smartdex.ma/politique-de-cookies.md): Cookies nécessaires, mesure d’audience et gestion du consentement.
+- [Conditions générales](https://www.smartdex.ma/conditions-generales.md): Conditions générales applicables aux services SmartDex.

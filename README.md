@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## LLM-readable content
+
+`npm run build` generates `public/llms.txt`, `public/llms-full.txt`, and clean
+Markdown copies of the curated public pages from `lib/llms.mjs`. Update the
+catalog there to add, reorder, or move pages to `Optional`; MDX blog posts are
+read automatically from `posts/`. Run `npm run test:llms` to regenerate and
+validate the files.
+
 ## Getting Started
 
 First, run the development server:

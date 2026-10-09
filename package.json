@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-llms.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:seo": "node scripts/seo-check.mjs"
+    "test:seo": "node scripts/seo-check.mjs",
+    "test:llms": "node scripts/generate-llms.mjs && node scripts/llms-check.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
