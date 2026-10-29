@@ -231,7 +231,9 @@ export default function ChatWidget() {
             "Je rencontre un problème technique pour le moment. Vous pouvez nous contacter directement via le formulaire ou demander un devis.",
         },
       ]);
-      console.error("Chatbot error status:", error?.status || "unknown");
+      if (process.env.NODE_ENV === "development") {
+        console.warn("Chatbot request failed:", error?.status || "unknown");
+      }
     } finally {
       setIsLoading(false);
     }
